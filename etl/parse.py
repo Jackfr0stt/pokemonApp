@@ -110,6 +110,12 @@ def rr_parse_block(block_rows, n_pokemon):
         if not species_raw:
             continue
 
+        # Remove "(Lead Slot X)" / "(Lead)" annotations that appear in double-battle cells
+        species_raw = re.sub(r"\(Lead[^)]*\)", "", species_raw).strip().strip("\n").strip()
+        # If cell had multiple lines, take the non-annotation line
+        lines = [l.strip() for l in species_raw.split("\n") if l.strip()]
+        species_raw = lines[0] if lines else species_raw
+
         species = re.sub(r"\s*-\s*[MF]\s*$", "", species_raw).strip()
 
         level_raw = get(level_row, col)
@@ -513,8 +519,10 @@ def ei_parse_battles(wb):
             if species_row:
                 for i, mon in enumerate(team):
                     sp_col = EI_DC + 3 + i * EI_ST
-                    sp = get(species_row, sp_col)
-                    mon["species"] = sp
+                    sp = get(species_row, sp_col) or ""
+                    sp = re.sub(r"\(Lead[^)]*\)", "", sp).strip().strip("\n").strip()
+                    lines = [l.strip() for l in sp.split("\n") if l.strip()]
+                    mon["species"] = lines[0] if lines else (sp or None)
 
             # Trainer name: look back up to 7 rows for col-C text that isn't a keyword
             trainer_name = None

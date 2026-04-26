@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import type { Pokemon } from '@/lib/data';
+import { useIsTablet } from '@/lib/layout';
+import Sprite from './Sprite';
 import StatBar from './StatBar';
 import { colors, spacing, radius, font } from '@/lib/theme';
 
@@ -11,10 +13,10 @@ const STAT_ORDER = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'] as const;
 
 export default function PokemonCard({ pokemon }: Props) {
   const [expanded, setExpanded] = useState(false);
+  const isTablet = useIsTablet();
+  const spriteSize = isTablet ? 80 : 64;
 
-  const levelStr = typeof pokemon.level === 'number'
-    ? `Lv ${pokemon.level}`
-    : `Lv ${pokemon.level}`;
+  const levelStr = `Lv ${pokemon.level}`;
 
   return (
     <TouchableOpacity
@@ -22,60 +24,89 @@ export default function PokemonCard({ pokemon }: Props) {
       activeOpacity={0.85}
       onPress={() => setExpanded(e => !e)}
     >
-      {/* Header row */}
+      {/* Header */}
       <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <Text style={styles.species}>{pokemon.species}</Text>
+        <Sprite species={pokemon.species} size={spriteSize} />
+
+        <View style={styles.headerBody}>
+          <View style={styles.titleRow}>
+            <Text style={[styles.species, isTablet && styles.speciesTablet]}>
+              {pokemon.species}
+            </Text>
+            <Ionicons
+              name={expanded ? 'chevron-up' : 'chevron-down'}
+              size={16}
+              color={colors.textDim}
+            />
+          </View>
+
           <Text style={styles.meta}>
             {levelStr}
             {pokemon.nature ? `  ·  ${pokemon.nature}` : ''}
             {pokemon.speedStat != null ? `  ·  ⚡ ${pokemon.speedStat}` : ''}
           </Text>
-        </View>
-        <Ionicons
-          name={expanded ? 'chevron-up' : 'chevron-down'}
-          size={16}
-          color={colors.textDim}
-        />
-      </View>
 
-      {/* Moves row — always visible */}
-      <View style={styles.movesRow}>
-        {pokemon.moves.filter(Boolean).map((mv, i) => (
-          <View key={i} style={styles.movePill}>
-            <Text style={styles.moveText}>{mv}</Text>
+          {/* Ability + Item inline on tablet, below species on phone */}
+          {isTablet && (
+            <View style={styles.attrRowTablet}>
+              {pokemon.ability && (
+                <Text style={styles.attrInline}>
+                  <Text style={styles.attrInlineLabel}>Ability  </Text>
+                  {pokemon.ability}
+                </Text>
+              )}
+              {pokemon.item && (
+                <Text style={styles.attrInline}>
+                  <Text style={styles.attrInlineLabel}>Item  </Text>
+                  {pokemon.item}
+                </Text>
+              )}
+            </View>
+          )}
+
+          {/* Moves — always visible */}
+          <View style={styles.movesRow}>
+            {pokemon.moves.filter(Boolean).map((mv, i) => (
+              <View key={i} style={styles.movePill}>
+                <Text style={styles.moveText}>{mv}</Text>
+              </View>
+            ))}
           </View>
-        ))}
+        </View>
       </View>
 
       {/* Expanded detail */}
       {expanded && (
-        <View style={styles.detail}>
-          <View style={styles.detailRow}>
-            {pokemon.ability && (
-              <View style={styles.attr}>
-                <Text style={styles.attrLabel}>Ability</Text>
-                <Text style={styles.attrValue}>{pokemon.ability}</Text>
-              </View>
-            )}
-            {pokemon.item && (
-              <View style={styles.attr}>
-                <Text style={styles.attrLabel}>Item</Text>
-                <Text style={styles.attrValue}>{pokemon.item}</Text>
-              </View>
-            )}
-          </View>
+        <View style={[styles.detail, isTablet && styles.detailTablet]}>
+          {/* Ability + Item (phone only — already shown inline on tablet) */}
+          {!isTablet && (
+            <View style={styles.attrRow}>
+              {pokemon.ability && (
+                <View style={styles.attr}>
+                  <Text style={styles.attrLabel}>Ability</Text>
+                  <Text style={styles.attrValue}>{pokemon.ability}</Text>
+                </View>
+              )}
+              {pokemon.item && (
+                <View style={styles.attr}>
+                  <Text style={styles.attrLabel}>Item</Text>
+                  <Text style={styles.attrValue}>{pokemon.item}</Text>
+                </View>
+              )}
+            </View>
+          )}
 
-          <View style={styles.stats}>
+          {/* Stats — two columns on tablet */}
+          <View style={[styles.stats, isTablet && styles.statsTablet]}>
             {STAT_ORDER.map(s => (
               <StatBar key={s} stat={s} value={pokemon.stats[s]} />
             ))}
           </View>
 
-          {/* IVs / EVs summary if non-default */}
           {Object.values(pokemon.evs ?? {}).some(v => v && v > 0) && (
             <Text style={styles.evNote}>
-              EVs: {STAT_ORDER
+              EVs:{' '}
+              {STAT_ORDER
                 .filter(s => pokemon.evs[s])
                 .map(s => `${pokemon.evs[s]} ${s.toUpperCase()}`)
                 .join(' / ')}
@@ -88,26 +119,36 @@ export default function PokemonCard({ pokemon }: Props) {
 }
 
 const styles = StyleSheet.create({
-  card:       {
+  card:             {
     backgroundColor: colors.card, borderRadius: radius.lg,
     padding: spacing.md, borderWidth: 1, borderColor: colors.border,
   },
-  header:     { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between' },
-  headerLeft: { flex: 1 },
-  species:    { color: colors.text, fontSize: 16, fontWeight: font.bold },
-  meta:       { color: colors.textMuted, fontSize: 12, marginTop: 2 },
-  movesRow:   { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, marginTop: spacing.sm },
-  movePill:   {
+  header:           { flexDirection: 'row', gap: spacing.md, alignItems: 'flex-start' },
+  headerBody:       { flex: 1 },
+  titleRow:         { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  species:          { color: colors.text, fontSize: 16, fontWeight: font.bold, flex: 1 },
+  speciesTablet:    { fontSize: 18 },
+  meta:             { color: colors.textMuted, fontSize: 12, marginTop: 2 },
+
+  attrRowTablet:    { flexDirection: 'row', gap: spacing.xl, marginTop: spacing.xs },
+  attrInline:       { color: colors.text, fontSize: 13 },
+  attrInlineLabel:  { color: colors.textDim, fontSize: 11 },
+
+  movesRow:         { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, marginTop: spacing.sm },
+  movePill:         {
     backgroundColor: colors.surface, borderRadius: radius.full,
     paddingHorizontal: spacing.sm, paddingVertical: 3,
     borderWidth: 1, borderColor: colors.border,
   },
-  moveText:   { color: colors.textMuted, fontSize: 11 },
-  detail:     { marginTop: spacing.md, gap: spacing.sm },
-  detailRow:  { flexDirection: 'row', gap: spacing.xl },
-  attr:       { flex: 1 },
-  attrLabel:  { color: colors.textDim, fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
-  attrValue:  { color: colors.text, fontSize: 13, fontWeight: font.medium, marginTop: 2 },
-  stats:      { gap: 0 },
-  evNote:     { color: colors.textDim, fontSize: 11, marginTop: spacing.xs },
+  moveText:         { color: colors.textMuted, fontSize: 11 },
+
+  detail:           { marginTop: spacing.md, gap: spacing.sm },
+  detailTablet:     { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.lg },
+  attrRow:          { flexDirection: 'row', gap: spacing.xl },
+  attr:             { flex: 1 },
+  attrLabel:        { color: colors.textDim, fontSize: 10, textTransform: 'uppercase', letterSpacing: 0.5 },
+  attrValue:        { color: colors.text, fontSize: 13, fontWeight: font.medium, marginTop: 2 },
+  stats:            { gap: 0 },
+  statsTablet:      { flex: 1, minWidth: 200 },
+  evNote:           { color: colors.textDim, fontSize: 11, marginTop: spacing.xs },
 });

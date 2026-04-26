@@ -1,30 +1,25 @@
-// Sprite resolution: animated GIF → static PNG → null (placeholder rendered in component)
-// All sprites are bundled in assets/sprites/ — no network needed.
+import { SPRITE_MAP } from './spriteMap';
 
-const ANIMATED_BASE = require('../assets/sprites/animated');
-const STATIC_BASE   = require('../assets/sprites/static');
-
-// PokeAPI uses lowercase, hyphenated names (e.g. "charizard", "mr-mime", "nidoran-f")
-function toSpriteKey(species: string): string {
+function toSlug(species: string): string {
   return species
     .toLowerCase()
-    .replace(/['']/g, '')
+    .replace(/[''']/g, '')
     .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9\-]/g, '');
+    .replace(/[^a-z0-9\-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
-// Returns a require() source for use with <Image source={...} />
-// Falls back through: animated → static → null
-export function resolveSprite(species: string): number | null {
-  const key = toSpriteKey(species);
-  try {
-    // Dynamic require won't tree-shake but sprites are small; fine for a bundled app
-    return require(`../assets/sprites/animated/${key}.gif`);
-  } catch {
-    try {
-      return require(`../assets/sprites/static/${key}.png`);
-    } catch {
-      return null;
-    }
+function baseSlug(slug: string): string {
+  const formSuffixes = ['-mega-x', '-mega-y', '-mega', '-gmax', '-alola', '-galar', '-hisui', '-paldea'];
+  for (const suf of formSuffixes) {
+    if (slug.endsWith(suf)) return slug.slice(0, -suf.length);
   }
+  return slug;
+}
+
+// Returns a bundled require() source, or null → Sprite component shows placeholder
+export function resolveSprite(species: string): number | null {
+  const slug = toSlug(species);
+  return SPRITE_MAP[slug] ?? SPRITE_MAP[baseSlug(slug)] ?? null;
 }

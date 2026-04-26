@@ -854,7 +854,7 @@
           "pokepaste": "https://pokepast.es/b27dd592a0c169f7",
           "team": [
             {
-              "species": "Hisui Voltorb (Lead)",
+              "species": "Hisui Voltorb",
               "level": 17,
               "nature": "Naive",
               "ability": "Reckless",
@@ -892,7 +892,7 @@
               "speedStat": 48
             },
             {
-              "species": "Thwackey (Lead)",
+              "species": "Thwackey",
               "level": 17,
               "nature": "Adamant",
               "ability": "Grassy Surge",
@@ -3120,7 +3120,7 @@
           "pokepaste": "https://pokepast.es/7e4206429ba5e420",
           "team": [
             {
-              "species": "Dewott -M (Lead)",
+              "species": "Dewott",
               "level": 32,
               "nature": "Bashful",
               "ability": "Shell Armor",
@@ -3196,7 +3196,7 @@
               "speedStat": null
             },
             {
-              "species": "Dartrix -F (Lead)",
+              "species": "Dartrix",
               "level": 30,
               "nature": "Modest",
               "ability": "Tinted Lens",
@@ -3318,7 +3318,7 @@
           "pokepaste": "https://pokepast.es/d2c1435d9f68669c",
           "team": [
             {
-              "species": "Cramorant (Lead)",
+              "species": "Cramorant",
               "level": 30,
               "nature": "Timid",
               "ability": "Gulp Missile",
@@ -3394,7 +3394,7 @@
               "speedStat": null
             },
             {
-              "species": "Lileep (Lead)",
+              "species": "Lileep",
               "level": 32,
               "nature": "Modest",
               "ability": "Storm Drain",
@@ -5424,7 +5424,7 @@
           "pokepaste": "https://pokepast.es/fd39fa444569e7cf",
           "team": [
             {
-              "species": "Aerodactyl (Lead)",
+              "species": "Aerodactyl",
               "level": "Lvl Scale -3",
               "nature": "Jolly",
               "ability": "Unnerve",
@@ -5462,7 +5462,7 @@
               "speedStat": 146
             },
             {
-              "species": "Hypno (Lead)",
+              "species": "Hypno",
               "level": "Lvl Scale -3",
               "nature": "Calm",
               "ability": "Bad Dreams",
@@ -5584,7 +5584,7 @@
           "pokepaste": "https://pokepast.es/55b1c1b79937a6e0",
           "team": [
             {
-              "species": "Slaking (Lead)",
+              "species": "Slaking",
               "level": "Lvl Scale -4",
               "nature": "Jolly",
               "ability": "Truant",
@@ -5622,7 +5622,7 @@
               "speedStat": 114
             },
             {
-              "species": "Galarian Weezing (Lead)",
+              "species": "Galarian Weezing",
               "level": "Lvl Scale -4",
               "nature": "Bold",
               "ability": "Neutralising Gas",
@@ -5744,7 +5744,7 @@
           "pokepaste": "https://pokepast.es/0a627075d20a20ec",
           "team": [
             {
-              "species": "Shiftry (Lead)",
+              "species": "Shiftry",
               "level": "Lvl Scale -4",
               "nature": "Jolly",
               "ability": "Wind Rider",
@@ -5782,7 +5782,7 @@
               "speedStat": 95
             },
             {
-              "species": "Talonflame (Lead)",
+              "species": "Talonflame",
               "level": "Lvl Scale -3",
               "nature": "Timid",
               "ability": "Gale Wings",
@@ -6798,7 +6798,7 @@
           "pokepaste": "https://pokepast.es/4851d769287e3afc",
           "team": [
             {
-              "species": "Hatterene (Lead)",
+              "species": "Hatterene",
               "level": 57,
               "nature": "Quiet",
               "ability": "Magic Bounce",
@@ -6836,7 +6836,7 @@
               "speedStat": 34
             },
             {
-              "species": "Indeedee(F) (Lead)",
+              "species": "Indeedee(F)",
               "level": 57,
               "nature": "Quiet",
               "ability": "Psychic Surge",
@@ -8440,7 +8440,7 @@
           "pokepaste": "https://pokepast.es/cf426955d7953404",
           "team": [
             {
-              "species": "Bouffalant (Lead)",
+              "species": "Bouffalant",
               "level": "Lvl Scale -5 (63)",
               "nature": "Adamant",
               "ability": "Sap Sipper",
@@ -8516,7 +8516,7 @@
               "speedStat": 187
             },
             {
-              "species": "Cherrim (Lead)",
+              "species": "Cherrim",
               "level": "Lvl Scale -5 (63)",
               "nature": "Jolly",
               "ability": "Flower Gift",
@@ -10462,7 +10462,7 @@
           "pokepaste": "https://pokepast.es/eff071b697159b5d",
           "team": [
             {
-              "species": "Pikachu-Surfing (Lead)",
+              "species": "Pikachu-Surfing",
               "level": "Lvl Scale -4 (64)",
               "nature": "Timid",
               "ability": "Lightning Rod",
@@ -10500,7 +10500,7 @@
               "speedStat": 154
             },
             {
-              "species": "Milotic (Lead)",
+              "species": "Milotic",
               "level": "Lvl Scale -4 (64)",
               "nature": "Modest",
               "ability": "Competitive",
@@ -15969,7 +15969,7 @@
               "speedStat": 239
             },
             {
-              "species": "Politoed (Lead)",
+              "species": "Politoed",
               "level": 85,
               "nature": "Timid",
               "ability": "Drizzle",
@@ -16167,7 +16167,7 @@
           "pokepaste": "https://pokepast.es/65a978877e35a649",
           "team": [
             {
-              "species": "Ninetales-A (Lead)",
+              "species": "Ninetales-A",
               "level": 85,
               "nature": "Timid",
               "ability": "Snow Warning",
@@ -16205,7 +16205,7 @@
               "speedStat": 237
             },
             {
-              "species": "Glaceon (Lead)",
+              "species": "Glaceon",
               "level": 85,
               "nature": "Modest",
               "ability": "Slush Rush",

@@ -1,18 +1,20 @@
 import { useState, useMemo } from 'react';
 import {
-  View, Text, FlatList, TextInput, TouchableOpacity,
+  View, Text, TextInput, TouchableOpacity,
   StyleSheet, SectionList,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useGame } from '@/lib/GameContext';
-import { getLocations, type Location, type Trainer } from '@/lib/data';
+import { getLocations } from '@/lib/data';
+import { useIsTablet } from '@/lib/layout';
 import { colors, spacing, radius, font } from '@/lib/theme';
 import TrainerAvatar from '@/components/TrainerAvatar';
 
 export default function BattlesScreen() {
   const { game } = useGame();
   const router   = useRouter();
+  const isTablet = useIsTablet();
   const [query, setQuery] = useState('');
 
   const sections = useMemo(() => {
@@ -30,6 +32,7 @@ export default function BattlesScreen() {
 
   return (
     <View style={styles.container}>
+      <View style={[styles.inner, isTablet && styles.innerTablet]}>
       <View style={styles.searchRow}>
         <Ionicons name="search" size={16} color={colors.textMuted} style={styles.searchIcon} />
         <TextInput
@@ -73,12 +76,15 @@ export default function BattlesScreen() {
         stickySectionHeadersEnabled
         contentContainerStyle={styles.list}
       />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container:     { flex: 1, backgroundColor: colors.bg },
+  container:     { flex: 1, backgroundColor: colors.bg, alignItems: 'center' },
+  inner:         { flex: 1, width: '100%' },
+  innerTablet:   { maxWidth: 900, alignSelf: 'center', width: '100%' },
   searchRow:     {
     flexDirection: 'row', alignItems: 'center',
     margin: spacing.md,
