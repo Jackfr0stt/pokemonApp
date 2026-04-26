@@ -262,7 +262,7 @@ def rr_parse_mega(wb):
             continue
         megas.append({
             "stone":    stone,
-            "location": get(row, 3) or get(row, 4),
+            "location": get(row, 2) or get(row, 3) or get(row, 4),
         })
     return megas
 
