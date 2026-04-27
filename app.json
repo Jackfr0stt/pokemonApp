@@ -26,8 +26,7 @@
       "edgeToEdgeEnabled": true
     },
     "plugins": [
-      "expo-router",
-      "react-native-reanimated"
+      "expo-router"
     ]
   }
 }
