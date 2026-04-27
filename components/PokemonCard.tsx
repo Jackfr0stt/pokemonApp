@@ -15,7 +15,7 @@ interface Props {
 const STAT_ORDER = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'] as const;
 
 export default function PokemonCard({ pokemon, onCalc }: Props) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
   const isTablet = useIsTablet();
   const spriteSize = isTablet ? 80 : 64;
 
