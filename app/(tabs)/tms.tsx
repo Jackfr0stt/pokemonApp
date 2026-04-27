@@ -1,12 +1,14 @@
 import { useState, useMemo } from 'react';
 import {
   View, Text, FlatList, TextInput, TouchableOpacity,
-  StyleSheet,
+  StyleSheet, Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useGame } from '@/lib/GameContext';
 import { getGameData } from '@/lib/data';
 import TypeBadge from '@/components/TypeBadge';
+import Sprite from '@/components/Sprite';
+import { TM_DISC, MEGA_STONE } from '@/lib/itemSpriteMap';
 import { colors, spacing, radius, font } from '@/lib/theme';
 
 type Tab = 'tms' | 'tutors' | 'megas';
@@ -16,6 +18,90 @@ const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'tutors', label: 'Tutors',    icon: 'school-outline' },
   { id: 'megas',  label: 'Mega',      icon: 'diamond-outline' },
 ];
+
+// ── Mega Stone → base Pokémon species ────────────────────────────────────────
+const MEGA_STONE_MAP: Record<string, string> = {
+  Venusaurite:   'Venusaur',    Charizardite:  'Charizard',
+  Blastoisinite: 'Blastoise',   Pidgeotite:    'Pidgeot',
+  Beedrilite:    'Beedrill',    Kangaskhanite: 'Kangaskhan',
+  Slowbronite:   'Slowbro',     Gengarite:     'Gengar',
+  Aerodactylite: 'Aerodactyl',  Mewtwonite:    'Mewtwo',
+  Pinsirite:     'Pinsir',      Gyaradosite:   'Gyarados',
+  Laprasite:     'Lapras',      Alakazite:     'Alakazam',
+  Machampite:    'Machamp',     Ampharosite:   'Ampharos',
+  Scizorite:     'Scizor',      Heracronite:   'Heracross',
+  Houndoominite: 'Houndoom',    Tyranitarite:  'Tyranitar',
+  Blazikenite:   'Blaziken',    Sceptilite:    'Sceptile',
+  Swampertite:   'Swampert',    Mawilite:      'Mawile',
+  Aggronite:     'Aggron',      Medichamite:   'Medicham',
+  Manectite:     'Manectric',   Sharpedonite:  'Sharpedo',
+  Cameruptite:   'Camerupt',    Altarianite:   'Altaria',
+  Sablenite:     'Sableye',     Absolite:      'Absol',
+  Glalitite:     'Glalie',      Steelixite:    'Steelix',
+  Lucarionite:   'Lucario',     Latiosite:     'Latios',
+  Latiasite:     'Latias',      Salamencite:   'Salamence',
+  Metagrossite:  'Metagross',   Galladite:     'Gallade',
+  Lopunnite:     'Lopunny',     Garchompite:   'Garchomp',
+  Audinite:      'Audino',      Abomasite:     'Abomasnow',
+  Diancite:      'Diancie',     Garbodorite:   'Garbodor',
+  Gardevoirite:  'Gardevoir',   Kinglerite:    'Kingler',
+  Dreadnawite:   'Drednaw',     Toxtricitite:  'Toxtricity',
+  Banettite:     'Banette',     Snorlaxite:    'Snorlax',
+  Copperajite:   'Copperajah',  Centiskite:    'Centiskorch',
+  Sandacondite:  'Sandaconda',  Applite:       'Appletun',
+  Alcremite:     'Alcremie',    Coalossite:    'Coalossal',
+  Duraludonite:  'Duraludon',   Butterfrite:   'Butterfree',
+  Orbeetlite:    'Orbeetle',
+};
+
+function megaStoneToSpecies(stone: string): string {
+  const base = stone.replace(/\s+[XY]$/, ''); // strip " X" / " Y"
+  return MEGA_STONE_MAP[base] ?? base;
+}
+
+// ── TM / HM disc icon — uses the type-coloured disc sprite ───────────────────
+function TmIcon({ type }: { type?: string }) {
+  const src = type ? TM_DISC[type.toLowerCase()] : undefined;
+  if (src) {
+    return <Image source={src} style={iconStyles.img} resizeMode="contain" />;
+  }
+  // fallback: plain disc for unknown type
+  return (
+    <View style={[iconStyles.img, iconStyles.fallback]}>
+      <Ionicons name="disc-outline" size={20} color={colors.textDim} />
+    </View>
+  );
+}
+
+// ── Mega Stone icon — official item sprite, falls back to Pokémon sprite ──────
+function MegaIcon({ stone }: { stone: string }) {
+  const slug = stone.toLowerCase().replace(/\s+/g, '-');
+  const src  = MEGA_STONE[slug];
+  if (src) {
+    return <Image source={src} style={iconStyles.img} resizeMode="contain" />;
+  }
+  return <Sprite species={megaStoneToSpecies(stone)} size={36} />;
+}
+
+// ── Tutor star disc ───────────────────────────────────────────────────────────
+function TutorIcon() {
+  return (
+    <View style={[iconStyles.img, iconStyles.tutorDisc]}>
+      <Ionicons name="star" size={16} color="#fff" />
+    </View>
+  );
+}
+
+const iconStyles = StyleSheet.create({
+  img:       { width: 36, height: 36, flexShrink: 0 },
+  fallback:  { alignItems: 'center', justifyContent: 'center' },
+  tutorDisc: {
+    borderRadius: radius.md, backgroundColor: colors.primary,
+    alignItems: 'center', justifyContent: 'center',
+  },
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function TMsScreen() {
   const { game }   = useGame();
@@ -113,11 +199,11 @@ export default function TMsScreen() {
           keyExtractor={item => item.id}
           renderItem={({ item }) => (
             <View style={styles.row}>
-              <Text style={styles.code}>{item.code}</Text>
+              <TmIcon type={item.type ?? undefined} />
               <View style={styles.rowBody}>
                 <View style={styles.nameRow}>
                   <Text style={styles.moveName}>{item.move}</Text>
-                  {item.type && <TypeBadge type={item.type} />}
+                  {item.type && <TypeBadge type={item.type} small />}
                 </View>
                 {item.location && (
                   <Text style={styles.location}>{item.location}</Text>
@@ -134,7 +220,7 @@ export default function TMsScreen() {
           keyExtractor={(item, i) => `${item.move}-${i}`}
           renderItem={({ item }) => (
             <View style={styles.row}>
-              <View style={styles.tutorDot} />
+              <TutorIcon />
               <View style={styles.rowBody}>
                 <Text style={styles.moveName}>{item.move}</Text>
                 {item.location && (
@@ -152,7 +238,7 @@ export default function TMsScreen() {
           keyExtractor={(item, i) => `${item.stone}-${i}`}
           renderItem={({ item }) => (
             <View style={styles.row}>
-              <Ionicons name="diamond" size={14} color={colors.primary} style={styles.megaIcon} />
+              <MegaIcon stone={item.stone} />
               <View style={styles.rowBody}>
                 <Text style={styles.moveName}>{item.stone}</Text>
                 {item.location && (
@@ -198,15 +284,9 @@ const styles = StyleSheet.create({
 
   list:           { paddingBottom: spacing.xl },
   row:            {
-    flexDirection: 'row', alignItems: 'flex-start', gap: spacing.sm,
+    flexDirection: 'row', alignItems: 'center', gap: spacing.sm,
     paddingHorizontal: spacing.lg, paddingVertical: spacing.md,
   },
-  code:           { color: colors.accent, fontWeight: font.bold, fontSize: 12, width: 60, paddingTop: 2 },
-  tutorDot:       {
-    width: 8, height: 8, borderRadius: 4,
-    backgroundColor: colors.primary, marginTop: 5,
-  },
-  megaIcon:       { marginTop: 2 },
   rowBody:        { flex: 1, gap: 3 },
   nameRow:        { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   moveName:       { color: colors.text, fontWeight: font.medium, fontSize: 15 },
