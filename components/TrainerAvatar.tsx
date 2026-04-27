@@ -1,5 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 import { colors, radius, font } from '@/lib/theme';
+import { resolveTrainerSprite } from '@/lib/trainerSpriteMap';
 
 const GRADIENT_PAIRS: [string, string][] = [
   ['#e8b4b8', '#c45c6a'],
@@ -12,11 +13,11 @@ const GRADIENT_PAIRS: [string, string][] = [
   ['#ce4265', '#9a1a35'],
 ];
 
-function colorForName(name: string | null): [string, string] {
-  if (!name) return GRADIENT_PAIRS[0];
+function colorForName(name: string | null): string {
+  if (!name) return GRADIENT_PAIRS[0][0];
   let hash = 0;
   for (let i = 0; i < name.length; i++) hash = (hash * 31 + name.charCodeAt(i)) & 0xffff;
-  return GRADIENT_PAIRS[hash % GRADIENT_PAIRS.length];
+  return GRADIENT_PAIRS[hash % GRADIENT_PAIRS.length][0];
 }
 
 interface Props {
@@ -25,11 +26,21 @@ interface Props {
 }
 
 export default function TrainerAvatar({ name, size = 40 }: Props) {
-  const initial = name?.[0]?.toUpperCase() ?? '?';
-  const [bg] = colorForName(name);
+  const sprite = resolveTrainerSprite(name);
 
+  if (sprite != null) {
+    return (
+      <Image
+        source={sprite}
+        style={{ width: size, height: size }}
+        resizeMode="contain"
+      />
+    );
+  }
+
+  const initial = name?.[0]?.toUpperCase() ?? '?';
   return (
-    <View style={[styles.avatar, { width: size, height: size, borderRadius: size / 2, backgroundColor: bg }]}>
+    <View style={[styles.avatar, { width: size, height: size, borderRadius: size / 2, backgroundColor: colorForName(name) }]}>
       <Text style={[styles.initial, { fontSize: size * 0.4 }]}>{initial}</Text>
     </View>
   );

@@ -3,7 +3,7 @@ import { resolveSprite } from '@/lib/spriteResolver';
 import { colors, font } from '@/lib/theme';
 
 interface Props {
-  species: string;
+  species: string | null | undefined;
   size?: number;
 }
 
@@ -19,6 +19,7 @@ function placeholderColor(species: string): string {
 }
 
 export default function Sprite({ species, size = 64 }: Props) {
+  if (!species) return null;
   const src = resolveSprite(species);
 
   if (!src) {

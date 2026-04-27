@@ -10,6 +10,7 @@ import { getLocations } from '@/lib/data';
 import { useIsTablet } from '@/lib/layout';
 import { colors, spacing, radius, font } from '@/lib/theme';
 import TrainerAvatar from '@/components/TrainerAvatar';
+import Sprite from '@/components/Sprite';
 
 export default function BattlesScreen() {
   const { game } = useGame();
@@ -62,14 +63,18 @@ export default function BattlesScreen() {
               })
             }
           >
-            <TrainerAvatar name={trainer.name} size={40} />
+            <TrainerAvatar name={trainer.name} size={56} />
             <View style={styles.rowBody}>
               <Text style={styles.trainerName}>{trainer.name ?? 'Trainer'}</Text>
-              <Text style={styles.teamPreview}>
-                {trainer.team.map(m => m.species).join('  ·  ')}
-              </Text>
+              <View style={styles.teamRow}>
+                {trainer.team.filter(m => m.species).map((mon, i) => (
+                  <View key={i} style={styles.monChip}>
+                    <Sprite species={mon.species} size={28} />
+                    <Text style={styles.monName} numberOfLines={1}>{mon.species}</Text>
+                  </View>
+                ))}
+              </View>
             </View>
-            <Text style={styles.count}>{trainer.team.length}</Text>
             <Ionicons name="chevron-forward" size={16} color={colors.textDim} />
           </TouchableOpacity>
         )}
@@ -109,11 +114,13 @@ const styles = StyleSheet.create({
   list:     { paddingBottom: spacing.xl },
   row:      {
     flexDirection: 'row', alignItems: 'center', gap: spacing.md,
-    paddingHorizontal: spacing.lg, paddingVertical: spacing.md,
+    paddingHorizontal: spacing.lg, paddingVertical: spacing.sm,
     borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border,
+    minHeight: 72,
   },
-  rowBody:      { flex: 1 },
+  rowBody:      { flex: 1, gap: 4 },
   trainerName:  { color: colors.text, fontWeight: font.medium, fontSize: 15 },
-  teamPreview:  { color: colors.textMuted, fontSize: 11, marginTop: 2 },
-  count:        { color: colors.textDim, fontSize: 13 },
+  teamRow:      { flexDirection: 'row', flexWrap: 'wrap', gap: 6 },
+  monChip:      { flexDirection: 'row', alignItems: 'center', gap: 2 },
+  monName:      { color: colors.textMuted, fontSize: 10, maxWidth: 72 },
 });

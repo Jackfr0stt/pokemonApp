@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import type { Pokemon } from '@/lib/data';
 import { useIsTablet } from '@/lib/layout';
 import Sprite from './Sprite';
 import StatBar from './StatBar';
 import { colors, spacing, radius, font } from '@/lib/theme';
+import { resolveHeldItem } from '@/lib/itemSpriteMap';
 
 interface Props {
   pokemon: Pokemon;
@@ -69,12 +70,18 @@ export default function PokemonCard({ pokemon, onCalc }: Props) {
                   {pokemon.ability}
                 </Text>
               )}
-              {pokemon.item && (
-                <Text style={styles.attrInline}>
-                  <Text style={styles.attrInlineLabel}>Item  </Text>
-                  {pokemon.item}
-                </Text>
-              )}
+              {pokemon.item && (() => {
+                const src = resolveHeldItem(pokemon.item);
+                return (
+                  <View style={styles.itemInlineRow}>
+                    {src && <Image source={src} style={styles.itemIcon} resizeMode="contain" />}
+                    <Text style={styles.attrInline}>
+                      <Text style={styles.attrInlineLabel}>Item  </Text>
+                      {pokemon.item}
+                    </Text>
+                  </View>
+                );
+              })()}
             </View>
           )}
 
@@ -101,12 +108,18 @@ export default function PokemonCard({ pokemon, onCalc }: Props) {
                   <Text style={styles.attrValue}>{pokemon.ability}</Text>
                 </View>
               )}
-              {pokemon.item && (
-                <View style={styles.attr}>
-                  <Text style={styles.attrLabel}>Item</Text>
-                  <Text style={styles.attrValue}>{pokemon.item}</Text>
-                </View>
-              )}
+              {pokemon.item && (() => {
+                const src = resolveHeldItem(pokemon.item);
+                return (
+                  <View style={styles.attr}>
+                    <Text style={styles.attrLabel}>Item</Text>
+                    <View style={styles.itemRow}>
+                      {src && <Image source={src} style={styles.itemIcon} resizeMode="contain" />}
+                      <Text style={styles.attrValue}>{pokemon.item}</Text>
+                    </View>
+                  </View>
+                );
+              })()}
             </View>
           )}
 
@@ -147,6 +160,9 @@ const styles = StyleSheet.create({
   attrRowTablet:    { flexDirection: 'row', gap: spacing.xl, marginTop: spacing.xs },
   attrInline:       { color: colors.text, fontSize: 13 },
   attrInlineLabel:  { color: colors.textDim, fontSize: 11 },
+  itemInlineRow:    { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  itemRow:          { flexDirection: 'row', alignItems: 'center', gap: 4, marginTop: 2 },
+  itemIcon:         { width: 20, height: 20 },
 
   movesRow:         { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs, marginTop: spacing.sm },
   movePill:         {

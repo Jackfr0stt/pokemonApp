@@ -45,7 +45,8 @@ const MEGA_STONE_MAP: Record<string, string> = {
   Audinite:      'Audino',      Abomasite:     'Abomasnow',
   Diancite:      'Diancie',     Garbodorite:   'Garbodor',
   Gardevoirite:  'Gardevoir',   Kinglerite:    'Kingler',
-  Dreadnawite:   'Drednaw',     Toxtricitite:  'Toxtricity',
+  Dreadnawite:   'Drednaw',     Drednawite:    'Drednaw',
+  Beedrillite:   'Beedrill',    Toxtricitite:  'Toxtricity',
   Banettite:     'Banette',     Snorlaxite:    'Snorlax',
   Copperajite:   'Copperajah',  Centiskite:    'Centiskorch',
   Sandacondite:  'Sandaconda',  Applite:       'Appletun',
@@ -121,30 +122,36 @@ export default function TMsScreen() {
 
   const filteredTms = useMemo(() => {
     const q = query.toLowerCase().trim();
-    return tms.filter(tm =>
-      !q ||
-      tm.code.toLowerCase().includes(q) ||
-      tm.move?.toLowerCase().includes(q) ||
-      tm.location?.toLowerCase().includes(q)
-    );
+    return tms
+      .filter(tm =>
+        !q ||
+        tm.code.toLowerCase().includes(q) ||
+        tm.move?.toLowerCase().includes(q) ||
+        tm.location?.toLowerCase().includes(q)
+      )
+      .sort((a, b) => (a.move ?? '').localeCompare(b.move ?? ''));
   }, [tms, query]);
 
   const filteredTutors = useMemo(() => {
     const q = query.toLowerCase().trim();
-    return tutors.filter(t =>
-      !q ||
-      t.move?.toLowerCase().includes(q) ||
-      t.location?.toLowerCase().includes(q)
-    );
+    return tutors
+      .filter(t =>
+        !q ||
+        t.move?.toLowerCase().includes(q) ||
+        t.location?.toLowerCase().includes(q)
+      )
+      .sort((a, b) => (a.move ?? '').localeCompare(b.move ?? ''));
   }, [tutors, query]);
 
   const filteredMegas = useMemo(() => {
     const q = query.toLowerCase().trim();
-    return megas.filter(m =>
-      !q ||
-      m.stone?.toLowerCase().includes(q) ||
-      m.location?.toLowerCase().includes(q)
-    );
+    return megas
+      .filter(m =>
+        !q ||
+        m.stone?.toLowerCase().includes(q) ||
+        m.location?.toLowerCase().includes(q)
+      )
+      .sort((a, b) => (a.stone ?? '').localeCompare(b.stone ?? ''));
   }, [megas, query]);
 
   const isEmpty =

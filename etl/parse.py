@@ -314,7 +314,13 @@ def rr_parse_caps_and_codes(wb):
 
 # ─── Emerald Imperium ─────────────────────────────────────────────────────────
 
-EI_SKIP = {"Navigation", "Front Page", "Double Battle Guide", "Types"}
+EI_SKIP = {
+    "Navigation", "Front Page", "Double Battle Guide", "Types",
+    # "Gyms Only" / "Horizon" sheets use a different layout (species inline on Pokemon: row)
+    # and duplicate data from the badge sheets — skip them.
+    "Hoenn Gyms Only", "Sinnoh Gyms Only",
+    "Hoenn Gym Leaders Only (Horizon", "Sinnoh Gym Leaders Only (Horizo",
+}
 
 EI_LC = 1   # label column  (B)
 EI_DC = 2   # first data column (C)
@@ -492,17 +498,23 @@ def ei_parse_battles(wb):
             block_end = anchors[k + 1] if k + 1 < len(anchors) else len(rows)
             block = rows[anchor:block_end]
 
-            # Species: 3 rows before "Pokemon:" anchor
-            species_row_idx = anchor - 3
-            species_row = rows[species_row_idx] if species_row_idx >= 0 else None
-
-            # Count pokemon from species row (col stride 5, species at col 5,10,15...)
-            n_pokemon = 0
-            if species_row:
+            # Species: per-slot backward scan from anchor.
+            # Offset is inconsistent across sheets (anchor-3 is common but
+            # Hot House 7-badge uses anchor-1, and some blocks spread species
+            # across multiple rows for different slots).
+            species_per_slot: dict[int, str] = {}
+            for back in range(1, 8):
+                candidate_idx = anchor - back
+                if candidate_idx < 0:
+                    break
+                candidate = rows[candidate_idx]
                 for i in range(6):
-                    sp_col = EI_DC + 3 + i * EI_ST   # cols 5,10,15...
-                    if get(species_row, sp_col):
-                        n_pokemon = i + 1
+                    if i not in species_per_slot:
+                        sp = get(candidate, EI_DC + 3 + i * EI_ST)
+                        if sp:
+                            species_per_slot[i] = sp
+
+            n_pokemon = max(species_per_slot.keys()) + 1 if species_per_slot else 0
 
             if n_pokemon == 0:
                 # Fallback: count from level row inside block
@@ -515,22 +527,29 @@ def ei_parse_battles(wb):
 
             team, pokepaste = ei_parse_block(block, n_pokemon)
 
-            # Attach species names from species_row
-            if species_row:
-                for i, mon in enumerate(team):
-                    sp_col = EI_DC + 3 + i * EI_ST
-                    sp = get(species_row, sp_col) or ""
-                    sp = re.sub(r"\(Lead[^)]*\)", "", sp).strip().strip("\n").strip()
-                    lines = [l.strip() for l in sp.split("\n") if l.strip()]
-                    mon["species"] = lines[0] if lines else (sp or None)
+            # Attach species names from per-slot map
+            for i, mon in enumerate(team):
+                sp = species_per_slot.get(i, "")
+                sp = re.sub(r"\(Lead[^)]*\)", "", sp).strip().strip("\n").strip()
+                lines = [l.strip() for l in sp.split("\n") if l.strip()]
+                mon["species"] = lines[0] if lines else (sp or None)
 
             # Trainer name: look back up to 7 rows for col-C text that isn't a keyword
+            # or a parsing artifact ("The level cap...", "- Move", species names)
             trainer_name = None
             for j in range(anchor - 1, max(anchor - 8, -1), -1):
                 lbl = get(rows[j], EI_DC)   # col C = index 2
-                if lbl and lbl.lower().strip() not in EI_ALL_KW:
-                    trainer_name = lbl
-                    break
+                lbl_lc = lbl.lower().strip() if lbl else None
+                if not lbl_lc:
+                    continue
+                if lbl_lc in EI_ALL_KW:
+                    continue
+                if lbl_lc.startswith("the level cap"):
+                    continue
+                if lbl_lc.startswith("-"):
+                    continue
+                trainer_name = lbl
+                break
 
             if trainer_name and trainer_name != (pending_trainer or {}).get("name"):
                 # New trainer
@@ -569,11 +588,94 @@ def ei_parse_battles(wb):
     return locations
 
 
+# ─── Emerald Imperium item data ───────────────────────────────────────────────
+
+def ei_item_parse_tms(wb):
+    rows = rows_of(wb, "TMs & HMs")
+    tms = []
+    skip_kw = {"tm", "hm", "move", "location"}
+    for row in rows:
+        tm_num = get(row, 0)
+        if tm_num and tm_num.lower() not in skip_kw and re.match(r"^\d+$", tm_num):
+            move = get(row, 2)
+            loc  = (get(row, 4) or "").replace("\n", " ").strip() or None
+            if move:
+                tms.append({
+                    "id":       f"ei-tm{tm_num}",
+                    "code":     f"TM{tm_num}",
+                    "move":     move,
+                    "type":     None,
+                    "location": loc,
+                })
+        hm_num = get(row, 11)
+        if hm_num and hm_num.lower() not in skip_kw and re.match(r"^\d+$", hm_num):
+            move = get(row, 13)
+            loc  = (get(row, 15) or "").replace("\n", " ").strip() or None
+            if move:
+                tms.append({
+                    "id":       f"ei-hm{hm_num}",
+                    "code":     f"HM{hm_num}",
+                    "move":     move,
+                    "type":     None,
+                    "location": loc,
+                })
+    return tms
+
+
+def ei_item_parse_tutors(wb):
+    rows = rows_of(wb, "Move Tutors")
+    tutors = []
+    skip_prefixes = ("moves highlighted", "locations/move tutors", "location", "class")
+    current_loc = None
+    for row in rows:
+        loc_raw = get(row, 0)
+        if loc_raw:
+            cleaned = loc_raw.strip()
+            if not any(cleaned.lower().startswith(p) for p in skip_prefixes):
+                current_loc = cleaned.replace("\n", " ").strip()
+        move = get(row, 7)
+        if move:
+            tutors.append({
+                "move":     move,
+                "location": current_loc,
+            })
+    return tutors
+
+
+def ei_item_parse_mega(wb):
+    rows = rows_of(wb, "Mega Stones")
+    megas = []
+    pending_left = pending_right = None
+    for row in rows:
+        left_stone  = get(row, 5)   # col F — stone name (left panel)
+        right_stone = get(row, 22)  # col W — stone name (right panel)
+        left_loc    = get(row, 4)   # col E — location (left panel)
+        right_loc   = get(row, 21)  # col V — location (right panel)
+
+        if left_stone or right_stone:
+            pending_left  = left_stone
+            pending_right = right_stone
+        elif (left_loc or right_loc) and (pending_left or pending_right):
+            if pending_left:
+                megas.append({
+                    "stone":    pending_left,
+                    "location": (left_loc or "").replace("\n", " ").strip() or None,
+                })
+            if pending_right:
+                megas.append({
+                    "stone":    pending_right,
+                    "location": (right_loc or "").replace("\n", " ").strip() or None,
+                })
+            pending_left = pending_right = None
+    return megas
+
+
 # ─── Main ─────────────────────────────────────────────────────────────────────
 
 def main():
-    rr_path = ROOT / "Radical Red 4.1 Docs Normal Mode.xlsx"
-    ei_path = ROOT / "Emerald Emperium - Boss Battles.xlsx"
+    rr_path      = ROOT / "Radical Red 4.1 Docs Normal Mode.xlsx"
+    ei_path      = ROOT / "Emerald Emperium - Boss Battles.xlsx"
+    ei_item_path = ROOT / "Item (TMs, Mega Stones, etc) and Useful NPC Locations - Emerald Emperium.xlsx"
 
     print("Loading workbooks...")
     rr_wb = openpyxl.load_workbook(rr_path, data_only=True)
@@ -596,15 +698,27 @@ def main():
         "codes":     rr_codes,
     }
 
-    print("Parsing Emerald Imperium...")
+    print("Parsing Emerald Imperium battles...")
     ei_locations = ei_parse_battles(ei_wb)
 
+    ei_tms = ei_tutors = ei_mega = []
+    if ei_item_path.exists():
+        print("Parsing Emerald Imperium items...")
+        ei_item_wb = openpyxl.load_workbook(ei_item_path, data_only=True)
+        ei_tms    = ei_item_parse_tms(ei_item_wb)
+        ei_tutors = ei_item_parse_tutors(ei_item_wb)
+        ei_mega   = ei_item_parse_mega(ei_item_wb)
+    else:
+        print(f"Warning: {ei_item_path.name} not found — EI TMs/tutors/megas will be empty")
+
     ei_out = {
-        "game":      "emerald-imperium",
-        "locations": ei_locations,
-        "tms":       [],
-        "levelCaps": [],
-        "codes":     [],
+        "game":       "emerald-imperium",
+        "locations":  ei_locations,
+        "tms":        ei_tms,
+        "tutors":     ei_tutors,
+        "megaStones": ei_mega,
+        "levelCaps":  [],
+        "codes":      [],
     }
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -621,6 +735,7 @@ def main():
     print(f"                  {len(rr_tms)} TMs/HMs, {len(rr_tutors)} tutors, {len(rr_mega)} mega stones")
     print(f"                  {len(rr_caps)} level caps, {len(rr_codes)} codes")
     print(f"Emerald Imperium: {len(ei_locations)} locations, {ei_trainers} trainers, {ei_mons} Pokémon")
+    print(f"                  {len(ei_tms)} TMs/HMs, {len(ei_tutors)} tutors, {len(ei_mega)} mega stones")
     print(f"\nOutput: {OUT_DIR}/")
 
 
