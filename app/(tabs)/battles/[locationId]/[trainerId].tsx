@@ -1,17 +1,33 @@
 import { ScrollView, View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native';
-import { useLocalSearchParams, Stack } from 'expo-router';
+import { useLocalSearchParams, Stack, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useGame } from '@/lib/GameContext';
 import { getTrainer } from '@/lib/data';
+import type { Pokemon } from '@/lib/data';
 import PokemonCard from '@/components/PokemonCard';
 import { colors, spacing, font } from '@/lib/theme';
+import { setPendingDefender } from '@/lib/calcStore';
+
 
 export default function TrainerDetailScreen() {
   const { locationId, trainerId } = useLocalSearchParams<{
     locationId: string; trainerId: string;
   }>();
   const { game } = useGame();
+  const router   = useRouter();
   const trainer  = getTrainer(game, locationId, trainerId);
+
+  function sendToCalc(mon: Pokemon) {
+    const level = typeof mon.level === 'string' ? parseInt(mon.level, 10) || 50 : mon.level;
+    setPendingDefender({
+      species: mon.species,
+      level,
+      nature:  mon.nature ?? 'Hardy',
+      evs:     mon.evs ?? {},
+      ivs:     Object.keys(mon.ivs ?? {}).length ? mon.ivs : undefined,
+    });
+    router.navigate('/(tabs)/calc');
+  }
 
   if (!trainer) {
     return (
@@ -33,7 +49,7 @@ export default function TrainerDetailScreen() {
         )}
 
         {trainer.team.map((mon, i) => (
-          <PokemonCard key={i} pokemon={mon} />
+          <PokemonCard key={i} pokemon={mon} onCalc={() => sendToCalc(mon)} />
         ))}
 
         {trainer.pokepaste && (

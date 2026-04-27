@@ -26,6 +26,8 @@ export interface CalcResult {
   percentMax: number;
   koChance:   string;
   defHp:      number;
+  atkSpeed:   number;
+  defSpeed:   number;
 }
 
 function getMoveOverride(game: GameId, moveName: string) {
@@ -87,6 +89,8 @@ export function runCalc(
       percentMax: pctMax,
       koChance:   result.kochance().text,
       defHp,
+      atkSpeed:   atkPoke.stats.spe,
+      defSpeed:   defPoke.stats.spe,
     };
   } catch {
     return null;
@@ -100,5 +104,14 @@ export function isKnownSpecies(name: string): boolean {
     return true;
   } catch {
     return false;
+  }
+}
+
+/** Computes the final Speed stat for a CalcMon without running a full calc */
+export function getComputedSpeed(mon: CalcMon): number {
+  try {
+    return buildPokemon(mon).stats.spe;
+  } catch {
+    return 0;
   }
 }

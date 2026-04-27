@@ -7,11 +7,14 @@ import Sprite from './Sprite';
 import StatBar from './StatBar';
 import { colors, spacing, radius, font } from '@/lib/theme';
 
-interface Props { pokemon: Pokemon }
+interface Props {
+  pokemon: Pokemon;
+  onCalc?: () => void;
+}
 
 const STAT_ORDER = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'] as const;
 
-export default function PokemonCard({ pokemon }: Props) {
+export default function PokemonCard({ pokemon, onCalc }: Props) {
   const [expanded, setExpanded] = useState(false);
   const isTablet = useIsTablet();
   const spriteSize = isTablet ? 80 : 64;
@@ -33,6 +36,17 @@ export default function PokemonCard({ pokemon }: Props) {
             <Text style={[styles.species, isTablet && styles.speciesTablet]}>
               {pokemon.species}
             </Text>
+            {onCalc && (
+              <TouchableOpacity
+                style={styles.calcChip}
+                onPress={e => { e.stopPropagation?.(); onCalc(); }}
+                activeOpacity={0.7}
+                hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+              >
+                <Text style={styles.calcChipText}>Calc</Text>
+                <Ionicons name="calculator-outline" size={11} color={colors.primary} />
+              </TouchableOpacity>
+            )}
             <Ionicons
               name={expanded ? 'chevron-up' : 'chevron-down'}
               size={16}
@@ -151,4 +165,12 @@ const styles = StyleSheet.create({
   stats:            { gap: 0 },
   statsTablet:      { flex: 1, minWidth: 200 },
   evNote:           { color: colors.textDim, fontSize: 11, marginTop: spacing.xs },
+  calcChip:         {
+    flexDirection: 'row', alignItems: 'center', gap: 3,
+    borderWidth: 1, borderColor: colors.primary + '88',
+    borderRadius: radius.full,
+    paddingHorizontal: spacing.sm, paddingVertical: 3,
+    marginRight: spacing.xs,
+  },
+  calcChipText:     { color: colors.primary, fontSize: 11, fontWeight: font.medium },
 });

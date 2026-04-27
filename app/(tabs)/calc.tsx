@@ -4,8 +4,10 @@ import {
   StyleSheet, Modal, Pressable, KeyboardAvoidingView, Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useFocusEffect } from 'expo-router';
 import { useGame } from '@/lib/GameContext';
-import { runCalc, isKnownSpecies, type CalcMon, type CalcResult } from '@/lib/calc';
+import { runCalc, isKnownSpecies, getComputedSpeed, type CalcMon, type CalcResult } from '@/lib/calc';
+import { takePendingDefender } from '@/lib/calcStore';
 import { useIsTablet } from '@/lib/layout';
 import { colors, spacing, radius, font } from '@/lib/theme';
 
@@ -265,6 +267,56 @@ function ResultCard({ result }: { result: CalcResult }) {
   );
 }
 
+// ─── Speed bar ───────────────────────────────────────────────────────────────
+
+function SpeedBar({ atk, def }: { atk: CalcMon; def: CalcMon }) {
+  const atkSpe = getComputedSpeed(atk);
+  const defSpe = getComputedSpeed(def);
+  if (!atkSpe || !defSpe) return null;
+
+  const faster  = atkSpe > defSpe ? 'atk' : atkSpe < defSpe ? 'def' : 'tie';
+  const delta   = Math.abs(atkSpe - defSpe);
+  const label   =
+    faster === 'atk' ? `Attacker outspeeds by ${delta}` :
+    faster === 'def' ? `Defender outspeeds by ${delta}` :
+                       'Speed tie';
+  const color   =
+    faster === 'atk' ? '#63bb5b' :
+    faster === 'def' ? '#f97176' :
+                       colors.textMuted;
+
+  const max = Math.max(atkSpe, defSpe);
+
+  return (
+    <View style={styles.speedCard}>
+      <View style={styles.speedRow}>
+        <Text style={styles.speedLabel}>⚡ Speed</Text>
+        <Text style={[styles.speedVerdict, { color }]}>{label}</Text>
+      </View>
+      <View style={styles.speedBars}>
+        <View style={styles.speedBarWrap}>
+          <Text style={styles.speedStat}>{atkSpe}</Text>
+          <View style={styles.speedTrack}>
+            <View style={[
+              styles.speedFill,
+              { width: `${(atkSpe / max) * 100}%` as any, backgroundColor: '#63bb5b88' },
+            ]} />
+          </View>
+        </View>
+        <View style={styles.speedBarWrap}>
+          <Text style={styles.speedStat}>{defSpe}</Text>
+          <View style={styles.speedTrack}>
+            <View style={[
+              styles.speedFill,
+              { width: `${(defSpe / max) * 100}%` as any, backgroundColor: '#f9717688' },
+            ]} />
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+}
+
 // ─── Main screen ─────────────────────────────────────────────────────────────
 
 export default function CalcScreen() {
@@ -276,6 +328,23 @@ export default function CalcScreen() {
   const [move,    setMove]    = useState('');
   const [result,  setResult]  = useState<CalcResult | null>(null);
   const [errored, setErrored] = useState(false);
+
+  function clearResult() {
+    setResult(null);
+    setErrored(false);
+  }
+
+  // Pick up any defender pre-filled from the trainer detail screen
+  useFocusEffect(
+    useCallback(() => {
+      const pending = takePendingDefender();
+      if (pending) {
+        setDef(pending);
+        setResult(null);
+        setErrored(false);
+      }
+    }, []),
+  );
 
   const canCalc = Boolean(atk.species.trim() && def.species.trim() && move.trim());
 
@@ -289,11 +358,6 @@ export default function CalcScreen() {
   function swapMonsters() {
     setAtk(def);
     setDef(atk);
-    setResult(null);
-    setErrored(false);
-  }
-
-  function clearResult() {
     setResult(null);
     setErrored(false);
   }
@@ -327,6 +391,11 @@ export default function CalcScreen() {
           onChange={m => { setDef(m); clearResult(); }}
         />
       </View>
+
+      {/* Speed comparison — visible as soon as both species are entered */}
+      {atk.species.trim() && def.species.trim() && (
+        <SpeedBar atk={atk} def={def} />
+      )}
 
       {/* Move input */}
       <View style={styles.section}>
@@ -531,4 +600,18 @@ const styles = StyleSheet.create({
   barAxisLabels:   { flexDirection: 'row', justifyContent: 'space-between' },
   barAxisLabel:    { color: colors.textDim, fontSize: 9 },
   rawDmg:          { color: colors.textDim, fontSize: 11 },
+
+  // Speed bar
+  speedCard:       {
+    backgroundColor: colors.card, borderRadius: radius.lg,
+    padding: spacing.md, borderWidth: 1, borderColor: colors.border, gap: spacing.sm,
+  },
+  speedRow:        { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  speedLabel:      { color: colors.textDim, fontSize: 11, fontWeight: font.bold, letterSpacing: 0.5 },
+  speedVerdict:    { fontSize: 12, fontWeight: font.bold },
+  speedBars:       { gap: spacing.xs },
+  speedBarWrap:    { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  speedStat:       { color: colors.text, fontSize: 13, fontWeight: font.medium, width: 36, textAlign: 'right' },
+  speedTrack:      { flex: 1, height: 8, backgroundColor: colors.surface, borderRadius: radius.full, overflow: 'hidden' },
+  speedFill:       { position: 'absolute', left: 0, top: 0, bottom: 0, borderRadius: radius.full },
 });
