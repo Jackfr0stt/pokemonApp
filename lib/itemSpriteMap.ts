@@ -33,6 +33,7 @@ export const HELD_ITEM: Record<string, number> = {
   'icy-rock':       require('../assets/items/held/icy-rock.png'),
   'kings-rock':     require('../assets/items/held/kings-rock.png'),
   'leftovers':      require('../assets/items/held/leftovers.png'),
+  'life-orb':       require('../assets/items/held/life-orb.png'),
   'light-ball':     require('../assets/items/held/light-ball.png'),
   'light-clay':     require('../assets/items/held/light-clay.png'),
   'lum-berry':      require('../assets/items/held/lum-berry.png'),
@@ -153,6 +154,7 @@ export const MEGA_STONE: Record<string, number> = {
   'gyaradosite':    require('../assets/items/megastones/gyaradosite.png'),
   'manectite':      require('../assets/items/megastones/manectite.png'),
   'galladite':      require('../assets/items/megastones/galladite.png'),
+  'galladeite':     require('../assets/items/megastones/galladite.png'),  // alternate RR spelling
   'gengarite':      require('../assets/items/megastones/gengarite.png'),
   'banettite':      require('../assets/items/megastones/banettite.png'),
   'diancite':       require('../assets/items/megastones/diancite.png'),

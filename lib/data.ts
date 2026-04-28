@@ -22,12 +22,19 @@ export interface Pokemon {
   speedStat:  number | null;
 }
 
+export interface TrainerPartner {
+  name:       string | null;
+  pokepaste?: string | null;
+  team:       Pokemon[];
+}
+
 export interface Trainer {
   id:         string;
   name:       string | null;
   tmReward?:  string | null;
   pokepaste?: string | null;
   team:       Pokemon[];
+  partner?:   TrainerPartner;
 }
 
 export interface Location {

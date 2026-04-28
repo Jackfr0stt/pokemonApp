@@ -3114,8 +3114,8 @@
       "name": "S.S Anne",
       "trainers": [
         {
-          "id": "lass-ann",
-          "name": "Lass Ann",
+          "id": "lass-ann-gentleman-brooks",
+          "name": "Lass Ann & Gentleman Brooks",
           "tmReward": null,
           "pokepaste": "https://pokepast.es/7e4206429ba5e420",
           "team": [
@@ -3312,8 +3312,8 @@
           ]
         },
         {
-          "id": "trevor",
-          "name": "Trevor",
+          "id": "trevor-edmond",
+          "name": "Trevor & Edmond",
           "tmReward": null,
           "pokepaste": "https://pokepast.es/d2c1435d9f68669c",
           "team": [
@@ -6782,6 +6782,598 @@
                 "spe": 252
               },
               "speedStat": 141
+            }
+          ]
+        },
+        {
+          "id": "ariana-archer-silph-co-tag-team-battle",
+          "name": "Ariana & Archer (Silph Co.) Tag Team Battle",
+          "tmReward": "Dual Chop Tm",
+          "pokepaste": "https://pokepast.es/355402102174db0d",
+          "team": [
+            {
+              "species": "Gothitelle",
+              "level": 54,
+              "nature": null,
+              "ability": "Competitive",
+              "item": "Colbur Berry",
+              "moves": [
+                "Psychic",
+                "Shadow Ball",
+                "HP Fighting",
+                "Thunder Wave"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 55,
+                "def": 95,
+                "spa": 95,
+                "spd": 110,
+                "spe": 65
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 30,
+                "spa": 30,
+                "spd": 30,
+                "spe": 30
+              },
+              "evs": {
+                "hp": null,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 91
+            },
+            {
+              "species": "Gholdengo",
+              "level": 55,
+              "nature": null,
+              "ability": "Good as Gold",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Make It Rain",
+                "Focus Blast",
+                "Recover",
+                "Shadow Ball"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 60,
+                "def": 95,
+                "spa": 135,
+                "spd": 91,
+                "spe": 84
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 125
+            },
+            {
+              "species": "Houndoom",
+              "level": 55,
+              "nature": null,
+              "ability": "Early Bird\n/Dark Aura",
+              "item": "Houndoomite",
+              "moves": [
+                "Heat Wave",
+                "Dark Pulse",
+                "Scorching Sands",
+                "Sucker Punch"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 110,
+                "def": 90,
+                "spa": 140,
+                "spd": 90,
+                "spe": 115
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 162
+            },
+            {
+              "species": "Incineroar",
+              "level": 54,
+              "nature": null,
+              "ability": "Intimidate",
+              "item": "Sitrus Berry",
+              "moves": [
+                "Fake Out",
+                "Parting Shot",
+                "Darkest Lariat",
+                "Fire Punch"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 115,
+                "def": 90,
+                "spa": 80,
+                "spd": 90,
+                "spe": 60
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 6
+              },
+              "speedStat": 86
+            },
+            {
+              "species": "Mawile",
+              "level": 55,
+              "nature": null,
+              "ability": "Intimidate\n/Huge Power",
+              "item": "Mawilite",
+              "moves": [
+                "Play Rough",
+                "Sucker Punch",
+                "Iron Head",
+                "Thunder Punch"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 105,
+                "def": 125,
+                "spa": 55,
+                "spd": 95,
+                "spe": 50
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 6
+              },
+              "speedStat": 77
+            },
+            {
+              "species": "Primarina",
+              "level": 55,
+              "nature": null,
+              "ability": "Liquid Voice",
+              "item": "Throat Spray",
+              "moves": [
+                "Hyper Voice",
+                "Scald",
+                "Psychic",
+                "Dazzling Gleam"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 74,
+                "def": 74,
+                "spa": 126,
+                "spd": 116,
+                "spe": 60
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 88
+            }
+          ],
+          "partner": {
+            "name": "Brendan (Partner)",
+            "pokepaste": "https://pokepast.es/5fbb02b747f5e136",
+            "team": [
+              {
+                "species": "Masquerain",
+                "level": 55,
+                "nature": "Modest",
+                "ability": "Intimidate",
+                "item": "Iapapa Berry",
+                "moves": [
+                  "Bug Buzz",
+                  "Scald",
+                  "Giga Drain",
+                  "Stun Spore"
+                ],
+                "stats": {
+                  "hp": 80,
+                  "atk": 60,
+                  "def": 62,
+                  "spa": 100,
+                  "spd": 82,
+                  "spe": 80
+                },
+                "ivs": {
+                  "hp": 31,
+                  "atk": 31,
+                  "def": 31,
+                  "spa": 31,
+                  "spd": 31,
+                  "spe": 31
+                },
+                "evs": {
+                  "hp": 252,
+                  "atk": 0,
+                  "def": 0,
+                  "spa": 252,
+                  "spd": 0,
+                  "spe": 6
+                },
+                "speedStat": 110
+              },
+              {
+                "species": "Exploud",
+                "level": 55,
+                "nature": "Timid",
+                "ability": "Punk Rock",
+                "item": "Silk Scarf",
+                "moves": [
+                  "Flamethrower",
+                  "Surf",
+                  "Focus Blast",
+                  "Hyper Voice"
+                ],
+                "stats": {
+                  "hp": 104,
+                  "atk": 81,
+                  "def": 63,
+                  "spa": 91,
+                  "spd": 73,
+                  "spe": 73
+                },
+                "ivs": {
+                  "hp": 31,
+                  "atk": 31,
+                  "def": 31,
+                  "spa": 31,
+                  "spd": 31,
+                  "spe": 31
+                },
+                "evs": {
+                  "hp": 6,
+                  "atk": 0,
+                  "def": 0,
+                  "spa": 252,
+                  "spd": 0,
+                  "spe": 252
+                },
+                "speedStat": 112
+              },
+              {
+                "species": "Sceptile-Mega",
+                "level": 55,
+                "nature": "Timid",
+                "ability": "Unburden\n/Technician",
+                "item": "Sceptilite",
+                "moves": [
+                  "Mega Drain",
+                  "Dragon Breath",
+                  "Focus Blast",
+                  "HP Fire"
+                ],
+                "stats": {
+                  "hp": 70,
+                  "atk": 135,
+                  "def": 75,
+                  "spa": 110,
+                  "spd": 85,
+                  "spe": 145
+                },
+                "ivs": {
+                  "hp": 31,
+                  "atk": 31,
+                  "def": 31,
+                  "spa": 31,
+                  "spd": 31,
+                  "spe": 31
+                },
+                "evs": {
+                  "hp": 0,
+                  "atk": 0,
+                  "def": 0,
+                  "spa": 252,
+                  "spd": 4,
+                  "spe": 252
+                },
+                "speedStat": 199
+              }
+            ]
+          }
+        },
+        {
+          "id": "silph-co-giovanni",
+          "name": "Silph Co. Giovanni",
+          "tmReward": null,
+          "pokepaste": "https://pokepast.es/51b587e1dd32c097",
+          "team": [
+            {
+              "species": "Hippowdon",
+              "level": 56,
+              "nature": "Adamant",
+              "ability": "Sand Stream",
+              "item": "Smooth Rock",
+              "moves": [
+                "Earthquake",
+                "Stone Edge",
+                "Stealth Rock",
+                "Roar"
+              ],
+              "stats": {
+                "hp": 108,
+                "atk": 112,
+                "def": 118,
+                "spa": 68,
+                "spd": 72,
+                "spe": 47
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 75
+            },
+            {
+              "species": "Torterra",
+              "level": 56,
+              "nature": "Jolly",
+              "ability": "Rock Head",
+              "item": "White Herb",
+              "moves": [
+                "Wood Hammer",
+                "Shell Smash",
+                "Head Smash",
+                "Earthquake"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 109,
+                "def": 105,
+                "spa": 75,
+                "spd": 85,
+                "spe": 56
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 93
+            },
+            {
+              "species": "Excadrill",
+              "level": 57,
+              "nature": "Adamant",
+              "ability": "Sand Rush",
+              "item": "Focus Sash",
+              "moves": [
+                "Earthquake",
+                "Iron Head",
+                "Rock Slide",
+                "Swords Dance"
+              ],
+              "stats": {
+                "hp": 110,
+                "atk": 135,
+                "def": 60,
+                "spa": 50,
+                "spd": 65,
+                "spe": 88
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 122
+            },
+            {
+              "species": "Garchomp",
+              "level": 57,
+              "nature": "Jolly",
+              "ability": "Sand Veil",
+              "item": "Yache Berry",
+              "moves": [
+                "Earthquake",
+                "Scale Shot",
+                "Rock Slide",
+                "Swords Dance"
+              ],
+              "stats": {
+                "hp": 108,
+                "atk": 130,
+                "def": 95,
+                "spa": 80,
+                "spd": 85,
+                "spe": 102
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 151
+            },
+            {
+              "species": "Kangaskhan",
+              "level": 57,
+              "nature": "Jolly",
+              "ability": "Parental Bond",
+              "item": "Kangaskhanite",
+              "moves": [
+                "Power Up Punch",
+                "Body Slam",
+                "Crunch",
+                "Fake Out"
+              ],
+              "stats": {
+                "hp": 105,
+                "atk": 125,
+                "def": 100,
+                "spa": 60,
+                "spd": 100,
+                "spe": 100
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 149
+            },
+            {
+              "species": "Garganacl",
+              "level": 57,
+              "nature": "Impish",
+              "ability": "Purifying Salt",
+              "item": "Leftovers",
+              "moves": [
+                "Protect",
+                "Body Press",
+                "Salt Cure",
+                "Recover"
+              ],
+              "stats": {
+                "hp": 100,
+                "atk": 100,
+                "def": 130,
+                "spa": 45,
+                "spd": 90,
+                "spe": 35
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": 62
             }
           ]
         }
@@ -10778,6 +11370,956 @@
       ]
     },
     {
+      "id": "gym-rematches",
+      "name": "Gym Rematches",
+      "trainers": [
+        {
+          "id": "brock-kun-rematch",
+          "name": "Brock-Kun Rematch",
+          "tmReward": null,
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Great Tusk",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Protosynthesis",
+              "item": "Booster Energy",
+              "moves": [
+                "Stealth Rock",
+                "Close Combat",
+                "Headlong Rush",
+                "Knock Off"
+              ],
+              "stats": {
+                "hp": 115,
+                "atk": 131,
+                "def": 131,
+                "spa": 53,
+                "spd": 53,
+                "spe": 87
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 154
+            },
+            {
+              "species": "Tyranitar",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Sand Stream",
+              "item": "Weakness Policy",
+              "moves": [
+                "Stone Edge",
+                "Fire Punch",
+                "Knock Off",
+                "Dragon Dance"
+              ],
+              "stats": {
+                "hp": 100,
+                "atk": 134,
+                "def": 110,
+                "spa": 95,
+                "spd": 100,
+                "spe": 61
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 115
+            },
+            {
+              "species": "Arcanine-H",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Rock Head",
+              "item": "Focus Sash",
+              "moves": [
+                "Flare Blitz",
+                "Head Smash",
+                "Wild Charge",
+                "Extreme Speed"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 125,
+                "def": 80,
+                "spa": 85,
+                "spd": 80,
+                "spe": 90
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 158
+            },
+            {
+              "species": "Omastar",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Timid",
+              "ability": "Weak Armor",
+              "item": "Power Herb",
+              "moves": [
+                "Shell Smash",
+                "Meteor Beam",
+                "Ice Beam",
+                "Surf"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 60,
+                "def": 125,
+                "spa": 115,
+                "spd": 70,
+                "spe": 55
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 107
+            },
+            {
+              "species": "Bloodmoon Ursaluna",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Modest",
+              "ability": "Scrappy",
+              "item": "Leftovers",
+              "moves": [
+                "Earth Power",
+                "Blood Moon",
+                "Vacuum Wave",
+                "Hyper Voice"
+              ],
+              "stats": {
+                "hp": 113,
+                "atk": 70,
+                "def": 120,
+                "spa": 140,
+                "spd": 65,
+                "spe": 52
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": 94
+            },
+            {
+              "species": "Aerodactyl",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Tough Claws",
+              "item": "Aerodactylite",
+              "moves": [
+                "Stone Edge",
+                "Earthquake",
+                "DualWingbeat",
+                "Dragon Dance"
+              ],
+              "stats": {
+                "hp": 80,
+                "atk": 135,
+                "def": 85,
+                "spa": 70,
+                "spd": 95,
+                "spe": 150
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 245
+            }
+          ]
+        },
+        {
+          "id": "misty-rematch",
+          "name": "Misty Rematch",
+          "tmReward": null,
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Palafin / Hero Form (HF)",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Zero To Hero",
+              "item": "Mystic Water",
+              "moves": [
+                "Flip Turn",
+                "Wave Crash",
+                "Jet Punch",
+                "Drain Punch"
+              ],
+              "stats": {
+                "hp": 100,
+                "atk": 160,
+                "def": 97,
+                "spa": 106,
+                "spd": 87,
+                "spe": 100
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 172
+            },
+            {
+              "species": "Archaludon",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Modest",
+              "ability": "Sturdy",
+              "item": "Leftovers",
+              "moves": [
+                "Electro Shot",
+                "Flash Cannon",
+                "Dragon Pulse",
+                "Body Press"
+              ],
+              "stats": {
+                "hp": 90,
+                "atk": 105,
+                "def": 130,
+                "spa": 125,
+                "spd": 65,
+                "spe": 85
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 137
+            },
+            {
+              "species": "Gorebyss",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Timid",
+              "ability": "Dazzling",
+              "item": "Focus Sash",
+              "moves": [
+                "Shell Smash",
+                "Surf",
+                "Moonblast",
+                "Ice Beam"
+              ],
+              "stats": {
+                "hp": 55,
+                "atk": 84,
+                "def": 105,
+                "spa": 104,
+                "spd": 75,
+                "spe": 52
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 103
+            },
+            {
+              "species": "Kingdra",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Modest",
+              "ability": "Swift Swim",
+              "item": "Scope Lens",
+              "moves": [
+                "Dragon Pulse",
+                "Hurricane",
+                "Snipe Shot",
+                "Ice Beam"
+              ],
+              "stats": {
+                "hp": 75,
+                "atk": 95,
+                "def": 95,
+                "spa": 95,
+                "spd": 95,
+                "spe": 85
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 150
+            },
+            {
+              "species": "Ferrothorn",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Relaxed",
+              "ability": "Iron Barbs",
+              "item": "Rocky Helmet",
+              "moves": [
+                "Gyro Ball",
+                "Power Whip",
+                "Leech Seed",
+                "Thunder Wave"
+              ],
+              "stats": {
+                "hp": 74,
+                "atk": 94,
+                "def": 131,
+                "spa": 54,
+                "spd": 116,
+                "spe": 20
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 0
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": 27
+            },
+            {
+              "species": "Gyarados",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Intimidate/ Mold Breaker",
+              "item": "Gyaradosite",
+              "moves": [
+                "Dragon Dance",
+                "Waterfall",
+                "Crunch",
+                "Earthquake"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 155,
+                "def": 109,
+                "spa": 70,
+                "spd": 130,
+                "spe": 81
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 145
+            }
+          ]
+        },
+        {
+          "id": "lt-surge-rematch",
+          "name": "Lt. Surge Rematch",
+          "tmReward": null,
+          "pokepaste": "https://pokepast.es/7ccd37b7eddf1fe8",
+          "team": [
+            {
+              "species": "Iron Treads",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Quark Drive",
+              "item": "Focus Sash",
+              "moves": [
+                "Earthquake",
+                "Iron Head",
+                "Stealth Rock",
+                "Volt Switch"
+              ],
+              "stats": {
+                "hp": 90,
+                "atk": 112,
+                "def": 120,
+                "spa": 72,
+                "spd": 70,
+                "spe": 106
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 181
+            },
+            {
+              "species": "Pawmot",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Iron Fist",
+              "item": "Punching Glove",
+              "moves": [
+                "Close Combat",
+                "Thunder Punch",
+                "Mach Punch",
+                "Ice Punch"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 115,
+                "def": 70,
+                "spa": 70,
+                "spd": 60,
+                "spe": 105
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 180
+            },
+            {
+              "species": "Iron Hands",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Adamant",
+              "ability": "Quark Drive",
+              "item": "Assault Vest",
+              "moves": [
+                "Drain Punch",
+                "Plasma Fists",
+                "Fake Out",
+                "Ice Punch"
+              ],
+              "stats": {
+                "hp": 154,
+                "atk": 140,
+                "def": 108,
+                "spa": 50,
+                "spd": 68,
+                "spe": 50
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 4,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
+                "spe": 0
+              },
+              "speedStat": 91
+            },
+            {
+              "species": "Rotom Wash",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Timid",
+              "ability": "Levitate",
+              "item": "Life Orb",
+              "moves": [
+                "Volt Switch",
+                "Rising Voltage",
+                "HP Ice",
+                "Scald"
+              ],
+              "stats": {
+                "hp": 50,
+                "atk": 65,
+                "def": 107,
+                "spa": 105,
+                "spd": 107,
+                "spe": 86
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 30,
+                "def": 30,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 151
+            },
+            {
+              "species": "Bellibolt",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Modest",
+              "ability": "Electromorphosis",
+              "item": "Leftovers",
+              "moves": [
+                "Parabolic Charge",
+                "HP Grass",
+                "Muddy Water",
+                "Volt Switch"
+              ],
+              "stats": {
+                "hp": 109,
+                "atk": 64,
+                "def": 91,
+                "spa": 103,
+                "spd": 83,
+                "spe": 45
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 30,
+                "def": 31,
+                "spa": 30,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 84
+            },
+            {
+              "species": "Manectric",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Timid",
+              "ability": "Intimidate",
+              "item": "Manectite",
+              "moves": [
+                "Volt Switch",
+                "Rising Volt",
+                "Flamethrower",
+                "HP Grass"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 75,
+                "def": 80,
+                "spa": 135,
+                "spd": 80,
+                "spe": 135
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 30,
+                "def": 31,
+                "spa": 30,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 223
+            }
+          ]
+        },
+        {
+          "id": "erika-rematch-gift-ogerpon-grass-knot-tm",
+          "name": "Erika Rematch (Gift Ogerpon) (Grass Knot TM)",
+          "tmReward": null,
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Ogerpon-Cornerstone",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Sturdy",
+              "item": "Corner. Mask",
+              "moves": [
+                "Ivy Cudgel",
+                "Horn Leech",
+                "Knock Off",
+                "U-Turn"
+              ],
+              "stats": {
+                "hp": 80,
+                "atk": 120,
+                "def": 84,
+                "spa": 60,
+                "spd": 96,
+                "spe": 110
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 187
+            },
+            {
+              "species": "Hawlucha",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Adamant",
+              "ability": "Unburden",
+              "item": "Grassy Seed",
+              "moves": [
+                "Swords Dance",
+                "Acrobatics",
+                "Close Combat",
+                "Stone Edge"
+              ],
+              "stats": {
+                "hp": 78,
+                "atk": 92,
+                "def": 75,
+                "spa": 74,
+                "spd": 63,
+                "spe": 118
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 181
+            },
+            {
+              "species": "Sinistcha",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Modest",
+              "ability": "Heatproof",
+              "item": "Leftovers",
+              "moves": [
+                "Strength Sap",
+                "Matcha Gotcha",
+                "Shadow Ball",
+                "Will-O-Wisp"
+              ],
+              "stats": {
+                "hp": 71,
+                "atk": 60,
+                "def": 106,
+                "spa": 121,
+                "spd": 80,
+                "spe": 70
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 117
+            },
+            {
+              "species": "Meowscarada",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Protean",
+              "item": "Life Orb",
+              "moves": [
+                "Flower Trick",
+                "Knock Off",
+                "U-Turn",
+                "Triple Axel"
+              ],
+              "stats": {
+                "hp": 76,
+                "atk": 110,
+                "def": 70,
+                "spa": 81,
+                "spd": 70,
+                "spe": 123
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 205
+            },
+            {
+              "species": "Lilligant -H",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Jolly",
+              "ability": "Hustle",
+              "item": "Wide Lens",
+              "moves": [
+                "Victory Dance",
+                "Leaf Blade",
+                "Close Combat",
+                "Ice Spinner"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 105,
+                "def": 75,
+                "spa": 50,
+                "spd": 75,
+                "spe": 105
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": 180
+            },
+            {
+              "species": "Venusaur",
+              "level": "Lv Scale -2 (66)",
+              "nature": "Modest",
+              "ability": "Thick Fat",
+              "item": "Venusaurite",
+              "moves": [
+                "Giga Drain",
+                "Sludge Bomb",
+                "Synthesis",
+                "Earth Power"
+              ],
+              "stats": {
+                "hp": 80,
+                "atk": 100,
+                "def": 123,
+                "spa": 122,
+                "spd": 120,
+                "spe": 80
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 131
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "fuschia-city-koga-brendan",
       "name": "Fuschia City (Koga & Brendan)",
       "trainers": [
@@ -12132,6 +13674,1532 @@
               "speedStat": null
             }
           ]
+        },
+        {
+          "id": "ace-trainer-derek-gym-mini-bosses-starting-sunlight",
+          "name": "Ace Trainer Derek (Gym Mini Bosses) (Starting Sunlight)",
+          "tmReward": "Single Battle",
+          "pokepaste": "https://pokepast.es/e8babcbc8c901143",
+          "team": [
+            {
+              "species": "Mienshao",
+              "level": 72,
+              "nature": "Jolly",
+              "ability": "Inner Focus",
+              "item": "Life Orb",
+              "moves": [
+                "Fake Out",
+                "Knock Off",
+                "Close Combat",
+                "U-turn"
+              ],
+              "stats": {
+                "hp": 65,
+                "atk": 125,
+                "def": 60,
+                "spa": 95,
+                "spd": 60,
+                "spe": 105
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 195
+            },
+            {
+              "species": "Arcanine-H",
+              "level": 71,
+              "nature": "Jolly",
+              "ability": "Rock Head",
+              "item": "Charcoal",
+              "moves": [
+                "Head Smash",
+                "Wild Charge",
+                "Flare Blitz",
+                "Accelerock"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 125,
+                "def": 80,
+                "spa": 85,
+                "spd": 80,
+                "spe": 90
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 169
+            },
+            {
+              "species": "Sunflora",
+              "level": 72,
+              "nature": "Timid",
+              "ability": "Chlorophyll",
+              "item": "Focus Sash",
+              "moves": [
+                "Growth",
+                "Solar Beam",
+                "Flamethrower",
+                "HP Rock"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 75,
+                "def": 55,
+                "spa": 135,
+                "spd": 85,
+                "spe": 55
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 30,
+                "spa": 31,
+                "spd": 30,
+                "spe": 30
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 116
+            },
+            {
+              "species": "Rhyperior",
+              "level": 71,
+              "nature": "Jolly",
+              "ability": "Solid Rock",
+              "item": "Hard Stone",
+              "moves": [
+                "Stone Edge",
+                "Fire Punch",
+                "Earthquake",
+                "Megahorn"
+              ],
+              "stats": {
+                "hp": 115,
+                "atk": 140,
+                "def": 130,
+                "spa": 55,
+                "spd": 55,
+                "spe": 40
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 91
+            },
+            {
+              "species": "Centiskorch",
+              "level": 72,
+              "nature": "Adamant",
+              "ability": "Flash Fire\n/Mountaineer",
+              "item": "Centiskite",
+              "moves": [
+                "Flare Blitz",
+                "Knock Off",
+                "Power Whip",
+                "Leech Life"
+              ],
+              "stats": {
+                "hp": 100,
+                "atk": 150,
+                "def": 80,
+                "spa": 90,
+                "spd": 110,
+                "spe": 85
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": 149
+            }
+          ]
+        },
+        {
+          "id": "ace-trainer-lucy-starting-sunlight",
+          "name": "Ace Trainer Lucy (Starting Sunlight)",
+          "tmReward": "Single Battle",
+          "pokepaste": "https://pokepast.es/fb7a9cedd17f7978",
+          "team": [
+            {
+              "species": "Lycanroc",
+              "level": 71,
+              "nature": "Jolly",
+              "ability": "Steadfast",
+              "item": "Focus Sash",
+              "moves": [
+                "Stealth Rock",
+                "Rock Tomb",
+                "Endeavor",
+                "Accelerock"
+              ],
+              "stats": {
+                "hp": 75,
+                "atk": 115,
+                "def": 65,
+                "spa": 55,
+                "spd": 65,
+                "spe": 112
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 204
+            },
+            {
+              "species": "Darmanitan -G",
+              "level": 71,
+              "nature": "Jolly",
+              "ability": "Zen Mode",
+              "item": "Life Orb",
+              "moves": [
+                "Earthquake",
+                "Flare Blitz",
+                "Icicle Crash",
+                "U-turn"
+              ],
+              "stats": {
+                "hp": 105,
+                "atk": 160,
+                "def": 55,
+                "spa": 30,
+                "spd": 55,
+                "spe": 135
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 239
+            },
+            {
+              "species": "Gliscor",
+              "level": 71,
+              "nature": "Jolly",
+              "ability": "Poison Heal",
+              "item": "Toxic Orb",
+              "moves": [
+                "Dual Wingbeat",
+                "Swords Dance",
+                "Earthquake",
+                "Facade"
+              ],
+              "stats": {
+                "hp": 75,
+                "atk": 95,
+                "def": 125,
+                "spa": 45,
+                "spd": 75,
+                "spe": 95
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 177
+            },
+            {
+              "species": "Charizard",
+              "level": 71,
+              "nature": "Timid",
+              "ability": "Solar Power",
+              "item": "Firium Z",
+              "moves": [
+                "Scorching Sands",
+                "Fire Blast",
+                "Air Slash",
+                "Solar Beam"
+              ],
+              "stats": {
+                "hp": 78,
+                "atk": 84,
+                "def": 78,
+                "spa": 109,
+                "spd": 85,
+                "spe": 100
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 185
+            },
+            {
+              "species": "Ursaluna",
+              "level": 72,
+              "nature": "Adamant",
+              "ability": "Guts",
+              "item": "Flame Orb",
+              "moves": [
+                "Headlong Rush",
+                "Facade",
+                "Knock Off",
+                "Close Combat"
+              ],
+              "stats": {
+                "hp": 130,
+                "atk": 140,
+                "def": 105,
+                "spa": 45,
+                "spd": 80,
+                "spe": 50
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 99
+            }
+          ]
+        },
+        {
+          "id": "ace-trainer-zac-double-battle-starting-sunlight",
+          "name": "Ace Trainer Zac (Double Battle) (Starting Sunlight)",
+          "tmReward": "Double Battle",
+          "pokepaste": "https://pokepast.es/1b62ad6fbceb7622",
+          "team": [
+            {
+              "species": "Noivern",
+              "level": 71,
+              "nature": "Naive",
+              "ability": "Infiltrator",
+              "item": "Focus Sash",
+              "moves": [
+                "Tailwind",
+                "Heat Wave",
+                "Aeroblast",
+                "Dragon Pulse"
+              ],
+              "stats": {
+                "hp": 85,
+                "atk": 70,
+                "def": 80,
+                "spa": 102,
+                "spd": 80,
+                "spe": 123
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 221
+            },
+            {
+              "species": "Nidoking",
+              "level": 72,
+              "nature": "Timid",
+              "ability": "Sheer Force",
+              "item": "Life Orb",
+              "moves": [
+                "Sludge Wave",
+                "Ice Beam",
+                "Earth Power",
+                "Fire Blast"
+              ],
+              "stats": {
+                "hp": 81,
+                "atk": 102,
+                "def": 77,
+                "spa": 85,
+                "spd": 75,
+                "spe": 85
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 163
+            },
+            {
+              "species": "Volcarona",
+              "level": 72,
+              "nature": "Timid",
+              "ability": "Flame Body",
+              "item": "Charcoal",
+              "moves": [
+                "Fire Blast",
+                "Bug Buzz",
+                "Psychic",
+                "Giga Drain"
+              ],
+              "stats": {
+                "hp": 85,
+                "atk": 60,
+                "def": 65,
+                "spa": 135,
+                "spd": 105,
+                "spe": 100
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 188
+            },
+            {
+              "species": "Braviary-H",
+              "level": 72,
+              "nature": "Modest",
+              "ability": "Tinted Lens",
+              "item": "Life Orb",
+              "moves": [
+                "Air Slash",
+                "Heat Wave",
+                "Shadow Ball",
+                "Esper Wing"
+              ],
+              "stats": {
+                "hp": 115,
+                "atk": 58,
+                "def": 80,
+                "spa": 112,
+                "spd": 80,
+                "spe": 65
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 120
+            },
+            {
+              "species": "Excadrill",
+              "level": 71,
+              "nature": "Adamant",
+              "ability": "Mold Breaker",
+              "item": "Soft Sand",
+              "moves": [
+                "Hi Horsepower",
+                "Iron Head",
+                "Rapid Spin",
+                "Rock Slide"
+              ],
+              "stats": {
+                "hp": 110,
+                "atk": 135,
+                "def": 60,
+                "spa": 50,
+                "spd": 65,
+                "spe": 88
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 156
+            }
+          ]
+        },
+        {
+          "id": "gym-leader-blaine-starting-sunlight",
+          "name": "Gym Leader Blaine (Starting Sunlight)",
+          "tmReward": "Charizardite Y \nChoice Specs \n10 Life Orbs",
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Armarouge",
+              "level": 75,
+              "nature": "Timid",
+              "ability": "Mega Launcher",
+              "item": "Focus Sash",
+              "moves": [
+                "Armor Cannon",
+                "Psyshock",
+                "Aura Sphere",
+                "Energy Ball"
+              ],
+              "stats": {
+                "hp": 85,
+                "atk": 60,
+                "def": 100,
+                "spa": 125,
+                "spd": 80,
+                "spe": 75
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 154
+            },
+            {
+              "species": "Ogerpon-Hearthflame",
+              "level": 76,
+              "nature": "Jolly",
+              "ability": "Mold Breaker",
+              "item": "Hearth. Mask",
+              "moves": [
+                "Ivy Cudgel",
+                "Horn Leech",
+                "Knock Off",
+                "U-Turn"
+              ],
+              "stats": {
+                "hp": 80,
+                "atk": 120,
+                "def": 84,
+                "spa": 60,
+                "spd": 96,
+                "spe": 110
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 214
+            },
+            {
+              "species": "Slitherwing",
+              "level": 76,
+              "nature": "Jolly",
+              "ability": "Protosynthesis",
+              "item": "Life Orb",
+              "moves": [
+                "First Impression",
+                "U-Turn",
+                "Close Combat",
+                "Flare Blitz"
+              ],
+              "stats": {
+                "hp": 85,
+                "atk": 135,
+                "def": 79,
+                "spa": 85,
+                "spd": 105,
+                "spe": 81
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 166
+            },
+            {
+              "species": "Typhlosion",
+              "level": 76,
+              "nature": "Modest",
+              "ability": "Blazing Soul",
+              "item": "Heavy Duty Boots",
+              "moves": [
+                "Eruption",
+                "Flamethrower",
+                "HP Grass",
+                "Focus Blast"
+              ],
+              "stats": {
+                "hp": 78,
+                "atk": 84,
+                "def": 78,
+                "spa": 109,
+                "spd": 85,
+                "spe": 100
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 30,
+                "def": 31,
+                "spa": 30,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 180
+            },
+            {
+              "species": "Exeggutor",
+              "level": 76,
+              "nature": "Timid",
+              "ability": "Chlorophyll",
+              "item": "Lum Berry",
+              "moves": [
+                "Growth",
+                "Giga Drain",
+                "Psyshock",
+                "Weather Ball"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 95,
+                "def": 85,
+                "spa": 125,
+                "spd": 75,
+                "spe": 55
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 123
+            },
+            {
+              "species": "Charizard",
+              "level": 76,
+              "nature": "Timid",
+              "ability": "Drought",
+              "item": "Charizardite Y",
+              "moves": [
+                "Flamethrower",
+                "Air Slash",
+                "Solar Beam",
+                "Dragon Pulse"
+              ],
+              "stats": {
+                "hp": 78,
+                "atk": 104,
+                "def": 78,
+                "spa": 159,
+                "spd": 115,
+                "spe": 100
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 4,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": 198
+            }
+          ]
+        },
+        {
+          "id": "jasmine-1",
+          "name": "Jasmine 1",
+          "tmReward": null,
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Steelix",
+              "level": null,
+              "nature": "Lv Scale -2 (71/74)",
+              "ability": "Adamant",
+              "item": "Sturdy",
+              "moves": [
+                "Chople Berry",
+                "Stealth Rock",
+                "Iron Head",
+                "Earthquake"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 75,
+                "def": 85,
+                "spa": 200,
+                "spd": 55,
+                "spe": 65
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 252,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 4
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Melmetal",
+              "level": null,
+              "nature": "Lv Scale -2 (71/74)",
+              "ability": "Adamant",
+              "item": "Iron Fist",
+              "moves": [
+                "Leftovers",
+                "Dbl Iron Bash",
+                "Earthquake",
+                "Ice Punch"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 135,
+                "def": 143,
+                "spa": 143,
+                "spd": 80,
+                "spe": 65
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 252,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 4
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Samurott",
+              "level": null,
+              "nature": "Lv Scale -2 (71/74)",
+              "ability": "Jolly",
+              "item": "Sharpness",
+              "moves": [
+                "White Herb",
+                "Shell Smash",
+                "Razor Shell",
+                "Cut"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 95,
+                "def": 108,
+                "spa": 85,
+                "spd": 95,
+                "spe": 70
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 0,
+                "def": 252,
+                "spa": 4,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Durant",
+              "level": null,
+              "nature": "Lv Scale -2 (71/74)",
+              "ability": "Jolly",
+              "item": "Hustle",
+              "moves": [
+                "Life Orb",
+                "Iron Head",
+                "Superpower",
+                "X-Scissor"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 58,
+                "def": 109,
+                "spa": 112,
+                "spd": 48,
+                "spe": 48
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 4
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Duraladon",
+              "level": null,
+              "nature": "Lv Scale -2 (71/74)",
+              "ability": "Modest",
+              "item": "Stalwart",
+              "moves": [
+                "Assault Vest",
+                "Body Press",
+                "Flash Cannon",
+                "Thunderbolt"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 85,
+                "def": 95,
+                "spa": 115,
+                "spd": 120,
+                "spe": 50
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
+                "spe": 4
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Aggron",
+              "level": null,
+              "nature": "Lv Scale -2 (71/74)",
+              "ability": "Adamant",
+              "item": "Sturdy/Filter",
+              "moves": [
+                "Aggronite",
+                "Heavy Slam",
+                "Earthquake",
+                "Fire Punch"
+              ],
+              "stats": {
+                "hp": null,
+                "atk": 70,
+                "def": 140,
+                "spa": 230,
+                "spd": 60,
+                "spe": 80
+              },
+              "ivs": {
+                "hp": null,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": null,
+                "atk": 252,
+                "def": 252,
+                "spa": 4,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": null
+            }
+          ]
+        },
+        {
+          "id": "jasmine-2",
+          "name": "Jasmine 2",
+          "tmReward": null,
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Bronzong",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Relaxed",
+              "ability": "Levitate",
+              "item": "Leftovers",
+              "moves": [
+                "Gyro Ball",
+                "Earthquake",
+                "Stealth Rock"
+              ],
+              "stats": {
+                "hp": 67,
+                "atk": 89,
+                "def": 116,
+                "spa": 79,
+                "spd": 116,
+                "spe": 33
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 0
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Melmetal",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Adamant",
+              "ability": "Iron Fist",
+              "item": "Leftovers",
+              "moves": [
+                "Dbl Iron Bash",
+                "Earthquake",
+                "Body Press"
+              ],
+              "stats": {
+                "hp": 135,
+                "atk": 143,
+                "def": 143,
+                "spa": 80,
+                "spd": 65,
+                "spe": 34
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Excadrill",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Jolly",
+              "ability": "Sand Force",
+              "item": "Air Balloon",
+              "moves": [
+                "Earthquake",
+                "Rock Slide",
+                "Iron Head"
+              ],
+              "stats": {
+                "hp": 110,
+                "atk": 135,
+                "def": 60,
+                "spa": 50,
+                "spd": 65,
+                "spe": 88
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Magnezone",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Modest",
+              "ability": "Magnet Pull",
+              "item": "Magnet",
+              "moves": [
+                "Thunderbolt",
+                "Volt Switch",
+                "Flash Cannon"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 70,
+                "def": 115,
+                "spa": 130,
+                "spd": 90,
+                "spe": 60
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 30,
+                "def": 31,
+                "spa": 30,
+                "spd": 31,
+                "spe": 30
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Samurott",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Jolly",
+              "ability": "Sharpness",
+              "item": "White Herb",
+              "moves": [
+                "Shell Smash",
+                "Razor Shell",
+                "Cut"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 108,
+                "def": 85,
+                "spa": 95,
+                "spd": 70,
+                "spe": 90
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Aggron",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Adamant",
+              "ability": "Sturdy/Filter",
+              "item": "Aggronite",
+              "moves": [
+                "Heavy Slam",
+                "Earthquake",
+                "Fire Punch"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 140,
+                "def": 230,
+                "spa": 60,
+                "spd": 80,
+                "spe": 50
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": null
+            }
+          ]
+        },
+        {
+          "id": "jasmine-3",
+          "name": "Jasmine 3",
+          "tmReward": null,
+          "pokepaste": null,
+          "team": [
+            {
+              "species": "Forretress",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Relaxed",
+              "ability": "Sturdy",
+              "item": "Custap Berry",
+              "moves": [
+                "Stealth Rock",
+                "Explosion",
+                "Earthquake"
+              ],
+              "stats": {
+                "hp": 75,
+                "atk": 90,
+                "def": 140,
+                "spa": 60,
+                "spd": 60,
+                "spe": 40
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 0
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Melmetal",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Adamant",
+              "ability": "Iron Fist",
+              "item": "Leftovers",
+              "moves": [
+                "Dbl Iron Bash",
+                "Earthquake",
+                "Body Press"
+              ],
+              "stats": {
+                "hp": 135,
+                "atk": 143,
+                "def": 143,
+                "spa": 80,
+                "spd": 65,
+                "spe": 34
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 0
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Magnezone",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Modest",
+              "ability": "Magnet Pull",
+              "item": "Magnet",
+              "moves": [
+                "Thunderbolt",
+                "Volt Switch",
+                "Flash Cannon"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 70,
+                "def": 115,
+                "spa": 130,
+                "spd": 90,
+                "spe": 60
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 30,
+                "def": 31,
+                "spa": 30,
+                "spd": 31,
+                "spe": 30
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Samurott",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Jolly",
+              "ability": "Sharpness",
+              "item": "White Herb",
+              "moves": [
+                "Shell Smash",
+                "Razor Shell",
+                "Cut"
+              ],
+              "stats": {
+                "hp": 95,
+                "atk": 108,
+                "def": 85,
+                "spa": 95,
+                "spd": 70,
+                "spe": 90
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Lucario",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Adamant",
+              "ability": "Inner Focus",
+              "item": "Air Balloon",
+              "moves": [
+                "Swords Dance",
+                "Extreme Speed",
+                "Close Combat"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 110,
+                "def": 70,
+                "spa": 115,
+                "spd": 70,
+                "spe": 90
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 4,
+                "spe": 252
+              },
+              "speedStat": null
+            },
+            {
+              "species": "Aggron",
+              "level": "Lv Scale -2 (71/74)",
+              "nature": "Adamant",
+              "ability": "Sturdy/Filter",
+              "item": "Aggronite",
+              "moves": [
+                "Heavy Slam",
+                "Earthquake",
+                "Fire Punch"
+              ],
+              "stats": {
+                "hp": 70,
+                "atk": 140,
+                "def": 230,
+                "spa": 60,
+                "spd": 80,
+                "spe": 50
+              },
+              "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+              },
+              "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 4,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+              },
+              "speedStat": null
+            }
+          ]
         }
       ]
     },
@@ -12693,7 +15761,127 @@
               },
               "speedStat": 278
             }
-          ]
+          ],
+          "partner": {
+            "name": "Lance (Partner)",
+            "pokepaste": null,
+            "team": [
+              {
+                "species": "Dragapult",
+                "level": 83,
+                "nature": "Naive",
+                "ability": "Clear Body",
+                "item": "Spell Tag",
+                "moves": [
+                  "Dragon Darts",
+                  "Spirit Shackle",
+                  "Flamethrower",
+                  "Thunderbolt"
+                ],
+                "stats": {
+                  "hp": 88,
+                  "atk": 120,
+                  "def": 75,
+                  "spa": 100,
+                  "spd": 75,
+                  "spe": 142
+                },
+                "ivs": {
+                  "hp": 31,
+                  "atk": 31,
+                  "def": 31,
+                  "spa": 31,
+                  "spd": 31,
+                  "spe": 31
+                },
+                "evs": {
+                  "hp": 0,
+                  "atk": 252,
+                  "def": 0,
+                  "spa": 0,
+                  "spd": 68,
+                  "spe": 188
+                },
+                "speedStat": 289
+              },
+              {
+                "species": "Dialga",
+                "level": 83,
+                "nature": "Modest",
+                "ability": "Telepathy",
+                "item": "Assault Vest",
+                "moves": [
+                  "Dragon Pulse",
+                  "Flash Cannon",
+                  "Body Press",
+                  "Flamethrower"
+                ],
+                "stats": {
+                  "hp": 100,
+                  "atk": 120,
+                  "def": 120,
+                  "spa": 150,
+                  "spd": 100,
+                  "spe": 90
+                },
+                "ivs": {
+                  "hp": 31,
+                  "atk": 31,
+                  "def": 31,
+                  "spa": 31,
+                  "spd": 31,
+                  "spe": 31
+                },
+                "evs": {
+                  "hp": 252,
+                  "atk": 0,
+                  "def": 4,
+                  "spa": 36,
+                  "spd": 216,
+                  "spe": 0
+                },
+                "speedStat": 178
+              },
+              {
+                "species": "Salamence-Mega",
+                "level": 82,
+                "nature": "Naive",
+                "ability": "Intimidate\n/Aerialate",
+                "item": "Salamencite",
+                "moves": [
+                  "Double-Edge",
+                  "Aqua Tail",
+                  "Flamethrower",
+                  "Hyper Voice"
+                ],
+                "stats": {
+                  "hp": 95,
+                  "atk": 145,
+                  "def": 130,
+                  "spa": 120,
+                  "spd": 90,
+                  "spe": 120
+                },
+                "ivs": {
+                  "hp": 31,
+                  "atk": 31,
+                  "def": 31,
+                  "spa": 31,
+                  "spd": 31,
+                  "spe": 31
+                },
+                "evs": {
+                  "hp": 0,
+                  "atk": 252,
+                  "def": 0,
+                  "spa": 4,
+                  "spd": 0,
+                  "spe": 252
+                },
+                "speedStat": 249
+              }
+            ]
+          }
         },
         {
           "id": "pokemon-trainer-ketchup-part-1",
@@ -19423,56 +22611,68 @@
   ],
   "tutors": [
     {
-      "move": "Bug Bite",
-      "location": "Viridian Forest"
+      "move": "Sunny Day",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Stomping Tantrum",
-      "location": "Pewter City's museum (Cut HM required)"
+      "move": "Rain Dance",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Fire Punch",
-      "location": "Vermilion City's fanclub"
+      "move": "Snowscape",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Ice Punch",
-      "location": "Vermilion City's fanclub"
+      "move": "Sandstorm",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Thunder Punch",
-      "location": "Vermilion City's fanclub"
+      "move": "Flame Charge",
+      "location": "Vermilion City's Fanclub"
     },
     {
-      "move": "Fire Fang",
-      "location": "Vermilion City's fanclub"
+      "move": "Trailblaze",
+      "location": "Vermilion City's Fanclub"
     },
     {
-      "move": "Ice Fang",
-      "location": "Vermilion City's fanclub"
+      "move": "Power-Up Punch",
+      "location": "Vermilion City's Fanclub"
     },
     {
-      "move": "Thunder Fang",
-      "location": "Vermilion City's fanclub"
+      "move": "Charge Beam",
+      "location": "Vermilion City's Fanclub"
     },
     {
-      "move": "Psychic Fangs",
-      "location": "Vermilion City's fanclub"
+      "move": "Work Up",
+      "location": "Vermilion City's Fanclub"
     },
     {
-      "move": "Play Rough",
-      "location": "Celadon City's Department Store 3F"
+      "move": "Hone Claws",
+      "location": "Vermilion City's Fanclub"
     },
     {
-      "move": "Iron Head",
-      "location": "Celadon City's restaurant"
+      "move": "Swords Dance",
+      "location": "Fuchsia City's Eastern Gate"
     },
     {
-      "move": "Liquidation",
-      "location": "Saffron City - Mr. Psychic'c house"
+      "move": "Nasty Plot",
+      "location": "Fuchsia City's Eastern Gate"
     },
     {
-      "move": "Hydro Pump",
-      "location": "Saffron City - House left of Silph Co."
+      "move": "Bulk Up",
+      "location": "Fuchsia City's Eastern Gate"
+    },
+    {
+      "move": "Calm Mind",
+      "location": "Fuchsia City's Eastern Gate"
+    },
+    {
+      "move": "Meteor Beam",
+      "location": "Fuchsia City's Eastern Gate"
+    },
+    {
+      "move": "Iron Defense",
+      "location": "Fuchsia City's Eastern Gate"
     },
     {
       "move": "Drill Run",
@@ -19487,18 +22687,6 @@
       "location": "Saffron City - House left of Silph Co."
     },
     {
-      "move": "Zen Headbutt",
-      "location": "Saffron City - House left of Silph Co."
-    },
-    {
-      "move": "Weather Ball",
-      "location": "Saffron City - House left of Silph Co."
-    },
-    {
-      "move": "Air Slash",
-      "location": "Saffron City - House left of Silph Co."
-    },
-    {
       "move": "Hex",
       "location": "Saffron City - House left of Silph Co."
     },
@@ -19507,15 +22695,7 @@
       "location": "Saffron City - House left of Silph Co."
     },
     {
-      "move": "Seed Bomb",
-      "location": "Saffron City - House left of Silph Co."
-    },
-    {
       "move": "Leaf Blade",
-      "location": "Saffron City - House left of Silph Co."
-    },
-    {
-      "move": "Knock Off",
       "location": "Saffron City - House left of Silph Co."
     },
     {
@@ -19547,35 +22727,19 @@
       "location": "Saffron City - House left of Silph Co."
     },
     {
-      "move": "Iron Defense",
+      "move": "Alluring Voice",
       "location": "Saffron City - House left of Silph Co."
     },
     {
-      "move": "Nasty Plot",
-      "location": "Fuchsia City's right gate"
+      "move": "Focus Punch",
+      "location": "Saffron City - House left of Silph Co."
     },
     {
-      "move": "Earth Power",
-      "location": "Fuchsia City"
-    },
-    {
-      "move": "Aura Sphere",
-      "location": "Cinnabar Island's Pokémon Lab"
-    },
-    {
-      "move": "Heat Wave",
-      "location": "Cinnabar Island's Pokémon Lab"
-    },
-    {
-      "move": "Hurricane",
-      "location": "Cinnabar Island's Pokémon Lab"
+      "move": "Psychic Fangs",
+      "location": "Saffron City - House left of Silph Co."
     },
     {
       "move": "Power Whip",
-      "location": "Cinnabar Island's Pokémon Lab"
-    },
-    {
-      "move": "High Horsepower",
       "location": "Cinnabar Island's Pokémon Lab"
     },
     {
@@ -19595,10 +22759,6 @@
       "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Gunk Shot",
-      "location": "Cinnabar Island's Pokémon Lab"
-    },
-    {
       "move": "Tailwind",
       "location": "Cinnabar Island's Pokémon Lab"
     },
@@ -19607,28 +22767,24 @@
       "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Draco Meteor",
-      "location": "Viridian City's Gym"
+      "move": "Stealth Rock",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Close Combat",
-      "location": "Victory Road (near the exit)"
+      "move": "Spikes",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Celebrate",
-      "location": "Pallet Town, Player's house"
+      "move": "Toxic Spikes",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Dark Hole",
-      "location": "Two Island - Cape Brink"
+      "move": "Solar Beam",
+      "location": "Cinnabar Island's Pokémon Lab"
     },
     {
-      "move": "Frenzy Plant",
-      "location": "Two Island - Joyful Game Corner"
-    },
-    {
-      "move": "Hydro Cannon",
-      "location": "Two Island - Joyful Game Corner"
+      "move": "Solar Blade",
+      "location": "Cinnabar Island's Pokémon Lab"
     }
   ],
   "megaStones": [

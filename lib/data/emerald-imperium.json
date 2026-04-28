@@ -436,68 +436,6 @@
               },
               "speedStat": 38,
               "species": "Delibird"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Slush Rush",
-              "item": "Muscle Band",
-              "moves": [
-                "Ice Fang",
-                "Rock Smash",
-                "Bulldoze",
-                "Ice Shard"
-              ],
-              "stats": {
-                "hp": 108,
-                "atk": 68,
-                "def": 45,
-                "spa": 30,
-                "spd": 40,
-                "spe": 43
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 23,
-              "species": "Cetoddle"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 16"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 38"
             }
           ]
         },
@@ -618,68 +556,6 @@
               },
               "speedStat": 35,
               "species": "Gligar"
-            },
-            {
-              "level": 15,
-              "nature": "Impish",
-              "ability": "Sturdy",
-              "item": "Berry Juice",
-              "moves": [
-                "Rock Blast",
-                "Spark",
-                "Bulldoze",
-                "Thunder Wave"
-              ],
-              "stats": {
-                "hp": 30,
-                "atk": 45,
-                "def": 135,
-                "spa": 45,
-                "spd": 90,
-                "spe": 30
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 18,
-              "species": "Nosepass"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 14"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 35"
             }
           ]
         }
@@ -810,96 +686,6 @@
               },
               "speedStat": 22,
               "species": "Sudowoodo"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Bold",
-              "ability": "Stench",
-              "item": "Eviolite",
-              "moves": [
-                "Mega Drain",
-                "Stun Spore",
-                "Leech Seed",
-                "Synthesis",
-                "The level cap used for speed calculation was 20"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 65,
-                "def": 70,
-                "spa": 85,
-                "spd": 75,
-                "spe": 40
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 26,
-              "species": "Gloom"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Bold",
-              "ability": "Stench",
-              "item": "Eviolite",
-              "moves": [
-                "Sludge",
-                "Poison Powder",
-                "Leech Seed",
-                "Synthesis",
-                "The level cap used for speed calculation was 20"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 65,
-                "def": 70,
-                "spa": 85,
-                "spd": 75,
-                "spe": 40
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 26,
-              "species": "Gloom"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 22"
             }
           ]
         },
@@ -1142,68 +928,6 @@
               },
               "speedStat": 36,
               "species": "Kubfu"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Adamant",
-              "ability": "Overgrow",
-              "item": "Sitrus Berry",
-              "moves": [
-                "Bullet Seed",
-                "Rock Tomb",
-                "Fury Cutter",
-                "Assurance"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 65,
-                "def": 45,
-                "spa": 85,
-                "spd": 65,
-                "spe": 95
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 46,
-              "species": "Grovyle"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 28"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 36"
             }
           ]
         },
@@ -1325,68 +1049,6 @@
               },
               "speedStat": 36,
               "species": "Kubfu"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Adamant",
-              "ability": "Striker",
-              "item": "Sitrus Berry",
-              "moves": [
-                "Double Kick",
-                "Rock Tomb",
-                "Flame Charge",
-                "Thunder Punch"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 85,
-                "def": 60,
-                "spa": 85,
-                "spd": 60,
-                "spe": 55
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 31,
-              "species": "Combusken"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 28"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 36"
             }
           ]
         },
@@ -1508,68 +1170,6 @@
               },
               "speedStat": 36,
               "species": "Kubfu"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Quiet",
-              "ability": "Torrent",
-              "item": "Sitrus Berry",
-              "moves": [
-                "Water Pulse",
-                "Rock Tomb",
-                "Mud Shot",
-                "Ice Punch"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 85,
-                "def": 70,
-                "spa": 60,
-                "spd": 70,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 26,
-              "species": "Marshtomp"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 28"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 36"
             }
           ]
         },
@@ -1691,94 +1291,6 @@
               },
               "speedStat": 73,
               "species": "Lycaroc-Dusk"
-            },
-            {
-              "level": 25,
-              "nature": "Adamant",
-              "ability": "Iron Fist",
-              "item": "Eviolite",
-              "moves": [
-                "Mach Punch",
-                "Fire Punch",
-                "Low Sweep",
-                "Thunder Punch"
-              ],
-              "stats": {
-                "hp": 85,
-                "atk": 105,
-                "def": 85,
-                "spa": 40,
-                "spd": 50,
-                "spe": 40
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 32,
-              "species": "Gurdurr"
-            },
-            {
-              "level": 25,
-              "nature": "Adamant",
-              "ability": "Guts",
-              "item": "Flame Orb",
-              "moves": [
-                "Fake Out",
-                "Low Sweep",
-                "Rock Tomb",
-                "Knock Off"
-              ],
-              "stats": {
-                "hp": 144,
-                "atk": 120,
-                "def": 60,
-                "spa": 40,
-                "spd": 60,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 37,
-              "species": "Hariyama"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 73"
             }
           ]
         }
@@ -2536,69 +2048,6 @@
               },
               "speedStat": 111,
               "species": "Meganium"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Jolly",
-              "ability": "Striker",
-              "item": "Blazikenite",
-              "moves": [
-                "Thunderous Kick",
-                "Blaze Kick",
-                "Knock Off",
-                "Power-Up Punch",
-                "The level cap used for the speed calculation was 56"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 160,
-                "def": 80,
-                "spa": 130,
-                "spd": 80,
-                "spe": 100
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 147,
-              "species": "Blaziken-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 95 (130)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 111 (147)"
             }
           ]
         },
@@ -2720,69 +2169,6 @@
               },
               "speedStat": 105,
               "species": "Skeledirge"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Adamant",
-              "ability": "Swift Swim",
-              "item": "Swampertite",
-              "moves": [
-                "Liquidation",
-                "Earthquake",
-                "Power-Up Punch",
-                "Avalanche",
-                "The level cap used for the speed calculation was 56"
-              ],
-              "stats": {
-                "hp": 100,
-                "atk": 150,
-                "def": 110,
-                "spa": 95,
-                "spd": 110,
-                "spe": 70
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 100,
-              "species": "Swampert-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 140 (180)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 105 (144)"
             }
           ]
         },
@@ -2907,69 +2293,6 @@
               },
               "speedStat": 123,
               "species": "Samurott-Hisui"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Adamant",
-              "ability": "Technician",
-              "item": "Sceptilite",
-              "moves": [
-                "Dual Chop",
-                "Bullet Seed",
-                "Rock Tomb",
-                "Power-up Punch",
-                "The level cap used for the speed calculation was 56"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 135,
-                "def": 75,
-                "spa": 110,
-                "spd": 85,
-                "spe": 145
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 202,
-              "species": "Sceptile-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 140 (180)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 123 (158)"
             }
           ]
         },
@@ -3092,96 +2415,6 @@
               },
               "speedStat": 114,
               "species": "Breloom"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Timid",
-              "ability": "Serene Grace",
-              "item": "King's Rock",
-              "moves": [
-                "Air Slash",
-                "Moonblast",
-                "Extrasensory",
-                "Flamethrower",
-                "The level cap used for the speed calculation was 64"
-              ],
-              "stats": {
-                "hp": 85,
-                "atk": 50,
-                "def": 95,
-                "spa": 120,
-                "spd": 115,
-                "spe": 80
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 139,
-              "species": "Togekiss"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Brave",
-              "ability": "Heatproof",
-              "item": "Steelixite",
-              "moves": [
-                "Spin Out",
-                "Curse",
-                "Earthquake",
-                "Stone Edge",
-                "The level cap used for the speed calculation was 64"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 125,
-                "def": 230,
-                "spa": 55,
-                "spd": 95,
-                "spe": 30
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 56,
-              "species": "Steelix-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 114"
             }
           ]
         },
@@ -3306,96 +2539,6 @@
               },
               "speedStat": 184,
               "species": "Weavile"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Adamant",
-              "ability": "Harvest",
-              "item": "Sitrus Berry",
-              "moves": [
-                "Dragon Hammer",
-                "Wood Hammer",
-                "Facade",
-                "Iron Head",
-                "The level cap used for the speed calculation was 64"
-              ],
-              "stats": {
-                "hp": 95,
-                "atk": 105,
-                "def": 85,
-                "spa": 125,
-                "spd": 75,
-                "spe": 45
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 82,
-              "species": "Exeggutor-Alola"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Timid",
-              "ability": "No Guard",
-              "item": "Pidgeotite",
-              "moves": [
-                "Hurricane",
-                "Heat Wave",
-                "Hyper Voice",
-                "Focus Blast",
-                "The level cap used for the speed calculation was 64"
-              ],
-              "stats": {
-                "hp": 83,
-                "atk": 80,
-                "def": 80,
-                "spa": 135,
-                "spd": 80,
-                "spe": 121
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 196,
-              "species": "Pidgeot-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 184 (225)"
             }
           ]
         },
@@ -3520,96 +2663,6 @@
               },
               "speedStat": 176,
               "species": "Pyroar"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Modest",
-              "ability": "Levitate",
-              "item": "Life Orb",
-              "moves": [
-                "Dazzling Gleam",
-                "Shadow Ball",
-                "Psychic",
-                "Energy Ball",
-                "The level cap used for the speed calculation was 64"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 60,
-                "def": 70,
-                "spa": 105,
-                "spd": 105,
-                "spe": 105
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 159,
-              "species": "Mismagius"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Modest",
-              "ability": "Mold Breaker",
-              "item": "Ampharosite",
-              "moves": [
-                "Thunderbolt",
-                "Dragon Pulse",
-                "Aura Sphere",
-                "Agility",
-                "The level cap used for the speed calculation was 64"
-              ],
-              "stats": {
-                "hp": 90,
-                "atk": 95,
-                "def": 105,
-                "spa": 165,
-                "spd": 110,
-                "spe": 45
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 82,
-              "species": "Ampharos-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 176 (220)"
             }
           ]
         },
@@ -5538,94 +4591,6 @@
               },
               "speedStat": 46,
               "species": "Gorebyss"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Adamant",
-              "ability": "Inner Focus",
-              "item": "Punching Glove",
-              "moves": [
-                "Drain Punch",
-                "Fire Punch",
-                "Thunder Punch",
-                "Ice Punch"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 90,
-                "def": 60,
-                "spa": 53,
-                "spd": 50,
-                "spe": 72
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 57,
-              "species": "Kubfu"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Jolly",
-              "ability": "Overgrow",
-              "item": "Focus Sash",
-              "moves": [
-                "Leaf Blade",
-                "Rock Slide",
-                "Power-Up Punch",
-                "Low Sweep"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 65,
-                "def": 45,
-                "spa": 85,
-                "spd": 65,
-                "spe": 95
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 80
-              },
-              "speedStat": 82,
-              "species": "Grovyle"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 46"
             }
           ]
         },
@@ -5747,94 +4712,6 @@
               },
               "speedStat": 94,
               "species": "Whimsicott"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Adamant",
-              "ability": "Inner Focus",
-              "item": "Punching Glove",
-              "moves": [
-                "Drain Punch",
-                "Fire Punch",
-                "Thunder Punch",
-                "Ice Punch"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 90,
-                "def": 60,
-                "spa": 53,
-                "spd": 50,
-                "spe": 72
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 57,
-              "species": "Kubfu"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Modest",
-              "ability": "Blaze",
-              "item": "Focus Sash",
-              "moves": [
-                "Flame Burst",
-                "Scorching Sands",
-                "Quick Attack",
-                "Counter"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 85,
-                "def": 60,
-                "spa": 85,
-                "spd": 60,
-                "spe": 55
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 80
-              },
-              "speedStat": 50,
-              "species": "Combusken"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 94"
             }
           ]
         },
@@ -5956,94 +4833,6 @@
               },
               "speedStat": 101,
               "species": "Rapidash-Galar"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Adamant",
-              "ability": "Inner Focus",
-              "item": "Punching Glove",
-              "moves": [
-                "Drain Punch",
-                "Fire Punch",
-                "Thunder Punch",
-                "Ice Punch"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 90,
-                "def": 60,
-                "spa": 53,
-                "spd": 50,
-                "spe": 72
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 57,
-              "species": "Kubfu"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Brave",
-              "ability": "Torrent",
-              "item": "Focus Sash",
-              "moves": [
-                "Bulldoze",
-                "Rock Slide",
-                "Liquidation",
-                "Flip Turn"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 85,
-                "def": 70,
-                "spa": 60,
-                "spd": 70,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 80,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 41,
-              "species": "Marshtomp"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 101"
             }
           ]
         },
@@ -6286,68 +5075,6 @@
               },
               "speedStat": 70,
               "species": "Shiftry"
-            },
-            {
-              "level": "Highest Lv -3",
-              "nature": "Modest",
-              "ability": "Water Absorb",
-              "item": "Shuca Berry",
-              "moves": [
-                "Shock Wave",
-                "Scald",
-                "Icy Wind",
-                "Signal Beam"
-              ],
-              "stats": {
-                "hp": 125,
-                "atk": 58,
-                "def": 58,
-                "spa": 76,
-                "spd": 76,
-                "spe": 67
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 56,
-              "species": "Lanturn"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 41"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 70"
             }
           ]
         },
@@ -6590,68 +5317,6 @@
               },
               "speedStat": 42,
               "species": "Bellibolt"
-            },
-            {
-              "level": "Highest Lv -3",
-              "nature": "Jolly",
-              "ability": "Guts",
-              "item": "Eviolite",
-              "moves": [
-                "Drain Punch",
-                "Knock Off",
-                "Bulk Up",
-                "Rock Slide"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 100,
-                "def": 70,
-                "spa": 50,
-                "spd": 60,
-                "spe": 45
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 46,
-              "species": "Machoke"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 83"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 42"
             }
           ]
         },
@@ -6773,94 +5438,6 @@
               },
               "speedStat": 68,
               "species": "Orbeetle"
-            },
-            {
-              "level": "Highest Lv -4",
-              "nature": "Jolly",
-              "ability": "Scrappy",
-              "item": "Fighting Gem",
-              "moves": [
-                "Jump Kick",
-                "Acrobatics",
-                "Roost",
-                "Facade"
-              ],
-              "stats": {
-                "hp": 92,
-                "atk": 115,
-                "def": 74,
-                "spa": 75,
-                "spd": 74,
-                "spe": 90
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 74,
-              "species": "Flamigo"
-            },
-            {
-              "level": "Highest Lv -4",
-              "nature": "Relaxed",
-              "ability": "Intimidate",
-              "item": "Sitrus Berry",
-              "moves": [
-                "Dark Pulse",
-                "Hex",
-                "Shadow Sneak",
-                "Will-o-Wisp"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 92,
-                "def": 108,
-                "spa": 92,
-                "spd": 108,
-                "spe": 35
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 6,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 35,
-              "species": "Spiritomb"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 68"
             }
           ]
         },
@@ -6982,94 +5559,6 @@
               },
               "speedStat": 71,
               "species": "Seviper"
-            },
-            {
-              "level": "Highest Lv -4",
-              "nature": "Jolly",
-              "ability": "Thick Fat",
-              "item": "Leftovers",
-              "moves": [
-                "Body Slam",
-                "Milk Drink",
-                "Thunder Punch",
-                "Toxic"
-              ],
-              "stats": {
-                "hp": 95,
-                "atk": 85,
-                "def": 105,
-                "spa": 40,
-                "spd": 70,
-                "spe": 100
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 81,
-              "species": "Miltank"
-            },
-            {
-              "level": "Highest Lv -4",
-              "nature": "Jolly",
-              "ability": "Poison Touch",
-              "item": "Focus Sash",
-              "moves": [
-                "Fake Out",
-                "Cross Poison",
-                "Ice Punch",
-                "Rock Smash"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 92,
-                "def": 108,
-                "spa": 92,
-                "spd": 108,
-                "spe": 35
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 91,
-              "species": "Sneasel-Hisui"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 71 (92)"
             }
           ]
         },
@@ -7191,94 +5680,6 @@
               },
               "speedStat": 95,
               "species": "Gallade"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Timid",
-              "ability": "Illusion",
-              "item": "Expert Belt",
-              "moves": [
-                "Dark Pulse",
-                "Sludge Bomb",
-                "Flamethrower",
-                "Extrasensroy"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 105,
-                "def": 60,
-                "spa": 120,
-                "spd": 60,
-                "spe": 105
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 122,
-              "species": "Zoroark"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Jolly",
-              "ability": "Prankster",
-              "item": "Banettite",
-              "moves": [
-                "Knock Off",
-                "Shadow Claw",
-                "Shadow Sneak",
-                "Return"
-              ],
-              "stats": {
-                "hp": 64,
-                "atk": 165,
-                "def": 75,
-                "spa": 93,
-                "spd": 83,
-                "spe": 75
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 92,
-              "species": "Bannette-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 95 (125)"
             }
           ]
         },
@@ -7400,68 +5801,6 @@
               },
               "speedStat": 28,
               "species": "Skarmory"
-            },
-            {
-              "level": 32,
-              "nature": "Timid",
-              "ability": "Trace",
-              "item": "Wise Glasses",
-              "moves": [
-                "Draining Kiss",
-                "Psychic Noise",
-                "Magical Leaf",
-                "Shadow Ball"
-              ],
-              "stats": {
-                "hp": 68,
-                "atk": 65,
-                "def": 65,
-                "spa": 125,
-                "spd": 115,
-                "spe": 80
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 80,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 72,
-              "species": "Gardevoir"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 68"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 28"
             }
           ]
         },
@@ -7583,94 +5922,6 @@
               },
               "speedStat": 63,
               "species": "Magneton"
-            },
-            {
-              "level": 34,
-              "nature": "Modest",
-              "ability": "Levitate",
-              "item": "Occa Berry",
-              "moves": [
-                "Bug Buzz",
-                "Air Slash",
-                "Energy Ball",
-                "Charge Beam"
-              ],
-              "stats": {
-                "hp": 77,
-                "atk": 70,
-                "def": 90,
-                "spa": 145,
-                "spd": 75,
-                "spe": 43
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 44,
-              "species": "Vikavolt"
-            },
-            {
-              "level": 34,
-              "nature": "Jolly",
-              "ability": "Intimidate/Strong Jaw",
-              "item": "Luxrayite",
-              "moves": [
-                "Thunder Fang",
-                "Bite",
-                "Psychic Fangs",
-                "Ice Fang"
-              ],
-              "stats": {
-                "hp": 95,
-                "atk": 130,
-                "def": 79,
-                "spa": 110,
-                "spd": 79,
-                "spe": 130
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 113,
-              "species": "Luxray-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 63"
             }
           ]
         }
@@ -7801,69 +6052,6 @@
               },
               "speedStat": 107,
               "species": "Oricorio-Sensu"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Timid",
-              "ability": "Dancer",
-              "item": "Charti Berry",
-              "moves": [
-                "Revelation Dance",
-                "Quiver Dance",
-                "Air Cutter",
-                "Roost",
-                "The level cap used for the speed calculation was 44"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 70,
-                "def": 70,
-                "spa": 98,
-                "spd": 70,
-                "spe": 93
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 107,
-              "species": "Oricorio-Pom Pom"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 107 (137)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 107 (137)"
             }
           ]
         },
@@ -7988,96 +6176,6 @@
               },
               "speedStat": 44,
               "species": "Sudowoodo"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Bold",
-              "ability": "Chlorophyll",
-              "item": "Leftovers",
-              "moves": [
-                "Giga Drain",
-                "Stun Spore",
-                "Dazzling Gleam",
-                "Synthesis",
-                "The level cap used for the speed calculation was 44"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 80,
-                "def": 95,
-                "spa": 90,
-                "spd": 100,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 6,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 61,
-              "species": "Bellossom"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Timid",
-              "ability": "Technician",
-              "item": "Roseradeite",
-              "moves": [
-                "Mega Drain",
-                "Sludge",
-                "Sleep Powder",
-                "HP Fire",
-                "The level cap used for the speed calculation was 44"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 80,
-                "def": 90,
-                "spa": 140,
-                "spd": 125,
-                "spe": 120
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 30,
-                "def": 31,
-                "spa": 30,
-                "spd": 31,
-                "spe": 30
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 135,
-              "species": "Roserade-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 44 (71)"
             }
           ]
         },
@@ -8199,94 +6297,6 @@
               },
               "speedStat": 85,
               "species": "Tsareena"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Timid",
-              "ability": "Flash Fire",
-              "item": "Charcoal",
-              "moves": [
-                "Flamethrower",
-                "Shadow Ball",
-                "Psychic",
-                "Will-o-Wisp"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 55,
-                "def": 90,
-                "spa": 145,
-                "spd": 90,
-                "spe": 80
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 93,
-              "species": "Chandelure"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Modest",
-              "ability": "Lightning Rod",
-              "item": "Empoleonite D",
-              "moves": [
-                "Surf",
-                "Flash Cannon",
-                "Air Slash",
-                "Roost"
-              ],
-              "stats": {
-                "hp": 118,
-                "atk": 75,
-                "def": 88,
-                "spa": 131,
-                "spd": 157,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 6,
-                "spd": 252,
-                "spe": 0
-              },
-              "speedStat": 61,
-              "species": "Empoleon-Mega D"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 85 (114)"
             }
           ]
         },
@@ -8408,68 +6418,6 @@
               },
               "speedStat": 48,
               "species": "Turtonator"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Timid",
-              "ability": "Chlorophyll",
-              "item": "Leftovers",
-              "moves": [
-                "Giga Drain",
-                "Sludge Bomb",
-                "Quiver Dance",
-                "Moonblast"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 80,
-                "def": 95,
-                "spa": 90,
-                "spd": 100,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 66,
-              "species": "Bellossom"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 43"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 48"
             }
           ]
         },
@@ -8594,96 +6542,6 @@
               },
               "speedStat": 85,
               "species": "Hitmontop"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Adamant",
-              "ability": "Iron Fist",
-              "item": "Punching Glove",
-              "moves": [
-                "Drain Punch",
-                "Fire Punch",
-                "Thunder Punch",
-                "Mach Punch",
-                "The level cap used for the speed calculation was 44"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 115,
-                "def": 79,
-                "spa": 35,
-                "spd": 110,
-                "spe": 76
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 83,
-              "species": "Hitmonchan"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Striker",
-              "item": "Kicking Shoes",
-              "moves": [
-                "High Jump Kick",
-                "Sucker Punch",
-                "Blaze Kick",
-                "Aqua Step",
-                "The level cap used for the speed calculation was 44"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 120,
-                "def": 53,
-                "spa": 35,
-                "spd": 110,
-                "spe": 87
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 102,
-              "species": "Hitmonlee"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 85 (115)"
             }
           ]
         },
@@ -8805,68 +6663,6 @@
               },
               "speedStat": 47,
               "species": "Palossand"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Adamant",
-              "ability": "Skill Link",
-              "item": "Heracronite",
-              "moves": [
-                "Rock Blast",
-                "Arm Thrust",
-                "Bullet Seed",
-                "Pin Missile"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 185,
-                "def": 115,
-                "spa": 40,
-                "spd": 105,
-                "spe": 75
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 81,
-              "species": "Heracross-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 96 (122)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 47"
             }
           ]
         },
@@ -8988,68 +6784,6 @@
               },
               "speedStat": 130,
               "species": "Ribombee"
-            },
-            {
-              "level": "Highest Lv -3",
-              "nature": "Adamant",
-              "ability": "Adaptability",
-              "item": "Silk Scarf",
-              "moves": [
-                "Return",
-                "Crunch",
-                "Fire Fang",
-                "Ice Fang"
-              ],
-              "stats": {
-                "hp": 98,
-                "atk": 110,
-                "def": 60,
-                "spa": 55,
-                "spd": 60,
-                "spe": 45
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 54,
-              "species": "Gumshoos"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 121 (149)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 130 (159)"
             }
           ]
         },
@@ -9171,68 +6905,6 @@
               },
               "speedStat": 135,
               "species": "Weavile"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Modest",
-              "ability": "Refrigerate",
-              "item": "Never-Melt Ice",
-              "moves": [
-                "Hyper Voice",
-                "Power Gem",
-                "Earth Power",
-                "Psychic"
-              ],
-              "stats": {
-                "hp": 123,
-                "atk": 77,
-                "def": 72,
-                "spa": 99,
-                "spd": 92,
-                "spe": 54
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 66,
-              "species": "Aurorus"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 76 (103)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 135 163)"
             }
           ]
         },
@@ -9354,68 +7026,6 @@
               },
               "speedStat": 83,
               "species": "Cloyster"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Adamant",
-              "ability": "Water Bubble",
-              "item": "Mystic Water",
-              "moves": [
-                "Liquidation",
-                "Leech Life",
-                "Mirror Coat",
-                "Crunch"
-              ],
-              "stats": {
-                "hp": 68,
-                "atk": 70,
-                "def": 92,
-                "spa": 50,
-                "spd": 132,
-                "spe": 42
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 53,
-              "species": "Araquanid"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 85 (111)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 83 (113)"
             }
           ]
         },
@@ -9537,94 +7147,6 @@
               },
               "speedStat": 118,
               "species": "Ninetales-Alola"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Jolly",
-              "ability": "Dry Skin",
-              "item": "Muscle Band",
-              "moves": [
-                "Fake Out",
-                "Poison Jab",
-                "Drain Punch",
-                "Sucker Punch"
-              ],
-              "stats": {
-                "hp": 83,
-                "atk": 106,
-                "def": 65,
-                "spa": 86,
-                "spd": 65,
-                "spe": 85
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 97,
-              "species": "Toxicroak"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Jolly",
-              "ability": "Slush Rush",
-              "item": "Life Orb",
-              "moves": [
-                "Bolt Beak",
-                "Icicle Crash",
-                "Pluck",
-                "Rock Slide"
-              ],
-              "stats": {
-                "hp": 90,
-                "atk": 100,
-                "def": 90,
-                "spa": 90,
-                "spd": 80,
-                "spe": 55
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 70,
-              "species": "Arctozolt"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 118 (149)"
             }
           ]
         },
@@ -9746,94 +7268,6 @@
               },
               "speedStat": 94,
               "species": "Tatsugiri"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Timid",
-              "ability": "Ice Body",
-              "item": "Expert Belt",
-              "moves": [
-                "Blizzard",
-                "Bitter Malice",
-                "Thunderbolt",
-                "Destiny Bond"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 95,
-                "def": 70,
-                "spa": 95,
-                "spd": 70,
-                "spe": 110
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 123,
-              "species": "Froslass"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Refrigerate",
-              "item": "Glalitite",
-              "moves": [
-                "Return",
-                "Earthquake",
-                "Explosion",
-                "Crunch"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 135,
-                "def": 80,
-                "spa": 105,
-                "spd": 80,
-                "spe": 100
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 114,
-              "species": "Glalie-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 94 (124)"
             }
           ]
         },
@@ -10190,94 +7624,6 @@
               },
               "speedStat": 57,
               "species": "Conkeldurr"
-            },
-            {
-              "level": 43,
-              "nature": "Timid",
-              "ability": "Corrosion",
-              "item": "Air Balloon",
-              "moves": [
-                "Flamethrower",
-                "Toxic",
-                "Sludge Bomb",
-                "HP Grass"
-              ],
-              "stats": {
-                "hp": 68,
-                "atk": 64,
-                "def": 60,
-                "spa": 111,
-                "spd": 60,
-                "spe": 117
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 30,
-                "def": 31,
-                "spa": 30,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 129,
-              "species": "Salazzle"
-            },
-            {
-              "level": 44,
-              "nature": "Timid",
-              "ability": "Dark Aura",
-              "item": "Houndoominite",
-              "moves": [
-                "Flamethrower",
-                "Dark Pulse",
-                "Sludge Bomb",
-                "Scorching Sands"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 110,
-                "def": 90,
-                "spa": 140,
-                "spd": 90,
-                "spe": 115
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 130,
-              "species": "Houndoom-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 57 (84)"
             }
           ]
         },
@@ -11456,69 +8802,6 @@
               },
               "speedStat": 112,
               "species": "Dracozolt"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Adamant",
-              "ability": "Huge Power",
-              "item": "Mawilite",
-              "moves": [
-                "Sucker Punch",
-                "Iron Head",
-                "Play Rough",
-                "Swords Dance",
-                "The level cap used for the speed calculation was 56"
-              ],
-              "stats": {
-                "hp": 50,
-                "atk": 105,
-                "def": 125,
-                "spa": 55,
-                "spd": 95,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 77,
-              "species": "Mawile-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 100 (137)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 112 (149)"
             }
           ]
         },
@@ -11640,69 +8923,6 @@
               },
               "speedStat": 112,
               "species": "Dracovish"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Tough Claws",
-              "item": "Aerodactylite",
-              "moves": [
-                "Hone Claws",
-                "Stone Edge",
-                "Earthquake",
-                "Dual Wingbeat",
-                "The level cap used for the speed calculation was 56"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 135,
-                "def": 85,
-                "spa": 70,
-                "spd": 95,
-                "spe": 150
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 205,
-              "species": "Aerodactyl-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 94 (132)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 112 (149)"
             }
           ]
         },
@@ -12297,94 +9517,6 @@
               },
               "speedStat": 124,
               "species": "Toxicroak"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Timid",
-              "ability": "Levitate",
-              "item": "Life Orb",
-              "moves": [
-                "Shadow Ball",
-                "Sludge Bomb",
-                "Psychic",
-                "Focus Blast"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 65,
-                "def": 60,
-                "spa": 130,
-                "spd": 75,
-                "spe": 110
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 154,
-              "species": "Gengar"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Timid",
-              "ability": "Quark Drive",
-              "item": "Air Balloon",
-              "moves": [
-                "Sludge Wave",
-                "Fiery Dance",
-                "Dazzling Gleam",
-                "Energy Ball"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 70,
-                "def": 60,
-                "spa": 140,
-                "spd": 110,
-                "spe": 110
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 157,
-              "species": "Iron Moth"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 124 (161)"
             }
           ]
         },
@@ -12741,94 +9873,6 @@
               },
               "speedStat": 136,
               "species": "Drapion"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Jolly",
-              "ability": "Adaptability",
-              "item": "Beedrillite",
-              "moves": [
-                "Swords Dance",
-                "X-Scissor",
-                "Poison Jab",
-                "Drill Run"
-              ],
-              "stats": {
-                "hp": 65,
-                "atk": 150,
-                "def": 40,
-                "spa": 15,
-                "spd": 80,
-                "spe": 145
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 195,
-              "species": "Beedrill-Mega"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Timid",
-              "ability": "Beast Boost",
-              "item": "Life Orb",
-              "moves": [
-                "Sludge Wave",
-                "Dragon Pulse",
-                "Fire Blast",
-                "Nasty Plot"
-              ],
-              "stats": {
-                "hp": 73,
-                "atk": 73,
-                "def": 73,
-                "spa": 127,
-                "spd": 73,
-                "spe": 121
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 170,
-              "species": "Naganadel"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 136 (173)"
             }
           ]
         },
@@ -12950,94 +9994,6 @@
               },
               "speedStat": 81,
               "species": "Crustle"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Timid",
-              "ability": "Technician",
-              "item": "Roseradite",
-              "moves": [
-                "Mega Drain",
-                "Sludge",
-                "Ancient Power",
-                "HP Fire"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 80,
-                "def": 90,
-                "spa": 140,
-                "spd": 125,
-                "spe": 120
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 30,
-                "def": 31,
-                "spa": 30,
-                "spd": 31,
-                "spe": 30
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 165,
-              "species": "Roserade-Mega"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Beast Boost",
-              "item": "Expert Belt",
-              "moves": [
-                "Leaf Blade",
-                "Smart Strike",
-                "Sacred Sword",
-                "Night Slash"
-              ],
-              "stats": {
-                "hp": 59,
-                "atk": 181,
-                "def": 131,
-                "spa": 59,
-                "spd": 31,
-                "spe": 109
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 155,
-              "species": "Kartana"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 81 (115)"
             }
           ]
         },
@@ -13159,94 +10115,6 @@
               },
               "speedStat": 118,
               "species": "Masquerain"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Timid",
-              "ability": "Compound Eyes",
-              "item": "Butterfrite",
-              "moves": [
-                "Quiver Dance",
-                "Hurricane",
-                "Bug Buzz",
-                "Giga Drain"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 45,
-                "def": 100,
-                "spa": 140,
-                "spd": 100,
-                "spe": 80
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 118,
-              "species": "Butterfree-Mega"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Bold",
-              "ability": "Tablet of Ruin",
-              "item": "Leftovers",
-              "moves": [
-                "Leech Seed",
-                "Stun Spore",
-                "Giga Drain",
-                "Ruination"
-              ],
-              "stats": {
-                "hp": 85,
-                "atk": 85,
-                "def": 100,
-                "spa": 95,
-                "spd": 135,
-                "spe": 70
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 6,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 99,
-              "species": "Wo-Chien"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 118 (156)"
             }
           ]
         },
@@ -13368,94 +10236,6 @@
               },
               "speedStat": 54,
               "species": "Parasect"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Adamant",
-              "ability": "Thick Fat",
-              "item": "Snorlaxite",
-              "moves": [
-                "Body Slam",
-                "Wood Hammer",
-                "Earthquake",
-                "Heavy Slam"
-              ],
-              "stats": {
-                "hp": 160,
-                "atk": 160,
-                "def": 85,
-                "spa": 80,
-                "spd": 125,
-                "spe": 30
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 54,
-              "species": "Snorlax-Mega"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Mild",
-              "ability": "Beast Boost",
-              "item": "Expert Belt",
-              "moves": [
-                "Bug Buzz",
-                "Close Combat",
-                "Aura Sphere",
-                "Ice Beam"
-              ],
-              "stats": {
-                "hp": 71,
-                "atk": 137,
-                "def": 37,
-                "spa": 137,
-                "spd": 37,
-                "spe": 151
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 188,
-              "species": "Pheromosa"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 54 (88)"
             }
           ]
         },
@@ -13577,94 +10357,6 @@
               },
               "speedStat": 123,
               "species": "Gholdengo"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Jolly",
-              "ability": "Sharpness",
-              "item": "Assault Vest",
-              "moves": [
-                "Smart Strike",
-                "Knock Off",
-                "Razor Shell",
-                "Sacred Sword"
-              ],
-              "stats": {
-                "hp": 95,
-                "atk": 108,
-                "def": 85,
-                "spa": 95,
-                "spd": 70,
-                "spe": 90
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 129,
-              "species": "Samurott"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Timid",
-              "ability": "Quark Drive",
-              "item": "Booster Energy",
-              "moves": [
-                "Tachyon Cutter",
-                "Psyshock",
-                "Secret Sword",
-                "Air Slash"
-              ],
-              "stats": {
-                "hp": 90,
-                "atk": 72,
-                "def": 100,
-                "spa": 122,
-                "spd": 108,
-                "spe": 98
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 141,
-              "species": "Iron Crown"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 123 (160)"
             }
           ]
         },
@@ -13786,94 +10478,6 @@
               },
               "speedStat": 91,
               "species": "Claydol"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Impish",
-              "ability": "Heatproof",
-              "item": "Steelixite",
-              "moves": [
-                "Earthquake",
-                "Stone Edge",
-                "Heavy Slam",
-                "Curse"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 125,
-                "def": 230,
-                "spa": 55,
-                "spd": 95,
-                "spe": 30
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 6,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 54,
-              "species": "Steelix-Mega"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Impish",
-              "ability": "Beast Boost",
-              "item": "Air Balloon",
-              "moves": [
-                "Gyro Ball",
-                "Earthquake",
-                "Rock Slide",
-                "Body Press"
-              ],
-              "stats": {
-                "hp": 61,
-                "atk": 131,
-                "def": 211,
-                "spa": 53,
-                "spd": 101,
-                "spe": 13
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 6,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 36,
-              "species": "Stakataka"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 91"
             }
           ]
         },
@@ -13995,94 +10599,6 @@
               },
               "speedStat": 97,
               "species": "Skarmory"
-            },
-            {
-              "level": "Highest Lv -2",
-              "nature": "Jolly",
-              "ability": "Tough Claws",
-              "item": "Kinglerite",
-              "moves": [
-                "Aqua Jet",
-                "Liquidation",
-                "Ice Hammer",
-                "Iron Head"
-              ],
-              "stats": {
-                "hp": 55,
-                "atk": 150,
-                "def": 130,
-                "spa": 50,
-                "spd": 75,
-                "spe": 110
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 154,
-              "species": "Kingler-Mega"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Quark Drive",
-              "item": "Booster Energy",
-              "moves": [
-                "Iron Head",
-                "Wild Charge",
-                "Earthquake",
-                "Knock Off"
-              ],
-              "stats": {
-                "hp": 90,
-                "atk": 112,
-                "def": 120,
-                "spa": 72,
-                "spd": 70,
-                "spe": 106
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 151,
-              "species": "Iron Treads"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 97"
             }
           ]
         },
@@ -17066,68 +13582,6 @@
               },
               "speedStat": 67,
               "species": "Shiinotic"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Sap Sipper",
-              "item": "Life Orb",
-              "moves": [
-                "Flare Blitz",
-                "Wild Charge",
-                "Facade",
-                "Zippy Zap"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 100,
-                "def": 63,
-                "spa": 80,
-                "spd": 63,
-                "spe": 116
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 207,
-              "species": "Zebstrika"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 125 (169)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 67"
             }
           ]
         },
@@ -17249,68 +13703,6 @@
               },
               "speedStat": 193,
               "species": "Heliolisk"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Timid",
-              "ability": "Shield Dust",
-              "item": "Sharp Beak",
-              "moves": [
-                "Quiver Dance",
-                "Hurricane",
-                "Giga Drain",
-                "Sleep Powder"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 52,
-                "def": 50,
-                "spa": 90,
-                "spd": 50,
-                "spe": 89
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 166,
-              "species": "Vivillon"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 157 (205)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 193 (242)"
             }
           ]
         },
@@ -17432,68 +13824,6 @@
               },
               "speedStat": 172,
               "species": "Gliscor"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Modest",
-              "ability": "Mega Launcher",
-              "item": "Blastoisinite",
-              "moves": [
-                "Aura Sphere",
-                "Ice Beam",
-                "Water Pulse",
-                "Shell Smash"
-              ],
-              "stats": {
-                "hp": 79,
-                "atk": 103,
-                "def": 120,
-                "spa": 135,
-                "spd": 115,
-                "spe": 78
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 148,
-              "species": "Blastoise-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 102 (145)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 172 (220)"
             }
           ]
         },
@@ -18529,94 +14859,6 @@
               },
               "speedStat": 160,
               "species": "Chandelure"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Thermal Exchange",
-              "item": "Focus Sash",
-              "moves": [
-                "Glaive Rush",
-                "Iron Head",
-                "Icicle Crash",
-                "Dragon Dance"
-              ],
-              "stats": {
-                "hp": 115,
-                "atk": 145,
-                "def": 92,
-                "spa": 75,
-                "spd": 86,
-                "spe": 87
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 173,
-              "species": "Baxcalibur"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Jolly",
-              "ability": "Huge Power",
-              "item": "Medichamite",
-              "moves": [
-                "Zen Headbutt",
-                "Close Combat",
-                "Bullet Punch",
-                "Rock Slide"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 100,
-                "def": 85,
-                "spa": 80,
-                "spd": 85,
-                "spe": 100
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 195,
-              "species": "Mega Medicham"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 160 (211)"
             }
           ]
         },
@@ -18976,130 +15218,6 @@
               },
               "speedStat": 158,
               "species": "Great Tusk"
-            }
-          ]
-        },
-        {
-          "id": "smooth-rock",
-          "name": "Smooth Rock",
-          "pokepaste": null,
-          "team": [
-            {
-              "level": "Highest Lv -1",
-              "nature": "Adamant",
-              "ability": "Sheer Force",
-              "item": "Life Orb",
-              "moves": [
-                "Rock Slide",
-                "Fire Punch",
-                "Rock Polish",
-                "Zen Headbutt",
-                "The level cap used for the speed calculation was 76"
-              ],
-              "stats": {
-                "hp": 97,
-                "atk": 165,
-                "def": 60,
-                "spa": 65,
-                "spd": 50,
-                "spe": 58
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 115,
-              "species": "Speed Stat: 98"
-            },
-            {
-              "level": "Highest Lv -1",
-              "nature": "Hasty",
-              "ability": "Sand Rush",
-              "item": "Focus Sash",
-              "moves": [
-                "Energy Ball",
-                "Sucker Punch",
-                "Dark Pulse",
-                "Destiny Bond",
-                "The level cap used for the speed calculation was 76"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 120,
-                "def": 60,
-                "spa": 120,
-                "spd": 60,
-                "spe": 55
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 0,
-                "atk": 6,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 121,
-              "species": "Speed Stat: 196 (249)"
-            },
-            {
-              "level": "Highest Lv",
-              "nature": "Adamant",
-              "ability": "Heatproof",
-              "item": "Steelixite",
-              "moves": [
-                "Earthquake",
-                "Stone Edge",
-                "Heavy Slam",
-                "Crunch",
-                "The level cap used for the speed calculation was 76"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 125,
-                "def": 230,
-                "spa": 55,
-                "spd": 95,
-                "spe": 30
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 6,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 74,
-              "species": "Speed Stat: 158 (206)"
             }
           ]
         },
@@ -20185,68 +16303,6 @@
               },
               "speedStat": 181,
               "species": "Kommo-O"
-            },
-            {
-              "level": 80,
-              "nature": "Jolly",
-              "ability": "Mountaineer",
-              "item": "Centiskite",
-              "moves": [
-                "Fire Lash",
-                "Leech Life",
-                "Knock Off",
-                "Power Whip"
-              ],
-              "stats": {
-                "hp": 100,
-                "atk": 150,
-                "def": 80,
-                "spa": 90,
-                "spd": 110,
-                "spe": 85
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 181,
-              "species": "Centiskorch-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 229 (286)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 181 (237)"
             }
           ]
         },
@@ -20368,68 +16424,6 @@
               },
               "speedStat": 204,
               "species": "Hydreigon"
-            },
-            {
-              "level": 80,
-              "nature": "Timid",
-              "ability": "Dark Aura",
-              "item": "Houndoominite",
-              "moves": [
-                "Flamethrower",
-                "Fiery Wrath",
-                "Sludge Bomb",
-                "Scorching Sands"
-              ],
-              "stats": {
-                "hp": 75,
-                "atk": 110,
-                "def": 90,
-                "spa": 140,
-                "spd": 90,
-                "spe": 115
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 234,
-              "species": "Houndoom-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Bull Rush: 219 (303)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 204 (260)"
             }
           ]
         },
@@ -20786,65 +16780,6 @@
               },
               "speedStat": 125,
               "species": "Goodra-Hisui"
-            },
-            {
-              "level": 80,
-              "nature": "Jolly",
-              "ability": "Intimidate",
-              "item": "Gyaradosite",
-              "moves": [
-                "Aqua Tail",
-                "Crunch",
-                "Earthquake",
-                "Dragon Dance"
-              ],
-              "stats": {
-                "hp": 95,
-                "def": 109,
-                "spa": 70,
-                "spd": 130,
-                "spe": 81
-              },
-              "ivs": {
-                "hp": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 174,
-              "species": "Gyarados-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 207 (264)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 125"
             }
           ]
         },
@@ -20966,68 +16901,6 @@
               },
               "speedStat": 172,
               "species": "Dragonite"
-            },
-            {
-              "level": 80,
-              "nature": "Adamant",
-              "ability": "ORAORAORAORA",
-              "item": "Machampite",
-              "moves": [
-                "Mach Punch",
-                "Drain Punch",
-                "Thunder Punch",
-                "Fire Punch"
-              ],
-              "stats": {
-                "hp": 90,
-                "atk": 145,
-                "def": 110,
-                "spa": 65,
-                "spd": 115,
-                "spe": 75
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 149,
-              "species": "Machamp-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Ability Proc: 265 (320)"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 172 (228)"
             }
           ]
         },
@@ -24966,94 +20839,6 @@
               },
               "speedStat": 210,
               "species": "Sigilyph"
-            },
-            {
-              "level": 83,
-              "nature": "Jolly",
-              "ability": "Solid Rock",
-              "item": "Weakness Policy",
-              "moves": [
-                "Earthquake",
-                "Stone Edge",
-                "Megahorn",
-                "Thunder Punch"
-              ],
-              "stats": {
-                "hp": 115,
-                "atk": 140,
-                "def": 130,
-                "spa": 55,
-                "spd": 55,
-                "spe": 40
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 106,
-              "species": "Rhyperior"
-            },
-            {
-              "level": 84,
-              "nature": "Timid",
-              "ability": "Thick Fat",
-              "item": "Venusaurite",
-              "moves": [
-                "Giga Drain",
-                "Sludge Bomb",
-                "Earth Power",
-                "HP Fire"
-              ],
-              "stats": {
-                "hp": 80,
-                "atk": 100,
-                "def": 123,
-                "spa": 122,
-                "spd": 120,
-                "spe": 80
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 30,
-                "def": 31,
-                "spa": 30,
-                "spd": 31,
-                "spe": 30
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 180,
-              "species": "Venusaur-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 210 (268)"
             }
           ]
         },
@@ -25175,94 +20960,6 @@
               },
               "speedStat": 179,
               "species": "Togekiss"
-            },
-            {
-              "level": 83,
-              "nature": "Timid",
-              "ability": "Beast Boost",
-              "item": "Life Orb",
-              "moves": [
-                "Thunderbolt",
-                "Signal Beam",
-                "Energy Ball",
-                "Tail Glow"
-              ],
-              "stats": {
-                "hp": 83,
-                "atk": 69,
-                "def": 71,
-                "spa": 173,
-                "spd": 71,
-                "spe": 98
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 212,
-              "species": "Xurkitree"
-            },
-            {
-              "level": 84,
-              "nature": "Timid",
-              "ability": "Magic Guard",
-              "item": "Orbeetlite",
-              "moves": [
-                "Bug Buzz",
-                "Psychic",
-                "Energy Ball",
-                "Calm Mind"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 45,
-                "def": 125,
-                "spa": 135,
-                "spd": 130,
-                "spe": 100
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 218,
-              "species": "Orbeetle-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 179 (236)"
             }
           ]
         },
@@ -25384,94 +21081,6 @@
               },
               "speedStat": 215,
               "species": "Mr. Rime"
-            },
-            {
-              "level": 83,
-              "nature": "Timid",
-              "ability": "Sniper",
-              "item": "Choice Specs",
-              "moves": [
-                "Snipe Shot",
-                "Hydro Pump",
-                "Ice Beam",
-                "Air Slash"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 85,
-                "def": 65,
-                "spa": 125,
-                "spd": 65,
-                "spe": 120
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 251,
-              "species": "Inteleon"
-            },
-            {
-              "level": 84,
-              "nature": "Jolly",
-              "ability": "Aerilate",
-              "item": "Pinsirite",
-              "moves": [
-                "X-Scissor",
-                "Double-Edge",
-                "Swords Dance",
-                "Close Combat"
-              ],
-              "stats": {
-                "hp": 65,
-                "atk": 155,
-                "def": 120,
-                "spa": 65,
-                "spd": 90,
-                "spe": 105
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 227,
-              "species": "Pinsir-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 215 (273)"
             }
           ]
         },
@@ -25593,94 +21202,6 @@
               },
               "speedStat": 281,
               "species": "Barraskewda"
-            },
-            {
-              "level": 83,
-              "nature": "Timid",
-              "ability": "Levitate",
-              "item": "Leftovers",
-              "moves": [
-                "Moonblast",
-                "Hex",
-                "Will-o-Wisp",
-                "Energy Ball"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 60,
-                "def": 70,
-                "spa": 105,
-                "spd": 105,
-                "spe": 105
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 225,
-              "species": "Mismagius"
-            },
-            {
-              "level": 84,
-              "nature": "Jolly",
-              "ability": "Scrappy",
-              "item": "Lopunnite",
-              "moves": [
-                "Fake Out",
-                "Return",
-                "Power-Up Punch",
-                "Play Rough"
-              ],
-              "stats": {
-                "hp": 65,
-                "atk": 136,
-                "def": 94,
-                "spa": 54,
-                "spd": 96,
-                "spe": 135
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 252,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 282,
-              "species": "Lopunny-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 281 (338)"
             }
           ]
         },
@@ -25802,94 +21323,6 @@
               },
               "speedStat": 179,
               "species": "Regidrago"
-            },
-            {
-              "level": 83,
-              "nature": "Bold",
-              "ability": "Stance Change",
-              "item": "Leftovers",
-              "moves": [
-                "Shadow Ball",
-                "Flash Cannon",
-                "Toxic",
-                "King's Shield"
-              ],
-              "stats": {
-                "hp": 60,
-                "atk": 140,
-                "def": 50,
-                "spa": 140,
-                "spd": 50,
-                "spe": 60
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 6,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 130,
-              "species": "Aegislash"
-            },
-            {
-              "level": 84,
-              "nature": "Timid",
-              "ability": "Intimidate",
-              "item": "Manectite",
-              "moves": [
-                "Thunderbolt",
-                "Flamethrower",
-                "Charge Beam",
-                "HP Ice"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 75,
-                "def": 80,
-                "spa": 135,
-                "spd": 80,
-                "spe": 135
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 30,
-                "def": 31,
-                "spa": 30,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 6,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-              },
-              "speedStat": 282,
-              "species": "Manectric-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 179 (236)"
             }
           ]
         },
@@ -26011,94 +21444,6 @@
               },
               "speedStat": 217,
               "species": "Chatot"
-            },
-            {
-              "level": 83,
-              "nature": "Impish",
-              "ability": "Self Sufficient",
-              "item": "Leftovers",
-              "moves": [
-                "Wood Hammer",
-                "Earthquake",
-                "Crunch",
-                "Synthesis"
-              ],
-              "stats": {
-                "hp": 95,
-                "atk": 109,
-                "def": 105,
-                "spa": 75,
-                "spd": 85,
-                "spe": 56
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 6,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 123,
-              "species": "Torterra"
-            },
-            {
-              "level": 84,
-              "nature": "Impish",
-              "ability": "Filter",
-              "item": "Aggronite",
-              "moves": [
-                "Earthquake",
-                "Stone Edge",
-                "Body Press",
-                "Heavy Slam"
-              ],
-              "stats": {
-                "hp": 70,
-                "atk": 140,
-                "def": 230,
-                "spa": 60,
-                "spd": 80,
-                "spe": 50
-              },
-              "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-              },
-              "evs": {
-                "hp": 252,
-                "atk": 6,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-              },
-              "speedStat": 115,
-              "species": "Aggron-Mega"
-            },
-            {
-              "level": null,
-              "nature": null,
-              "ability": null,
-              "item": null,
-              "moves": [],
-              "stats": {},
-              "ivs": {},
-              "evs": {},
-              "speedStat": null,
-              "species": "Speed Stat: 217 (275)"
             }
           ]
         }
@@ -27986,1136 +23331,1290 @@
     {
       "id": "ei-tm001",
       "code": "TM001",
-      "move": "Close Combat",
-      "type": null,
-      "location": "Cerulean Cave, 2F, in the south east part of the floor."
-    },
-    {
-      "id": "ei-hm001",
-      "code": "HM001",
-      "move": "Cut",
-      "type": null,
-      "location": "S.S. Anne, from the Captain in his room."
+      "move": "Focus Punch",
+      "type": "fighting",
+      "location": "Jagged Pass, from Maylene after defeating her"
     },
     {
       "id": "ei-tm002",
       "code": "TM002",
       "move": "Dragon Claw",
-      "type": null,
-      "location": "Route 14, in the small patch of grass above the Bikers."
-    },
-    {
-      "id": "ei-hm002",
-      "code": "HM002",
-      "move": "Fly",
-      "type": null,
-      "location": "Route 16, from a girl in the house in the top left corner of the Route."
+      "type": "dragon",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm003",
       "code": "TM003",
       "move": "Flip Turn",
-      "type": null,
-      "location": "Cerulean City's gym, from Misty after defeating her."
-    },
-    {
-      "id": "ei-hm003",
-      "code": "HM003",
-      "move": "Surf",
-      "type": null,
-      "location": "Safari Zone Area 3, from the guy inside the northern Rest House."
+      "type": "water",
+      "location": "Slateport City, from the Aqua grunt nearest the entrance inside"
     },
     {
       "id": "ei-tm004",
       "code": "TM004",
-      "move": "Seed Bomb",
-      "type": null,
-      "location": "Route 12, in the grassy area below Fisherman's house."
-    },
-    {
-      "id": "ei-hm004",
-      "code": "HM004",
-      "move": "Strength",
-      "type": null,
-      "location": "Fuchsia City, from Warden in the south-eastern house after giving him Gold Teeth."
+      "move": "Calm Mind",
+      "type": "psychic",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm005",
       "code": "TM005",
       "move": "Roar",
-      "type": null,
-      "location": "Route 4, after Mt. Moon, right of the two Black Belts, in between the multiple ledges."
-    },
-    {
-      "id": "ei-hm005",
-      "code": "HM005",
-      "move": "Flash",
-      "type": null,
-      "location": "Route 2, from Professor Oak's Scientist in the eastern gate."
+      "type": "normal",
+      "location": "Route 114, from the man next to his Poochyena"
     },
     {
       "id": "ei-tm006",
       "code": "TM006",
       "move": "Toxic",
-      "type": null,
-      "location": "Celadon City's Game Corner for $17 500."
-    },
-    {
-      "id": "ei-hm006",
-      "code": "HM006",
-      "move": "Rock Smash",
-      "type": null,
-      "location": "Fuchsia City, from Brendan after defeating him in front of Safari Zone's entrance."
+      "type": "poison",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm007",
       "code": "TM007",
-      "move": "Heat Wave",
-      "type": null,
-      "location": "Cinnabar Island's Pokémon Mansion 3F."
-    },
-    {
-      "id": "ei-hm007",
-      "code": "HM007",
-      "move": "Waterfall",
-      "type": null,
-      "location": "(POST-GAME) From an old man on Island One, in the Ember Spa."
+      "move": "Snowscape",
+      "type": "ice",
+      "location": "Route 114, on the cliffs past a smashable rock"
     },
     {
       "id": "ei-tm008",
       "code": "TM008",
-      "move": "Zen Headbutt",
-      "type": null,
-      "location": "Saffron City's Silph Co. 7F, in the middle-right room. (Keycard required)"
-    },
-    {
-      "id": "ei-hm008",
-      "code": "HM008",
-      "move": "Rock Climb",
-      "type": null,
-      "location": "CANNOT BE FOUND."
+      "move": "Bulk Up",
+      "type": "fighting",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm009",
       "code": "TM009",
       "move": "Bullet Seed",
-      "type": null,
-      "location": "Mt. Moon 1F, west from the entrance."
+      "type": "grass",
+      "location": "Route 103, West of the Trick House and past the trees that need to be Cut"
     },
     {
       "id": "ei-tm010",
       "code": "TM010",
       "move": "Hidden Power",
-      "type": null,
-      "location": "Saffron City's Silph Co. 1F, on the upper right corner of the room behind a plant."
+      "type": "normal",
+      "location": "Route 117, from the Ninja Kid hidden below the flower field"
     },
     {
       "id": "ei-tm011",
       "code": "TM011",
-      "move": "Supercell Slam",
-      "type": null,
-      "location": "Indigo Plateau, before entering the building, from soupercell after defeating him."
+      "move": "Sunny Day",
+      "type": "fire",
+      "location": "Route 124, on the ground, requires Surf"
     },
     {
       "id": "ei-tm012",
       "code": "TM012",
       "move": "Taunt",
-      "type": null,
-      "location": "Celadon City's Rocket Hideout B2F inside the warp maze."
+      "type": "dark",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm013",
       "code": "TM013",
       "move": "Ice Beam",
-      "type": null,
-      "location": "Celadon City's Game Corner for $30 000."
+      "type": "ice",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm014",
       "code": "TM014",
       "move": "Blizzard",
-      "type": null,
-      "location": "Cinnabar Island's Pokémon Mansion B1F."
+      "type": "ice",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm015",
       "code": "TM015",
       "move": "Electroweb",
-      "type": null,
-      "location": "Viridian Forest, follow the accessible path around the forest's end without rock break."
+      "type": "electric",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm016",
       "code": "TM016",
       "move": "Light Screen",
-      "type": null,
-      "location": "Celadon City's Game Corner for $17 500."
+      "type": "psychic",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm017",
       "code": "TM017",
       "move": "Protect",
-      "type": null,
-      "location": "Celadon City's Game Corner for $15 000."
+      "type": "normal",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm018",
       "code": "TM018",
-      "move": "Hydro Pump",
-      "type": null,
-      "location": "Route 15, above the ledge near the Raid Den."
+      "move": "Rain Dance",
+      "type": "water",
+      "location": "Route 121, on the ground South of the entrance to the Safari Zone"
     },
     {
       "id": "ei-tm019",
       "code": "TM019",
       "move": "Giga Drain",
-      "type": null,
-      "location": "Celadon City's gym, from Erika after defeating her."
+      "type": "grass",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm020",
       "code": "TM020",
       "move": "Hyper Voice",
-      "type": null,
-      "location": "Celadon City's Game Corner for $15 000."
+      "type": "normal",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm021",
       "code": "TM021",
       "move": "Icy Wind",
-      "type": null,
-      "location": "Cerulean City's Pokémart for $5000."
+      "type": "ice",
+      "location": "Route 116, from Candice after defeating her"
     },
     {
       "id": "ei-tm022",
       "code": "TM022",
-      "move": "Weather Ball",
-      "type": null,
-      "location": "Cinnabar Island's Pokémon Mansion B1F."
+      "move": "Solar Beam",
+      "type": "grass",
+      "location": "Trick House, reward for completing second puzzle"
     },
     {
       "id": "ei-tm023",
       "code": "TM023",
-      "move": "Iron Head",
-      "type": null,
-      "location": "Rock Tunnel 1F, from Lavender Town's side."
+      "move": "Iron Tail",
+      "type": "steel",
+      "location": "Meteor Falls, on the ground near the Southern exit"
     },
     {
       "id": "ei-tm024",
       "code": "TM024",
       "move": "Thunderbolt",
-      "type": null,
-      "location": "Celadon City's Game Corner for $30 000."
+      "type": "electric",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm025",
       "code": "TM025",
       "move": "Thunder",
-      "type": null,
-      "location": "Power Plant, south east corner."
+      "type": "electric",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm026",
       "code": "TM026",
       "move": "Earthquake",
-      "type": null,
-      "location": "Saffron City, from the Dumbass Mudkip Kid after defeating him for the first time."
+      "type": "ground",
+      "location": "Fortree City, from creator Xavier after defeating him"
     },
     {
       "id": "ei-tm027",
       "code": "TM027",
       "move": "Return",
-      "type": null,
-      "location": "Route 12, from a Lass in the northern gate upstairs."
+      "type": "normal",
+      "location": "Petalburg City, from Norman after defeating him"
     },
     {
       "id": "ei-tm028",
       "code": "TM028",
       "move": "Dig",
-      "type": null,
-      "location": "Cerulean City, from Team Rocket Grunt."
+      "type": "ground",
+      "location": "Fallarbor Town, from kid brother of the Fossil Maniac"
     },
     {
       "id": "ei-tm029",
       "code": "TM029",
       "move": "Psychic",
-      "type": null,
-      "location": "Saffron City, in Mr. Psychic's house in the south east."
+      "type": "psychic",
+      "location": "Route 117, from Fantina after defeating her in the flower field"
     },
     {
       "id": "ei-tm030",
       "code": "TM030",
       "move": "Shadow Ball",
-      "type": null,
-      "location": "Lavender Town, from Morty after defeating him in Fuji's house."
+      "type": "ghost",
+      "location": "Route 117, from Fantina after defeating her in the flower field"
     },
     {
       "id": "ei-tm031",
       "code": "TM031",
       "move": "Brick Break",
-      "type": null,
-      "location": "S.S. Anne, 1F, second room starting from the left."
+      "type": "fighting",
+      "location": "Route 117, from Fantina after defeating her in the flower field"
     },
     {
       "id": "ei-tm032",
       "code": "TM032",
-      "move": "Aura Sphere",
-      "type": null,
-      "location": "Safari Zone - Western Area."
+      "move": "Solar Blade",
+      "type": "grass",
+      "location": "Trick House, reward for completing second puzzle"
     },
     {
       "id": "ei-tm033",
       "code": "TM033",
       "move": "Reflect",
-      "type": null,
-      "location": "Celadon City's Game Corner for $15 000."
+      "type": "psychic",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm034",
       "code": "TM034",
       "move": "Teleport",
-      "type": null,
-      "location": "Route 3, in the large grassy patch with a Lass around."
+      "type": "psychic",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm035",
       "code": "TM035",
       "move": "Flamethrower",
-      "type": null,
-      "location": "Celadon City's Game Corner for $30 000."
+      "type": "fire",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm036",
       "code": "TM036",
       "move": "Sludge Bomb",
-      "type": null,
-      "location": "Fuchsia City's gym, from Koga after defeating him."
+      "type": "poison",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm037",
       "code": "TM037",
-      "move": "High Horsepower",
-      "type": null,
-      "location": "Victory Road 2F, in the central-south part of the floor, below the heightened platform."
+      "move": "Sandstorm",
+      "type": "rock",
+      "location": "Route 111, on the ground near the Southern entrance to the desert"
     },
     {
       "id": "ei-tm038",
       "code": "TM038",
       "move": "Fire Blast",
-      "type": null,
-      "location": "Cinnabar Island's gym, from Blaine after defeating him."
+      "type": "fire",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm039",
       "code": "TM039",
       "move": "Rock Tomb",
-      "type": null,
-      "location": "Pewter City's gym, from Brock after defeating him."
+      "type": "rock",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm040",
       "code": "TM040",
-      "move": "Low Kick",
-      "type": null,
-      "location": "Route 4's eastern side, from the left Black Belt."
+      "move": "Aerial Ace",
+      "type": "flying",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm041",
       "code": "TM041",
-      "move": "Liquidation",
-      "type": null,
-      "location": "Saffron City's Silph Co. 4F, on a table."
+      "move": "Dragon Dance",
+      "type": "dragon",
+      "location": "Fortree City, from creator Justin after defeating him"
     },
     {
       "id": "ei-tm042",
       "code": "TM042",
       "move": "Facade",
-      "type": null,
-      "location": "Route 10, east of the exit near Lavender Town."
+      "type": "normal",
+      "location": "Petalburg City, from Norman after defeating him"
     },
     {
       "id": "ei-tm043",
       "code": "TM043",
       "move": "Defog",
-      "type": null,
-      "location": "Route 25, in the grassy maze."
+      "type": "flying",
+      "location": "Route 111, from the kid staring at a tree past Fiery Path"
     },
     {
       "id": "ei-tm044",
       "code": "TM044",
       "move": "Rest",
-      "type": null,
-      "location": "Diglett's Cave - Entrance from Route 11."
+      "type": "normal",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm045",
       "code": "TM045",
-      "move": "Draining Kiss",
-      "type": null,
-      "location": "Route 24, on the heightened platform."
+      "move": "Drain Kiss",
+      "type": "fairy",
+      "location": "Verdanturf Town, in the lobby of the Battle Tent"
     },
     {
       "id": "ei-tm046",
       "code": "TM046",
       "move": "Thief",
-      "type": null,
-      "location": "Diglett's Cave - Entrance below Pewter City."
+      "type": "dark",
+      "location": "Slateport City, in the lobby of the Battle Tent"
     },
     {
       "id": "ei-tm047",
       "code": "TM047",
       "move": "Steel Wing",
-      "type": null,
-      "location": "Cerulean City's Pokémart for $10 000."
+      "type": "steel",
+      "location": "Granite Cave, from Steven after delivering the letter to him"
     },
     {
       "id": "ei-tm048",
       "code": "TM048",
-      "move": "Hurricane",
-      "type": null,
-      "location": "Route 12, on a small islet right below the gate. (Surf HM required)"
+      "move": "Meteor Beam",
+      "type": "rock",
+      "location": "Petalburg City, from Wally's dad after defeating Norman"
     },
     {
       "id": "ei-tm049",
       "code": "TM049",
       "move": "Leech Life",
-      "type": null,
-      "location": "Celadon City's Rocket Hideout B4F."
+      "type": "bug",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm050",
       "code": "TM050",
       "move": "Overheat",
-      "type": null,
-      "location": "Victory Road 3F, northwest, by a rock on a narrow path west of the raised platform."
+      "type": "fire",
+      "location": "Lavaridge Town, from Flannery after defeating her"
     },
     {
       "id": "ei-tm051",
       "code": "TM051",
       "move": "Roost",
-      "type": null,
-      "location": "From Falkner after defeating him in Pewter City's Museum."
+      "type": "flying",
+      "location": "Route 111, from Dawn after defeating her"
     },
     {
       "id": "ei-tm052",
       "code": "TM052",
       "move": "Focus Blast",
-      "type": null,
-      "location": "Route 20, on an islet in the middle of the Route."
+      "type": "fighting",
+      "location": "Jagged Pass, from Maylene after defeating her"
     },
     {
       "id": "ei-tm053",
       "code": "TM053",
       "move": "Energy Ball",
-      "type": null,
-      "location": "Celadon City's Game Corner for $25 000."
+      "type": "grass",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm054",
       "code": "TM054",
       "move": "Grassy Glide",
-      "type": null,
-      "location": "Safari Zone - Center Area, on a small islet to the north of the entrance."
+      "type": "grass",
+      "location": "Trick House, reward for completing second puzzle"
     },
     {
       "id": "ei-tm055",
       "code": "TM055",
       "move": "Expanding Force",
-      "type": null,
-      "location": "Safari Zone - West Area, on the south-side elevated platform."
+      "type": "psychic",
+      "location": "Mossdeep City, from Tate and Liza after defeating them"
     },
     {
       "id": "ei-tm056",
       "code": "TM056",
-      "move": "Air Slash",
-      "type": null,
-      "location": "Celadon City's Game Corner for $17 500."
+      "move": "Power-Up Punch",
+      "type": "fighting",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm057",
       "code": "TM057",
-      "move": "Temper Flare",
-      "type": null,
-      "location": "Route 2's eastern side. (Cut HM required)"
+      "move": "Charge Beam",
+      "type": "electric",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm058",
       "code": "TM058",
       "move": "Rising Voltage",
-      "type": null,
-      "location": "Safari Zone - Eastern Area."
+      "type": "electric",
+      "location": "Evergrande City, from Volkner after defeating him"
     },
     {
       "id": "ei-tm059",
       "code": "TM059",
       "move": "Dragon Pulse",
-      "type": null,
-      "location": "Safari Zone - North Area."
+      "type": "dragon",
+      "location": "Petalburg City, from Wally's dad after defeating Norman"
     },
     {
       "id": "ei-tm060",
       "code": "TM060",
       "move": "Drain Punch",
-      "type": null,
-      "location": "Saffron City's Dojo, from Chuck after defeating him."
+      "type": "fighting",
+      "location": "Jagged Pass, from Maylene after defeating her"
     },
     {
       "id": "ei-tm061",
       "code": "TM061",
       "move": "Will-O-Wisp",
-      "type": null,
-      "location": "Lavender Town's Pokémon Tower, 6F."
+      "type": "fire",
+      "location": "Lavaridge Town, from Flannery after defeating her"
     },
     {
       "id": "ei-tm062",
       "code": "TM062",
-      "move": "Iron Tail",
-      "type": null,
-      "location": "Route 7's grass patch."
+      "move": "Silver Wind",
+      "type": "bug",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm063",
       "code": "TM063",
       "move": "Venoshock",
-      "type": null,
-      "location": "Route 6, in the north western corner."
+      "type": "poison",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm064",
       "code": "TM064",
       "move": "Explosion",
-      "type": null,
-      "location": "Celadon City's Game Corner for $15 000."
+      "type": "normal",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm065",
       "code": "TM065",
       "move": "Shadow Claw",
-      "type": null,
-      "location": "Celadon City's Game Corner for $25 000."
+      "type": "ghost",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm066",
       "code": "TM066",
-      "move": "Steel Beam",
+      "move": "Dazzling Gleam",
       "type": null,
-      "location": "(POST-GAME) Two Island, close to the Game Corner."
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm067",
       "code": "TM067",
       "move": "Poltergeist",
-      "type": null,
-      "location": "Victory Road 1F, northwest, north item of the boulder 'puzzle'."
+      "type": "ghost",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm068",
       "code": "TM068",
       "move": "Dual Chop",
-      "type": null,
-      "location": "Silph. Co 11F, from Brendan after defeating the Rocket Admins."
+      "type": "dragon",
+      "location": "Petalburg City, from Wally's dad after defeating Norman"
     },
     {
       "id": "ei-tm069",
       "code": "TM069",
-      "move": "Stomping Tantrum",
-      "type": null,
-      "location": "S.S. Anne 2F, in the third room from the right."
+      "move": "Rock Polish",
+      "type": "rock",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm070",
       "code": "TM070",
       "move": "Triple Axel",
-      "type": null,
-      "location": "Seafoam Islands B1F, heightened platform in the middle of the floor."
+      "type": "ice",
+      "location": "Shoal Cave, on the ground in the Ice Room"
     },
     {
       "id": "ei-tm071",
       "code": "TM071",
       "move": "Stone Edge",
-      "type": null,
-      "location": "Pewter City's gym, from Brock after defeating him in a rematch."
+      "type": "rock",
+      "location": "Route 125, from Roark after defeating him"
     },
     {
       "id": "ei-tm072",
       "code": "TM072",
-      "move": "Draco Barrage",
-      "type": null,
-      "location": "(POST-GAME) Viridian City, from Claire after defeating her in a rematch."
+      "move": "Psyshock",
+      "type": "psychic",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm073",
       "code": "TM073",
       "move": "Thunder Wave",
-      "type": null,
-      "location": "Saffron City's Silph Co. 2F, from a lady near some cardboard boxes."
+      "type": "electric",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm074",
       "code": "TM074",
       "move": "Gyro Ball",
-      "type": null,
-      "location": "Celadon City's Game Corner for $20 000."
+      "type": "steel",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm075",
       "code": "TM075",
-      "move": "Knock Off",
-      "type": null,
-      "location": "Celadon City's Game Corner for $20 000."
+      "move": "Swords Dance",
+      "type": "normal",
+      "location": "Petalburg City, from Norman after defeating him"
     },
     {
       "id": "ei-tm076",
       "code": "TM076",
-      "move": "Earth Power",
-      "type": null,
-      "location": "Safari Zone - Eastern Area."
+      "move": "Stealth Rock",
+      "type": "rock",
+      "location": "Route 120, from Byron after defeating him"
     },
     {
       "id": "ei-tm077",
       "code": "TM077",
-      "move": "Thunder Punch",
-      "type": null,
-      "location": "Route 24, right of the Nugget Bridge, accessed from Route 25."
+      "move": "Flame Charge",
+      "type": "fire",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm078",
       "code": "TM078",
       "move": "Low Sweep",
-      "type": null,
-      "location": "Mt. Moon B2F, accessed from the third ladder on the first floor."
+      "type": "fighting",
+      "location": "Dewford Gym, from Brawly after defeating him"
     },
     {
       "id": "ei-tm079",
       "code": "TM079",
       "move": "Dark Pulse",
-      "type": null,
-      "location": "Celadon City's Game Corner for $30 000."
+      "type": "dark",
+      "location": "Lavaridge Town's outdoor Mart worker"
     },
     {
       "id": "ei-tm080",
       "code": "TM080",
       "move": "Rock Slide",
-      "type": null,
-      "location": "Rock Tunnel B1F, from a youngster in the room with multiple crossroads."
+      "type": "rock",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm081",
       "code": "TM081",
       "move": "X-Scissor",
-      "type": null,
-      "location": "Viridian Forest. (Rock Smash HM required)"
+      "type": "bug",
+      "location": "Route 113, Northeast of the Twins"
     },
     {
       "id": "ei-tm082",
       "code": "TM082",
       "move": "Sleep Talk",
-      "type": null,
-      "location": "Celadon City's Game Corner for $15 000."
+      "type": "normal",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm083",
       "code": "TM083",
       "move": "Scald",
-      "type": null,
-      "location": "Celadon City's Game Corner for $25 000."
+      "type": "water",
+      "location": "Route 111, from Dawn after defeating her"
     },
     {
       "id": "ei-tm084",
       "code": "TM084",
       "move": "Poison Jab",
-      "type": null,
-      "location": "Celadon City's Game Corner for $25 000."
+      "type": "poison",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm085",
       "code": "TM085",
       "move": "Future Sight",
-      "type": null,
-      "location": "Route 13, in front of a Picnicker."
+      "type": "psychic",
+      "location": "Petalburg City, from Wally's dad after defeating Norman"
     },
     {
       "id": "ei-tm086",
       "code": "TM086",
       "move": "Grass Knot",
-      "type": null,
-      "location": "Celadon City's gym, from Erika after defeating her in a rematch."
+      "type": "grass",
+      "location": "Trick House, reward for completing second puzzle"
     },
     {
       "id": "ei-tm087",
       "code": "TM087",
-      "move": "Aerial Ace",
-      "type": null,
-      "location": "Cerulean City's Pokémart for $5000."
+      "move": "Low Kick",
+      "type": "fighting",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm088",
       "code": "TM088",
       "move": "Pluck",
-      "type": null,
-      "location": "Cerulean City's Pokémart for $5000."
+      "type": "flying",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm089",
       "code": "TM089",
       "move": "U-Turn",
-      "type": null,
-      "location": "Route 25's east end, from Bugsy after defeating him."
+      "type": "bug",
+      "location": "Petalburg Woods, from Gardenia after defeating her"
     },
     {
       "id": "ei-tm090",
       "code": "TM090",
-      "move": "Gunk Shot",
-      "type": null,
-      "location": "Cinnabar Mansion 1F, locked behind a door near the stairs at the entrance."
+      "move": "Substitute",
+      "type": "normal",
+      "location": "Fortree City, from creator iriv24 after defeating him"
     },
     {
       "id": "ei-tm091",
       "code": "TM091",
       "move": "Flash Cannon",
-      "type": null,
-      "location": "Celadon City's Game Corner for $25 000."
+      "type": "steel",
+      "location": "Route 111, from Dawn after defeating her"
     },
     {
       "id": "ei-tm092",
       "code": "TM092",
       "move": "Volt Switch",
-      "type": null,
-      "location": "Vermilion City's gym, from Lt. Surge after defeating him."
+      "type": "electric",
+      "location": "Mauville City's gym, from Wattson after defeating him"
     },
     {
       "id": "ei-tm093",
       "code": "TM093",
       "move": "Dragon Tail",
-      "type": null,
-      "location": "Celadon City's Game Corner for $15 000."
+      "type": "dragon",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm094",
       "code": "TM094",
-      "move": "Scale Shot",
-      "type": null,
-      "location": "(POST-GAME) One Island - Mt. Ember, northeast after moving boulders."
+      "move": "Trailblaze",
+      "type": "grass",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm095",
       "code": "TM095",
-      "move": "Cosmic Power",
-      "type": null,
-      "location": "(POST-GAME) Three Island, Berry Forest, by Surfing in the part at the end of the forest."
+      "move": "Acrobatics",
+      "type": "flying",
+      "location": "Fortree City, from Winona after defeating her"
     },
     {
       "id": "ei-tm096",
       "code": "TM096",
       "move": "Bulldoze",
-      "type": null,
-      "location": "Route 5, in the middle fenced area."
+      "type": "ground",
+      "location": "Rustboro gym, from Roxanne after defeating her"
     },
     {
       "id": "ei-tm097",
       "code": "TM097",
-      "move": "Frost Breath",
-      "type": null,
-      "location": "(POST-GAME) Seafoam Islands, in the Sandshrew race area."
+      "move": "Snarl",
+      "type": "dark",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm098",
       "code": "TM098",
-      "move": "Fire Punch",
-      "type": null,
-      "location": "Route 11, on the bottom right side in a narrow path, near the old man below the gate."
+      "move": "Work Up",
+      "type": "normal",
+      "location": "Verdanturf Town, from Ursula after defeating her in a \"dance battle\""
     },
     {
       "id": "ei-tm099",
       "code": "TM099",
       "move": "Wild Charge",
-      "type": null,
-      "location": "Route 10, right of Power Plant's entrance."
+      "type": "electric",
+      "location": "New Mauville, on the ground"
     },
     {
       "id": "ei-tm100",
       "code": "TM100",
       "move": "Dual Wingbeat",
-      "type": null,
-      "location": "Route 16, north-western part of the Route."
+      "type": "flying",
+      "location": "Petalburg City, from Wally's dad after defeating Norman"
     },
     {
       "id": "ei-tm101",
       "code": "TM101",
-      "move": "Ice Punch",
-      "type": null,
-      "location": "Route 9, in the bottom left corner, near the Hiker."
+      "move": "Superpower",
+      "type": "fighting",
+      "location": "New Mauville, on the ground"
     },
     {
       "id": "ei-tm102",
       "code": "TM102",
-      "move": "Dazzling Gleam",
-      "type": null,
-      "location": "Celadon City's Game Corner for $30 000."
+      "move": "Scorching Sands",
+      "type": "ground",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm103",
       "code": "TM103",
-      "move": "Sludge Wave",
-      "type": null,
-      "location": "(POST-GAME) Rock Tunnel's entrance near Power Plant."
+      "move": "Smack Down",
+      "type": "rock",
+      "location": "Dewford Town's outdoor Mart workers"
     },
     {
       "id": "ei-tm104",
       "code": "TM104",
-      "move": "Psyshock",
-      "type": null,
-      "location": "Route 7/8 Underground Path, near the western staircase."
+      "move": "Heat Crash",
+      "type": "fire",
+      "location": "Lavaridge Town, from Flannery after defeating her"
     },
     {
       "id": "ei-tm105",
       "code": "TM105",
-      "move": "Psychic Noise",
+      "move": "Body Press",
       "type": null,
-      "location": "Celadon City's Rocket Hideout B3F."
+      "location": "Jagged Pass, from Maylene after defeating her"
     },
     {
       "id": "ei-tm106",
       "code": "TM106",
-      "move": "Acrobatics",
-      "type": null,
-      "location": "Route 8, near the Underground Path, between the two ledges below the old man."
+      "move": "Trick Room",
+      "type": "psychic",
+      "location": "Mossdeep City, from Tate and Liza after defeating them"
     },
     {
       "id": "ei-tm107",
       "code": "TM107",
-      "move": "Terrain Pulse",
-      "type": null,
-      "location": "CANNOT BE FOUND."
+      "move": "Brave Bird",
+      "type": "flying",
+      "location": "Fortree City, from Winona after defeating her"
     },
     {
       "id": "ei-tm108",
       "code": "TM108",
-      "move": "Snarl",
-      "type": null,
-      "location": "Cerulean City's Pokémart for $5000."
+      "move": "Ice Spinner",
+      "type": "ice",
+      "location": "Mauville City's Game Corner"
     },
     {
       "id": "ei-tm109",
       "code": "TM109",
-      "move": "Superpower",
-      "type": null,
-      "location": "Power Plant, next to Dumbass Jojo Fan in the central room."
+      "move": "Bug Bite",
+      "type": "bug",
+      "location": "Route 104, from the man close to the northern exit of Petalburg Woods"
     },
     {
       "id": "ei-tm110",
       "code": "TM110",
-      "move": "Scorching Sands",
-      "type": null,
-      "location": "Celadon City's Game Corner for $12 500."
+      "move": "Stomping Tantrum",
+      "type": "ground",
+      "location": "Route 104, past the tree that needs Cut North of the Woods"
     },
     {
       "id": "ei-tm111",
       "code": "TM111",
-      "move": "Vacuum Wave",
-      "type": null,
-      "location": "Cerulean City's Pokémart for $5000."
+      "move": "Fire Punch",
+      "type": "fire",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm112",
       "code": "TM112",
-      "move": "Misty Explosion",
-      "type": null,
-      "location": "(POST-GAME) One Island, Mt. Ember, from a Hiker."
+      "move": "Ice Punch",
+      "type": "ice",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm113",
       "code": "TM113",
-      "move": "Play Rough",
-      "type": null,
-      "location": "Celadon Dept. Store 3F, from the clerk, for $15 000."
+      "move": "Thunder Punch",
+      "type": "electric",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm114",
       "code": "TM114",
-      "move": "Heat Crash",
-      "type": null,
-      "location": "Route 17, south of the gate, right above the grass patch."
+      "move": "Fire Fang",
+      "type": "fire",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm115",
       "code": "TM115",
-      "move": "Body Press",
-      "type": null,
-      "location": "Saffron City's Silph Co. 5F, in the south room on the west side. (Keycard required)"
+      "move": "Ice Fang",
+      "type": "ice",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm116",
       "code": "TM116",
-      "move": "Trick Room",
-      "type": null,
-      "location": "Saffron City's gym, from Sabrina after defeating her."
+      "move": "Thunder Fang",
+      "type": "electric",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm117",
       "code": "TM117",
-      "move": "Brave Bird",
-      "type": null,
-      "location": "Celadon City's hotel, after getting the Mega Ring and defeating the two Beauties there."
+      "move": "Psychic Fangs",
+      "type": "psychic",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm118",
       "code": "TM118",
-      "move": "Steel Roller",
-      "type": null,
-      "location": "CANNOT BE FOUND."
+      "move": "Poison Fang",
+      "type": "poison",
+      "location": "Route 110, from Rival after defeating them"
     },
     {
       "id": "ei-tm119",
       "code": "TM119",
-      "move": "Draco Meteor",
-      "type": null,
-      "location": "Viridian City's gym, from Clair after defeating her."
+      "move": "Iron Head",
+      "type": "steel",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
     },
     {
       "id": "ei-tm120",
       "code": "TM120",
-      "move": "Ice Spinner",
+      "move": "Liquidation",
+      "type": "water",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm121",
+      "code": "TM121",
+      "move": "Hydro Pump",
+      "type": "water",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm122",
+      "code": "TM122",
+      "move": "Drill Run",
+      "type": "ground",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm123",
+      "code": "TM123",
+      "move": "Blaze Kick",
+      "type": "fire",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm124",
+      "code": "TM124",
+      "move": "Pain Split",
+      "type": "normal",
+      "location": "Route 120, central part of the route, requires Surf"
+    },
+    {
+      "id": "ei-tm125",
+      "code": "TM125",
+      "move": "Zen Headbutt",
+      "type": "psychic",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm126",
+      "code": "TM126",
+      "move": "Weather Ball",
+      "type": "normal",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm127",
+      "code": "TM127",
+      "move": "Air Slash",
+      "type": "flying",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm128",
+      "code": "TM128",
+      "move": "Hex",
+      "type": "ghost",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm129",
+      "code": "TM129",
+      "move": "Mystical Fire",
+      "type": "fire",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm130",
+      "code": "TM130",
+      "move": "Seed Bomb",
+      "type": "grass",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm131",
+      "code": "TM131",
+      "move": "Leaf Blade",
+      "type": "grass",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm132",
+      "code": "TM132",
+      "move": "Knock Off",
+      "type": "dark",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm133",
+      "code": "TM133",
+      "move": "Power Gem",
+      "type": "rock",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm134",
+      "code": "TM134",
+      "move": "Rock Blast",
+      "type": "rock",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm135",
+      "code": "TM135",
+      "move": "Pin Missile",
+      "type": "bug",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm136",
+      "code": "TM136",
+      "move": "Icicle Spear",
+      "type": "ice",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm137",
+      "code": "TM137",
+      "move": "Tail Slap",
+      "type": "normal",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm138",
+      "code": "TM138",
+      "move": "Arm Thrust",
+      "type": "fighting",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm139",
+      "code": "TM139",
+      "move": "Foul Play",
+      "type": "dark",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm140",
+      "code": "TM140",
+      "move": "Iron Defense",
+      "type": "steel",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm141",
+      "code": "TM141",
+      "move": "Nasty Plot",
+      "type": "dark",
+      "location": "Petalburg City, from Norman after defeating him"
+    },
+    {
+      "id": "ei-tm142",
+      "code": "TM142",
+      "move": "Earth Power",
+      "type": "ground",
+      "location": "Jagged Pass, on the ground along the East side"
+    },
+    {
+      "id": "ei-tm143",
+      "code": "TM143",
+      "move": "Aura Sphere",
+      "type": "fighting",
+      "location": "Jagged Pass, from Maylene after defeating her"
+    },
+    {
+      "id": "ei-tm144",
+      "code": "TM144",
+      "move": "Heat Wave",
+      "type": "fire",
+      "location": "Lavaridge Town, from Flannery after defeating her"
+    },
+    {
+      "id": "ei-tm145",
+      "code": "TM145",
+      "move": "Hurricane",
+      "type": "flying",
+      "location": "Fortree City, from Winona after defeating her"
+    },
+    {
+      "id": "ei-tm146",
+      "code": "TM146",
+      "move": "Power Whip",
+      "type": "grass",
+      "location": "Trick House, reward for completing second puzzle"
+    },
+    {
+      "id": "ei-tm147",
+      "code": "TM147",
+      "move": "High Horsepower",
+      "type": "ground",
+      "location": "Route 120, from Byron after defeating him"
+    },
+    {
+      "id": "ei-tm148",
+      "code": "TM148",
+      "move": "Bug Buzz",
+      "type": "bug",
+      "location": "Trick House, reward for completing second puzzle"
+    },
+    {
+      "id": "ei-tm149",
+      "code": "TM149",
+      "move": "Phantom Force",
+      "type": "ghost",
+      "location": "Route 115, on the ground, requires Surf"
+    },
+    {
+      "id": "ei-tm150",
+      "code": "TM150",
+      "move": "Flare Blitz",
+      "type": "fire",
+      "location": "Lavaridge Town, from Flannery after defeating her"
+    },
+    {
+      "id": "ei-tm151",
+      "code": "TM151",
+      "move": "Stored Power",
+      "type": "psychic",
+      "location": "Fortree City, from the old woman after completing her puzzle"
+    },
+    {
+      "id": "ei-tm152",
+      "code": "TM152",
+      "move": "Gunk Shot",
+      "type": "poison",
+      "location": "Trick House, reward for completing first puzzle"
+    },
+    {
+      "id": "ei-tm153",
+      "code": "TM153",
+      "move": "Tailwind",
+      "type": "flying",
+      "location": "Fortree City, from Winona after defeating her"
+    },
+    {
+      "id": "ei-tm154",
+      "code": "TM154",
+      "move": "Megahorn",
+      "type": "bug",
+      "location": "Trick House, reward for completing second puzzle"
+    },
+    {
+      "id": "ei-tm155",
+      "code": "TM155",
+      "move": "Draco Meteor",
+      "type": "dragon",
+      "location": "Evergrande City, from Dawn after defeating her and Rival"
+    },
+    {
+      "id": "ei-tm156",
+      "code": "TM156",
+      "move": "Close Combat",
+      "type": "fighting",
+      "location": "Mauville City, from Wattson after shutting down the generator in New Mauville"
+    },
+    {
+      "id": "ei-tm157",
+      "code": "TM157",
+      "move": "Moonblast",
+      "type": "fairy",
+      "location": "Sootopolis City, from Juan after defeating him"
+    },
+    {
+      "id": "ei-tm158",
+      "code": "TM158",
+      "move": "Body Slam",
+      "type": "normal",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm159",
+      "code": "TM159",
+      "move": "Play Rough",
+      "type": "fairy",
+      "location": "Fallarbor Town, from the former Move Tutor after defeating Flannery"
+    },
+    {
+      "id": "ei-tm160",
+      "code": "TM160",
+      "move": "Water Pulse",
+      "type": "water",
+      "location": "Route 118, on the ground, past two trainers"
+    },
+    {
+      "id": "ei-tm161",
+      "code": "TM161",
+      "move": "Dark Hole",
+      "type": "dark",
+      "location": "Post game Meteor Falls, Steven's Room on the ground"
+    },
+    {
+      "id": "ei-tm162",
+      "code": "TM162",
+      "move": "Sludge Wave",
       "type": null,
-      "location": "Viridian City, on the other side of the small pond (Surf HM required)."
+      "location": "Mt. Pyre, outside on a rocky ledge"
+    },
+    {
+      "id": "ei-tm163",
+      "code": "TM163",
+      "move": "Supercell Slam",
+      "type": "electric",
+      "location": "Evergrande City, from Volkner after defeating him"
+    },
+    {
+      "id": "ei-tm164",
+      "code": "TM164",
+      "move": "Temper Flare",
+      "type": "fire",
+      "location": "Fiery Path, on the ground in the northwest corner, requires Strength"
+    },
+    {
+      "id": "ei-tm165",
+      "code": "TM165",
+      "move": "Scale Shot",
+      "type": "dragon",
+      "location": "Victory Road, floor B2F on the ground, must fight Expert to reach"
+    },
+    {
+      "id": "ei-tm166",
+      "code": "TM166",
+      "move": "Psychic Noise",
+      "type": "psychic",
+      "location": "Granite Cave, floor B2F on the ground, requires Mach Bike"
+    },
+    {
+      "id": "ei-tm167",
+      "code": "TM167",
+      "move": "Alluring Voice",
+      "type": "fairy",
+      "location": "Rusturf Tunnel, on the ground near the Verdanturf Town entrance"
+    },
+    {
+      "id": "ei-tm168",
+      "code": "TM168",
+      "move": "Vacuum Wave",
+      "type": "fighting",
+      "location": "Route 110, on the ground below Cycling Road"
+    },
+    {
+      "id": "ei-tm169",
+      "code": "TM169",
+      "move": "Spikes",
+      "type": "ground",
+      "location": "Mauville City's Game Corner"
+    },
+    {
+      "id": "ei-tm170",
+      "code": "TM170",
+      "move": "Steel Beam",
+      "type": "steel",
+      "location": "Post game Mart at the Battle Frontier"
+    },
+    {
+      "id": "ei-tm171",
+      "code": "TM171",
+      "move": "Draco Barrage",
+      "type": "dragon",
+      "location": "Post game Mart at the Battle Frontier"
+    },
+    {
+      "id": "ei-tm172",
+      "code": "TM172",
+      "move": "Heavy Slam",
+      "type": "steel",
+      "location": "Route 125, from Roark after defeating him"
+    },
+    {
+      "id": "ei-tm173",
+      "code": "TM173",
+      "move": "Gravity",
+      "type": "psychic",
+      "location": "Mauville City's Game Corner"
+    },
+    {
+      "id": "ei-tm174",
+      "code": "TM174",
+      "move": "Misty Explosion",
+      "type": "fairy",
+      "location": "Sootopolis City, from Juan after defeating him; Post game Mart at the Battle Frontier"
+    },
+    {
+      "id": "ei-hm01",
+      "code": "HM01",
+      "move": "Cut",
+      "type": "normal",
+      "location": "Rustboro City, from the man in the house next to the Poke Center after defeating Roxanne"
+    },
+    {
+      "id": "ei-hm02",
+      "code": "HM02",
+      "move": "Fly",
+      "type": "flying",
+      "location": "Route 110, from your Rival after defeating them"
+    },
+    {
+      "id": "ei-hm03",
+      "code": "HM03",
+      "move": "Surf",
+      "type": "water",
+      "location": "Route 111, very south past the 3 boss battles"
+    },
+    {
+      "id": "ei-hm04",
+      "code": "HM04",
+      "move": "Strength",
+      "type": "normal",
+      "location": "Rusturf Tunnel, after smashing the rock separating the couple"
+    },
+    {
+      "id": "ei-hm05",
+      "code": "HM05",
+      "move": "Flash",
+      "type": "normal",
+      "location": "Granite Cave, from a hiker at the entrance"
+    },
+    {
+      "id": "ei-hm06",
+      "code": "HM06",
+      "move": "Rock Smash",
+      "type": "fighting",
+      "location": "Mauville City, from the Rock Smash Dude in his house"
+    },
+    {
+      "id": "ei-hm07",
+      "code": "HM07",
+      "move": "Waterfall",
+      "type": "water",
+      "location": "Sootopolis City, from Wallace in front of the Gym"
+    },
+    {
+      "id": "ei-hm08",
+      "code": "HM08",
+      "move": "Dive",
+      "type": "water",
+      "location": "Mossdeep City in Steven's House after you beat Tate and Liza"
     }
   ],
   "tutors": [
     {
-      "move": "Bug Bite",
-      "location": "Viridian Forest"
-    },
-    {
-      "move": "Fire Fang",
-      "location": "Cerulean City  House next to Nugget Bridge"
-    },
-    {
-      "move": "Ice Fang",
-      "location": "Cerulean City  House next to Nugget Bridge"
-    },
-    {
-      "move": "Thunder Fang",
-      "location": "Cerulean City  House next to Nugget Bridge"
-    },
-    {
-      "move": "Flame Charge",
-      "location": "Vermilion City's Fanclub"
-    },
-    {
-      "move": "Trailblaze",
-      "location": "Vermilion City's Fanclub"
-    },
-    {
-      "move": "Power-Up Punch",
-      "location": "Vermilion City's Fanclub"
-    },
-    {
-      "move": "Charge Beam",
-      "location": "Vermilion City's Fanclub"
-    },
-    {
-      "move": "Work Up",
-      "location": "Vermilion City's Fanclub"
-    },
-    {
-      "move": "Hone Claws",
-      "location": "Vermilion City's Fanclub"
-    },
-    {
-      "move": "Rock Polish",
-      "location": "Pewter City's Museum  (Requires Cut HM)"
-    },
-    {
-      "move": "Drill Run",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Blaze Kick",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Pain Split",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Hex",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Mystical Fire",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Leaf Blade",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Power Gem",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Rock Blast",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Pin Missile",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Icicle Spear",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Tail Slap",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Body Slam",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Foul Play",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Alluring Voice",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Focus Punch",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Psychic Fangs",
-      "location": "Saffron City  House left of Silph Co."
-    },
-    {
-      "move": "Swords Dance",
-      "location": "Fuchsia City's  Eastern Gate"
-    },
-    {
-      "move": "Nasty Plot",
-      "location": "Fuchsia City's  Eastern Gate"
-    },
-    {
-      "move": "Bulk Up",
-      "location": "Fuchsia City's  Eastern Gate"
-    },
-    {
-      "move": "Calm Mind",
-      "location": "Fuchsia City's  Eastern Gate"
-    },
-    {
-      "move": "Meteor Beam",
-      "location": "Fuchsia City's  Eastern Gate"
-    },
-    {
-      "move": "Iron Defense",
-      "location": "Fuchsia City's  Eastern Gate"
-    },
-    {
-      "move": "Substitute",
-      "location": "Fuchsia City Near the Kangaskhan"
-    },
-    {
-      "move": "Sunny Day",
-      "location": "Cinnabar Island's  Pokémon Lab R&D Room"
-    },
-    {
-      "move": "Rain Dance",
-      "location": "Cinnabar Island's  Pokémon Lab R&D Room"
-    },
-    {
-      "move": "Snowscape",
-      "location": "Cinnabar Island's  Pokémon Lab R&D Room"
-    },
-    {
-      "move": "Sandstorm",
-      "location": "Cinnabar Island's  Pokémon Lab R&D Room"
-    },
-    {
-      "move": "Power Whip",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Bug Buzz",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Phantom Force",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Flare Blitz",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Stored Power",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Tailwind",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Megahorn",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Stealth Rock",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Spikes",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Toxic Spikes",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Solar Beam",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Solar Blade",
-      "location": "Cinnabar Island's  Pokémon Lab Testing Room"
-    },
-    {
-      "move": "Dragon Dance",
-      "location": "Victory Road  By Raid Den, near exit"
-    },
-    {
-      "move": "Celebrate",
-      "location": "Pallet Town Player's house"
-    },
-    {
-      "move": "Dark Hole",
-      "location": "Two Island Cape Brink"
-    },
-    {
-      "move": "Frenzy Plant",
-      "location": "Two Island Joyful Game Corner"
-    },
-    {
-      "move": "Hydro Cannon",
-      "location": "Two Island Joyful Game Corner"
-    },
-    {
-      "move": "Blast Burn",
-      "location": "Two Island Joyful Game Corner"
-    },
-    {
       "move": "Move Relearner",
-      "location": "Cerulean City  House next to Pokémart"
+      "location": "Dewford Town, house directly north of Mr. Briney's dock"
     },
     {
       "move": "Move Deleter",
-      "location": "Fuchsia City House next to Pkmn Center"
+      "location": "Slateport City, house in the northwest part of the city"
     },
     {
       "move": "Egg Move Tutor",
-      "location": "Fuchsia City House next to Pkmn Center"
+      "location": "Lilycove City, house directly east of the department store"
     }
   ],
   "megaStones": [
@@ -29368,6 +24867,112 @@
       "location": "(POST-GAME) One Island, Treasure Beach, from  Red after defeating him on the beach. (Requires 4+ win streak in the Battle Simulator)"
     }
   ],
-  "levelCaps": [],
-  "codes": []
+  "levelCaps": [
+    {
+      "trigger": "Pre-Roxanne",
+      "level": 15
+    },
+    {
+      "trigger": "Pre-Rustboro Rival fight",
+      "level": 20
+    },
+    {
+      "trigger": "Pre-Brawly",
+      "level": 25
+    },
+    {
+      "trigger": "Pre-Aqua Museum fight",
+      "level": 30
+    },
+    {
+      "trigger": "Pre-Route 110 Rival fight",
+      "level": 32
+    },
+    {
+      "trigger": "Pre-Wattson",
+      "level": 34
+    },
+    {
+      "trigger": "Pre-Mt. Chimney Magma bosses",
+      "level": 44
+    },
+    {
+      "trigger": "Pre-Flannery",
+      "level": 47
+    },
+    {
+      "trigger": "Pre-Trick House",
+      "level": 56
+    },
+    {
+      "trigger": "Pre-Norman",
+      "level": 59
+    },
+    {
+      "trigger": "Pre-Route 119 Rival fight",
+      "level": 64
+    },
+    {
+      "trigger": "Pre-Winona",
+      "level": 68
+    },
+    {
+      "trigger": "Pre-Dawn battle in lilycove",
+      "level": 71
+    },
+    {
+      "trigger": "Pre-Archie in Aqua Hideout",
+      "level": 74
+    },
+    {
+      "trigger": "Pre-Tate and Liza",
+      "level": 76
+    },
+    {
+      "trigger": "Pre-Seafloor Cavern",
+      "level": 80
+    },
+    {
+      "trigger": "Pre-Juan",
+      "level": 82
+    },
+    {
+      "trigger": "Pre-Wally in Victory road",
+      "level": 84
+    },
+    {
+      "trigger": "Pre-Champion",
+      "level": 85
+    }
+  ],
+  "codes": [
+    {
+      "code": "Ezc",
+      "description": "All Pokeballs Act As Masterballs"
+    },
+    {
+      "code": "Cal",
+      "description": "Marks all Pokémon as caught in the Pokédex"
+    },
+    {
+      "code": "Dxa",
+      "description": "Reveals all possible DexNav encounters"
+    },
+    {
+      "code": "Shs",
+      "description": "Guarantees your starter will be shiny"
+    },
+    {
+      "code": "Mmy",
+      "description": "Maxes the players money"
+    },
+    {
+      "code": "Shr",
+      "description": "Guarantees Shiny Roamers"
+    },
+    {
+      "code": "Mono",
+      "description": "Enables Monotype Starter Selection"
+    }
+  ]
 }
