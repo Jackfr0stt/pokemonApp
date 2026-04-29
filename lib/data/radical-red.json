@@ -356,7 +356,7 @@
             {
               "species": "Stufful",
               "level": 12,
-              "nature": null,
+              "nature": "Bashful",
               "ability": "Fluffy",
               "item": "Oran Berry",
               "moves": [
@@ -394,7 +394,7 @@
             {
               "species": "Clefairy",
               "level": 10,
-              "nature": null,
+              "nature": "Bashful",
               "ability": "Magic Guard",
               "item": "Life Orb",
               "moves": [
@@ -432,7 +432,7 @@
             {
               "species": "Audino",
               "level": 12,
-              "nature": null,
+              "nature": "Bashful",
               "ability": "Regenerator",
               "item": "No Item",
               "moves": [
@@ -478,7 +478,7 @@
             {
               "species": "Charcadet",
               "level": "Lv Scale -3 (12)",
-              "nature": null,
+              "nature": "Bashful",
               "ability": "Flame Body",
               "item": "Berry Juice",
               "moves": [
@@ -516,7 +516,7 @@
             {
               "species": "Gulpin",
               "level": "Lv Scale -3 (12)",
-              "nature": null,
+              "nature": "Bashful",
               "ability": "Gluttony",
               "item": "Iapapa Berry",
               "moves": [
@@ -1016,7 +1016,7 @@
             {
               "species": "Glimmet",
               "level": 18,
-              "nature": null,
+              "nature": "Timid",
               "ability": "Toxic Debris",
               "item": "Shuca Berry",
               "moves": [
@@ -1054,7 +1054,7 @@
             {
               "species": "Houndour",
               "level": 19,
-              "nature": null,
+              "nature": "Timid",
               "ability": "Unnerve",
               "item": "Wise Glasses",
               "moves": [
@@ -1092,7 +1092,7 @@
             {
               "species": "Mightyena",
               "level": 21,
-              "nature": null,
+              "nature": "Jolly",
               "ability": "Strong Jaw",
               "item": "Berry Juice",
               "moves": [
@@ -2234,7 +2234,7 @@
             {
               "species": "Growlithe",
               "level": "Lv Scale Max (27/34)",
-              "nature": null,
+              "nature": "Careful",
               "ability": "Intimidate",
               "item": "Eviolite",
               "moves": [
@@ -2272,7 +2272,7 @@
             {
               "species": "Gabite",
               "level": "Lv Scale -2 (25/32)",
-              "nature": null,
+              "nature": "Impish",
               "ability": "Rough Skin",
               "item": "Eviolite",
               "moves": [
@@ -2310,7 +2310,7 @@
             {
               "species": "Togedemaru",
               "level": "Lv Scale -2 (25/32)",
-              "nature": null,
+              "nature": "Careful",
               "ability": "Iron Barbs",
               "item": "Rocky Helmet",
               "moves": [
@@ -2348,7 +2348,7 @@
             {
               "species": "Komala",
               "level": "Lv Scale -4 (23/30)",
-              "nature": null,
+              "nature": "Adamant",
               "ability": "Comotose",
               "item": "Silk Scarf",
               "moves": [
@@ -2554,7 +2554,7 @@
             {
               "species": "Persian-A",
               "level": "Lv Scale -4 (23/30)",
-              "nature": null,
+              "nature": "Timid",
               "ability": "Feline Prowess",
               "item": "Black Glasses",
               "moves": [
@@ -2592,7 +2592,7 @@
             {
               "species": "Oinkologne",
               "level": "Lv Scale -5 (22/29)",
-              "nature": null,
+              "nature": "Impish",
               "ability": "Gluttony",
               "item": "Figy Berry",
               "moves": [
@@ -2630,7 +2630,7 @@
             {
               "species": "Golbat",
               "level": "Lv Scale -3 (24/31)",
-              "nature": null,
+              "nature": "Naive",
               "ability": "Sniper",
               "item": "Eviolite",
               "moves": [
@@ -2668,7 +2668,7 @@
             {
               "species": "Octillery",
               "level": "Lv Scale -3 (24/31)",
-              "nature": null,
+              "nature": "Rash",
               "ability": "Skill Link",
               "item": "Rindo Berry",
               "moves": [
@@ -6794,7 +6794,7 @@
             {
               "species": "Gothitelle",
               "level": 54,
-              "nature": null,
+              "nature": "Modest",
               "ability": "Competitive",
               "item": "Colbur Berry",
               "moves": [
@@ -6832,7 +6832,7 @@
             {
               "species": "Gholdengo",
               "level": 55,
-              "nature": null,
+              "nature": "Timid",
               "ability": "Good as Gold",
               "item": "Sitrus Berry",
               "moves": [
@@ -6870,7 +6870,7 @@
             {
               "species": "Houndoom",
               "level": 55,
-              "nature": null,
+              "nature": "Naive",
               "ability": "Early Bird\n/Dark Aura",
               "item": "Houndoomite",
               "moves": [
@@ -6908,7 +6908,7 @@
             {
               "species": "Incineroar",
               "level": 54,
-              "nature": null,
+              "nature": "Adamant",
               "ability": "Intimidate",
               "item": "Sitrus Berry",
               "moves": [
@@ -6946,7 +6946,7 @@
             {
               "species": "Mawile",
               "level": 55,
-              "nature": null,
+              "nature": "Adamant",
               "ability": "Intimidate\n/Huge Power",
               "item": "Mawilite",
               "moves": [
@@ -6984,7 +6984,7 @@
             {
               "species": "Primarina",
               "level": 55,
-              "nature": null,
+              "nature": "Modest",
               "ability": "Liquid Voice",
               "item": "Throat Spray",
               "moves": [
