@@ -7,6 +7,7 @@ export interface BoxMon {
   species: string;
   level:   number;
   nature:  string;
+  ability?: string;
   item:    string;
   moves:   [string, string, string, string];
   evs:     { hp?: number; atk?: number; def?: number; spa?: number; spd?: number; spe?: number };

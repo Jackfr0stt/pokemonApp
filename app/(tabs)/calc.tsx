@@ -6,7 +6,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from 'expo-router';
 import { useGame, type GameId } from '@/lib/GameContext';
-import { runCalc, isKnownSpecies, getComputedSpeed, type CalcMon, type CalcResult } from '@/lib/calc';
+import { runCalc, isKnownSpecies, getComputedSpeed, getComputedStats, getSpeciesAbility, type CalcMon, type CalcResult, type CalcField } from '@/lib/calc';
 import { takePendingDefender } from '@/lib/calcStore';
 import { getGameData, type Pokemon, type Trainer } from '@/lib/data';
 import { useIsTablet } from '@/lib/layout';
@@ -41,8 +41,28 @@ const NATURE_NERF: Record<string, string> = {
   Calm:'Atk',   Gentle:'Def', Sassy:'Spe',  Careful:'SpA',
 };
 
+// Maps CalcMon stat key → the label used in NATURE_BUFF/NATURE_NERF
+const STAT_TO_NAT: Record<string, string> = {
+  hp: '', atk: 'Atk', def: 'Def', spa: 'SpA', spd: 'SpD', spe: 'Spe',
+};
+
 const STAT_KEYS = ['hp', 'atk', 'def', 'spa', 'spd', 'spe'] as const;
 type StatKey = typeof STAT_KEYS[number];
+
+const BOOST_STAT_KEYS = ['atk', 'def', 'spa', 'spd', 'spe'] as const;
+
+const STATUS_OPTIONS = [
+  { label: 'None', value: '' },
+  { label: 'BRN',  value: 'brn' },
+  { label: 'PAR',  value: 'par' },
+  { label: 'PSN',  value: 'psn' },
+  { label: 'TOX',  value: 'tox' },
+  { label: 'FRZ',  value: 'frz' },
+  { label: 'SLP',  value: 'slp' },
+] as const;
+
+const WEATHER_OPTIONS = ['Sun', 'Rain', 'Sand', 'Snow', 'Hail'] as const;
+const TERRAIN_OPTIONS = ['Electric', 'Grassy', 'Misty', 'Psychic'] as const;
 
 const EMPTY_MON = (): CalcMon => ({ species: '', level: 100, nature: 'Hardy', evs: {} });
 
@@ -55,7 +75,15 @@ interface FlatTrainer {
 }
 
 function boxMonToCalcMon(mon: BoxMon): CalcMon {
-  return { species: mon.species, level: mon.level, nature: mon.nature, evs: mon.evs, ivs: mon.ivs };
+  return {
+    species: mon.species,
+    level:   mon.level,
+    nature:  mon.nature,
+    evs:     mon.evs,
+    ivs:     mon.ivs,
+    ...(mon.ability ? { ability: mon.ability } : {}),
+    ...(mon.item    ? { item:    mon.item    } : {}),
+  };
 }
 
 function pokemonToCalcMon(mon: Pokemon): CalcMon {
@@ -83,7 +111,9 @@ function pokemonToCalcMon(mon: Pokemon): CalcMon {
     level:   typeof mon.level === 'number' ? mon.level : (parseInt(String(mon.level)) || 50),
     nature:  mon.nature || 'Hardy',
     evs,
-    ivs: allMax ? undefined : rawIvs,
+    ivs:     allMax ? undefined : rawIvs,
+    ...(mon.ability ? { ability: mon.ability } : {}),
+    ...(mon.item    ? { item:    mon.item    } : {}),
   };
 }
 
@@ -448,6 +478,18 @@ function BoxMonEditModal({
             </View>
           </View>
 
+          {/* Ability */}
+          <Text style={styles.fieldLabel}>Ability</Text>
+          <TextInput
+            style={styles.input}
+            value={draft.ability ?? ''}
+            onChangeText={v => setDraft(d => ({ ...d, ability: v || undefined }))}
+            placeholder={getSpeciesAbility(draft.species.trim()) ?? 'Ability name…'}
+            placeholderTextColor={colors.textDim}
+            autoCapitalize="words"
+            autoCorrect={false}
+          />
+
           {/* Item */}
           <Text style={styles.fieldLabel}>Item</Text>
           <TextInput
@@ -612,6 +654,125 @@ function MyBoxBar({
   );
 }
 
+// ─── Field panel ─────────────────────────────────────────────────────────────
+
+function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcField) => void }) {
+  const [showMore, setShowMore] = useState(false);
+
+  function toggle(key: keyof CalcField) {
+    onChange({ ...field, [key]: !field[key] });
+  }
+
+  const hasExtra =
+    !!field.gravity || !!field.wonderRoom ||
+    !!field.atkTailwind || !!field.atkHelpingHand || !!field.isCrit ||
+    !!field.defReflect || !!field.defLightScreen || !!field.defAuroraVeil ||
+    !!field.defSR || !!field.defSpikes;
+
+  function Chip({ label, active, onPress, accent }: {
+    label: string; active: boolean; onPress: () => void; accent?: boolean;
+  }) {
+    return (
+      <TouchableOpacity
+        style={[fpSt.chip, active && (accent ? fpSt.toggleActive : fpSt.chipActive)]}
+        onPress={onPress}
+        activeOpacity={0.7}
+      >
+        <Text style={[fpSt.chipLabel, active && (accent ? fpSt.toggleLabelActive : fpSt.chipLabelActive)]}>
+          {label}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
+
+  return (
+    <View style={fpSt.card}>
+      <View style={fpSt.titleRow}>
+        <Ionicons name="partly-sunny-outline" size={12} color={colors.textDim} />
+        <Text style={fpSt.title}>Field</Text>
+      </View>
+
+      <View style={fpSt.body}>
+
+        {/* Terrain — always visible */}
+        <Text style={fpSt.rowLabel}>Terrain</Text>
+        <View style={fpSt.chipRow}>
+          {TERRAIN_OPTIONS.map(opt => (
+            <Chip
+              key={opt} label={opt}
+              active={field.terrain === opt}
+              onPress={() => onChange({ ...field, terrain: field.terrain === opt ? undefined : opt })}
+            />
+          ))}
+        </View>
+
+        {/* Weather — always visible */}
+        <Text style={fpSt.rowLabel}>Weather</Text>
+        <View style={fpSt.chipRow}>
+          {WEATHER_OPTIONS.map(opt => (
+            <Chip
+              key={opt} label={opt}
+              active={field.weather === opt}
+              onPress={() => onChange({ ...field, weather: field.weather === opt ? undefined : opt })}
+            />
+          ))}
+        </View>
+
+        {/* Show More / Show Less */}
+        <TouchableOpacity
+          style={fpSt.showMoreBtn}
+          onPress={() => setShowMore(m => !m)}
+          activeOpacity={0.7}
+        >
+          <Text style={fpSt.showMoreLabel}>{showMore ? 'Show Less' : 'Show More'}</Text>
+          {hasExtra && !showMore && <View style={fpSt.activeDot} />}
+        </TouchableOpacity>
+
+        {showMore && (
+          <>
+            {/* Global */}
+            <Text style={fpSt.rowLabel}>Global</Text>
+            <View style={fpSt.chipRow}>
+              <Chip label="Gravity"     active={!!field.gravity}    onPress={() => toggle('gravity')}    accent />
+              <Chip label="Wonder Room" active={!!field.wonderRoom} onPress={() => toggle('wonderRoom')} accent />
+            </View>
+
+            {/* Attacker */}
+            <Text style={fpSt.sideLabel}>Attacker</Text>
+            <View style={fpSt.chipRow}>
+              <Chip label="Tailwind"     active={!!field.atkTailwind}    onPress={() => toggle('atkTailwind')}    accent />
+              <Chip label="Helping Hand" active={!!field.atkHelpingHand} onPress={() => toggle('atkHelpingHand')} accent />
+              <Chip label="Crit"         active={!!field.isCrit}         onPress={() => toggle('isCrit')}         accent />
+            </View>
+
+            {/* Defender */}
+            <Text style={fpSt.sideLabel}>Defender</Text>
+            <View style={fpSt.chipRow}>
+              <Chip label="Reflect"      active={!!field.defReflect}     onPress={() => toggle('defReflect')}     accent />
+              <Chip label="Light Screen" active={!!field.defLightScreen} onPress={() => toggle('defLightScreen')} accent />
+              <Chip label="Aurora Veil"  active={!!field.defAuroraVeil}  onPress={() => toggle('defAuroraVeil')}  accent />
+              <Chip label="Stealth Rock" active={!!field.defSR}          onPress={() => toggle('defSR')}          accent />
+            </View>
+
+            {/* Spikes */}
+            <Text style={fpSt.rowLabel}>Spikes (Def)</Text>
+            <View style={fpSt.chipRow}>
+              {([0, 1, 2, 3] as const).map(n => (
+                <Chip
+                  key={n} label={String(n)}
+                  active={(field.defSpikes ?? 0) === n}
+                  onPress={() => onChange({ ...field, defSpikes: n })}
+                />
+              ))}
+            </View>
+          </>
+        )}
+
+      </View>
+    </View>
+  );
+}
+
 // ─── Mon panel ───────────────────────────────────────────────────────────────
 
 function MonPanel({
@@ -620,6 +781,7 @@ function MonPanel({
   title: string; mon: CalcMon; onChange: (m: CalcMon) => void;
 }) {
   const [showNature, setShowNature] = useState(false);
+  const [showAdv, setShowAdv]       = useState(false);
 
   const trimmed = mon.species.trim();
   const speciesState: 'known' | 'unknown' | 'empty' =
@@ -634,7 +796,6 @@ function MonPanel({
   function setIvs(stat: StatKey, val: string) {
     const n = val === '' ? 31 : Math.min(31, Math.max(0, Number(val) || 0));
     const next = { ...(mon.ivs ?? {}), [stat]: n };
-    // If all 31, drop the ivs field entirely (let the calc default)
     const allMax = STAT_KEYS.every(s => (next[s] ?? 31) === 31);
     onChange({ ...mon, ivs: allMax ? undefined : next });
   }
@@ -650,6 +811,11 @@ function MonPanel({
     });
   }
 
+  function setBoost(stat: typeof BOOST_STAT_KEYS[number], val: string) {
+    const n = Math.min(6, Math.max(-6, parseInt(val.replace('+', '')) || 0));
+    onChange({ ...mon, boosts: { ...mon.boosts, [stat]: n } });
+  }
+
   return (
     <View style={styles.panel}>
       <Text style={styles.panelTitle}>{title}</Text>
@@ -661,7 +827,7 @@ function MonPanel({
           style={[styles.input, { flex: 1 }]}
           value={mon.species}
           onChangeText={v => onChange({ ...mon, species: v, baseStats: undefined })}
-          placeholder="Garchomp, Greninja…"
+          placeholder="Garchomp…"
           placeholderTextColor={colors.textDim}
           autoCapitalize="words"
           autoCorrect={false}
@@ -674,10 +840,9 @@ function MonPanel({
         )}
       </View>
 
-      {/* Unknown species → base stat inputs */}
       {speciesState === 'unknown' && (
         <View style={styles.baseBox}>
-          <Text style={styles.fieldLabel}>Base Stats (not in Gen 8 dex)</Text>
+          <Text style={styles.fieldLabel}>Base Stats</Text>
           <View style={styles.statRow}>
             {STAT_KEYS.map(s => (
               <View key={s} style={styles.statCell}>
@@ -700,7 +865,7 @@ function MonPanel({
       {/* Level + Nature */}
       <View style={styles.levelNatureRow}>
         <View style={styles.levelWrap}>
-          <Text style={styles.fieldLabel}>Level</Text>
+          <Text style={styles.fieldLabel}>Lv</Text>
           <TextInput
             style={[styles.input, styles.levelInput]}
             keyboardType="numeric"
@@ -728,6 +893,30 @@ function MonPanel({
         </View>
       </View>
 
+      {/* Ability */}
+      <Text style={styles.fieldLabel}>Ability</Text>
+      <TextInput
+        style={styles.input}
+        value={mon.ability ?? ''}
+        onChangeText={v => onChange({ ...mon, ability: v || undefined })}
+        placeholder={getSpeciesAbility(mon.species.trim()) ?? 'Ability…'}
+        placeholderTextColor={colors.textDim}
+        autoCapitalize="words"
+        autoCorrect={false}
+      />
+
+      {/* Item */}
+      <Text style={styles.fieldLabel}>Item</Text>
+      <TextInput
+        style={styles.input}
+        value={mon.item ?? ''}
+        onChangeText={v => onChange({ ...mon, item: v || undefined })}
+        placeholder="Choice Scarf…"
+        placeholderTextColor={colors.textDim}
+        autoCapitalize="words"
+        autoCorrect={false}
+      />
+
       {/* EVs */}
       <Text style={styles.fieldLabel}>EVs</Text>
       <View style={styles.statRow}>
@@ -747,24 +936,126 @@ function MonPanel({
         ))}
       </View>
 
-      {/* IVs */}
-      <Text style={styles.fieldLabel}>IVs</Text>
-      <View style={styles.statRow}>
-        {STAT_KEYS.map(s => (
-          <View key={s} style={styles.statCell}>
-            <Text style={styles.statLabel}>{s.toUpperCase()}</Text>
+      {/* Computed final stats */}
+      {speciesState === 'known' && (() => {
+        const cs = getComputedStats(mon);
+        if (!cs) return null;
+        const buff = NATURE_BUFF[mon.nature];
+        const nerf = NATURE_NERF[mon.nature];
+        return (
+          <View style={mpSt.computedRow}>
+            {STAT_KEYS.map(s => {
+              const natKey = STAT_TO_NAT[s];
+              const color = natKey && natKey === buff ? '#63bb5b'
+                          : natKey && natKey === nerf ? '#f97176'
+                          : colors.text;
+              return (
+                <View key={s} style={mpSt.computedCell}>
+                  <Text style={mpSt.computedLabel}>{s.toUpperCase()}</Text>
+                  <Text style={[mpSt.computedVal, { color }]}>{cs[s]}</Text>
+                </View>
+              );
+            })}
+          </View>
+        );
+      })()}
+
+      {/* Advanced toggle */}
+      <TouchableOpacity
+        style={mpSt.advToggle}
+        onPress={() => setShowAdv(a => !a)}
+        activeOpacity={0.7}
+      >
+        <Ionicons name={showAdv ? 'chevron-up' : 'chevron-down'} size={11} color={colors.primary} />
+        <Text style={mpSt.advToggleLabel}>{showAdv ? 'Less' : 'IVs · Status · Boosts'}</Text>
+      </TouchableOpacity>
+
+      {showAdv && (
+        <>
+          {/* IVs */}
+          <Text style={styles.fieldLabel}>IVs</Text>
+          <View style={styles.statRow}>
+            {STAT_KEYS.map(s => (
+              <View key={s} style={styles.statCell}>
+                <Text style={styles.statLabel}>{s.toUpperCase()}</Text>
+                <TextInput
+                  style={styles.statInput}
+                  keyboardType="numeric"
+                  value={mon.ivs?.[s] !== undefined ? String(mon.ivs[s]) : ''}
+                  onChangeText={v => setIvs(s, v)}
+                  placeholder="31"
+                  placeholderTextColor={colors.textDim}
+                  maxLength={2}
+                />
+              </View>
+            ))}
+          </View>
+
+          {/* Status */}
+          <Text style={styles.fieldLabel}>Status</Text>
+          <View style={mpSt.chipRow}>
+            {STATUS_OPTIONS.map(({ label, value }) => {
+              const active = value === '' ? !mon.status : mon.status === value;
+              return (
+                <TouchableOpacity
+                  key={label}
+                  style={[mpSt.statusChip, active && mpSt.statusChipActive]}
+                  onPress={() => onChange({
+                    ...mon,
+                    status: value === '' || mon.status === value ? undefined : value as CalcMon['status'],
+                  })}
+                  activeOpacity={0.7}
+                >
+                  <Text style={[mpSt.statusLabel, active && mpSt.statusLabelActive]}>{label}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+
+          {/* HP % */}
+          <View style={mpSt.hpRow}>
+            <Text style={[styles.fieldLabel, { flex: 1 }]}>HP %</Text>
             <TextInput
-              style={styles.statInput}
+              style={[styles.statInput, mpSt.hpInput]}
               keyboardType="numeric"
-              value={mon.ivs?.[s] !== undefined ? String(mon.ivs[s]) : ''}
-              onChangeText={v => setIvs(s, v)}
-              placeholder="31"
+              value={mon.curHP !== undefined ? String(mon.curHP) : ''}
+              onChangeText={v => {
+                if (v === '') { onChange({ ...mon, curHP: undefined }); return; }
+                const n = Math.min(100, Math.max(1, Number(v) || 1));
+                onChange({ ...mon, curHP: n });
+              }}
+              placeholder="100"
               placeholderTextColor={colors.textDim}
-              maxLength={2}
+              maxLength={3}
             />
           </View>
-        ))}
-      </View>
+
+          {/* Boosts */}
+          <Text style={styles.fieldLabel}>Boosts</Text>
+          <View style={styles.statRow}>
+            {BOOST_STAT_KEYS.map(stat => {
+              const val = mon.boosts?.[stat] ?? 0;
+              return (
+                <View key={stat} style={styles.statCell}>
+                  <Text style={styles.statLabel}>{stat.toUpperCase()}</Text>
+                  <TextInput
+                    style={[
+                      styles.statInput,
+                      val > 0 ? { color: '#63bb5b' } : val < 0 ? { color: '#f97176' } : {},
+                    ]}
+                    keyboardType="numbers-and-punctuation"
+                    value={val !== 0 ? (val > 0 ? `+${val}` : String(val)) : ''}
+                    onChangeText={v => setBoost(stat, v)}
+                    placeholder="0"
+                    placeholderTextColor={colors.textDim}
+                    maxLength={3}
+                  />
+                </View>
+              );
+            })}
+          </View>
+        </>
+      )}
 
       <NaturePicker
         visible={showNature}
@@ -867,6 +1158,7 @@ export default function CalcScreen() {
   const [atk, setAtk] = useState<CalcMon>(EMPTY_MON());
   const [def, setDef] = useState<CalcMon>(EMPTY_MON());
   const [move,    setMove]    = useState('');
+  const [field,   setField]   = useState<CalcField>({});
   const [result,  setResult]  = useState<CalcResult | null>(null);
   const [errored, setErrored] = useState(false);
 
@@ -965,17 +1257,16 @@ export default function CalcScreen() {
   const doCalc = useCallback((moveOverride?: string) => {
     const mv = (moveOverride ?? move).trim();
     if (!atk.species.trim() || !def.species.trim() || !mv) return;
-    const r = runCalc(game, atk, def, mv);
+    const r = runCalc(game, atk, def, mv, field);
     if (r) { setResult(r); setErrored(false); }
     else   { setResult(null); setErrored(true); }
-  }, [game, atk, def, move]);
+  }, [game, atk, def, move, field]);
 
   function onMoveChipTap(mv: string) {
     setMove(mv);
     clearResult();
-    // auto-calc if attacker is ready
     if (atk.species.trim() && def.species.trim()) {
-      const r = runCalc(game, atk, def, mv);
+      const r = runCalc(game, atk, def, mv, field);
       if (r) { setResult(r); setErrored(false); }
       else   { setResult(null); setErrored(true); }
     }
@@ -995,34 +1286,58 @@ export default function CalcScreen() {
       contentContainerStyle={[styles.content, isTablet && styles.contentTablet]}
       keyboardShouldPersistTaps="handled"
     >
-      {/* ── Trainer bar ── */}
-      <TrainerBar
-        trainer={selectedTrainer}
-        monIdx={selectedMonIdx}
-        onChangeTrainer={() => setShowPicker(true)}
-        onSelectMon={applyTeamMon}
-      />
-
-      {/* ── Defender (trainer's Pokémon) ── */}
-      <MonPanel
-        title="Defender 🛡"
-        mon={def}
-        onChange={m => { setDef(m); clearResult(); }}
-      />
-
-      {/* ── Move chips (trainer Pokémon's moves) ── */}
-      {activeMoves.length > 0 && (
-        <View style={styles.sectionCard}>
-          <Text style={styles.fieldLabel}>Defender's moves — tap to calculate</Text>
-          <MoveChips
-            moves={activeMoves}
-            activeMove={move}
-            onSelect={onMoveChipTap}
+      {/* ── Trainer bars side by side ── */}
+      <View style={colSt.headerRow}>
+        <View style={colSt.headerSide}>
+          <MyBoxBar
+            box={box}
+            activeIdx={activeBoxIdx}
+            onAdd={openAdd}
+            onLongPress={openEdit}
+            onClear={handleClearBox}
+            onSelectMon={applyBoxMon}
           />
+        </View>
+        <View style={colSt.headerSide}>
+          <TrainerBar
+            trainer={selectedTrainer}
+            monIdx={selectedMonIdx}
+            onChangeTrainer={() => setShowPicker(true)}
+            onSelectMon={applyTeamMon}
+          />
+        </View>
+      </View>
+
+      {/* ── Move chips side by side (when available) ── */}
+      {(atkMoves.length > 0 || activeMoves.length > 0) && (
+        <View style={colSt.headerRow}>
+          <View style={colSt.headerSide}>
+            {atkMoves.length > 0 && (
+              <View style={colSt.movesCard}>
+                <Text style={styles.fieldLabel}>Your moves</Text>
+                <MoveChips moves={atkMoves} activeMove={move} onSelect={onMoveChipTap} />
+              </View>
+            )}
+          </View>
+          <View style={colSt.headerSide}>
+            {activeMoves.length > 0 && (
+              <View style={colSt.movesCard}>
+                <Text style={styles.fieldLabel}>Opponent moves</Text>
+                <MoveChips moves={activeMoves} activeMove={move} onSelect={onMoveChipTap} />
+              </View>
+            )}
+          </View>
         </View>
       )}
 
-      {/* ── Divider + swap ── */}
+      {/* ── Attacker panel (full width) ── */}
+      <MonPanel
+        title="⚔ Attacker"
+        mon={atk}
+        onChange={m => { setAtk(m); setActiveBoxIdx(-1); clearResult(); }}
+      />
+
+      {/* ── Swap ── */}
       <View style={styles.swapRow}>
         <View style={styles.dividerLine} />
         <TouchableOpacity style={styles.swapBtn} onPress={swapMonsters} activeOpacity={0.7}>
@@ -1032,37 +1347,16 @@ export default function CalcScreen() {
         <View style={styles.dividerLine} />
       </View>
 
-      {/* ── My Box ── */}
-      <MyBoxBar
-        box={box}
-        activeIdx={activeBoxIdx}
-        onAdd={openAdd}
-        onLongPress={openEdit}
-        onClear={handleClearBox}
-        onSelectMon={applyBoxMon}
-      />
-
-      {/* ── Attacker ── */}
+      {/* ── Defender panel (full width) ── */}
       <MonPanel
-        title="Attacker ⚔"
-        mon={atk}
-        onChange={m => { setAtk(m); setActiveBoxIdx(-1); clearResult(); }}
+        title="🛡 Defender"
+        mon={def}
+        onChange={m => { setDef(m); clearResult(); }}
       />
 
-      {/* ── Attacker move chips ── */}
-      {atkMoves.length > 0 && (
-        <View style={styles.sectionCard}>
-          <Text style={styles.fieldLabel}>Your moves — tap to calculate</Text>
-          <MoveChips moves={atkMoves} activeMove={move} onSelect={onMoveChipTap} />
-        </View>
-      )}
+      {/* ── Field + Move + Calc + Result ── */}
+      <FieldPanel field={field} onChange={f => { setField(f); clearResult(); }} />
 
-      {/* ── Speed comparison ── */}
-      {atk.species.trim() && def.species.trim() && (
-        <SpeedBar atk={atk} def={def} />
-      )}
-
-      {/* ── Move input ── */}
       <View style={styles.sectionCard}>
         <Text style={styles.fieldLabel}>Move</Text>
         <TextInput
@@ -1078,7 +1372,6 @@ export default function CalcScreen() {
         />
       </View>
 
-      {/* ── Calc button ── */}
       <TouchableOpacity
         style={[styles.calcBtn, !canCalc && styles.calcBtnOff]}
         onPress={() => doCalc()}
@@ -1090,22 +1383,19 @@ export default function CalcScreen() {
         </Text>
       </TouchableOpacity>
 
-      {/* ── Error ── */}
+      {atk.species.trim() && def.species.trim() && <SpeedBar atk={atk} def={def} />}
+
       {errored && (
         <View style={styles.errorBox}>
           <Ionicons name="warning-outline" size={15} color={colors.types.fire} />
-          <Text style={styles.errorText}>
-            Unknown move or species — check spelling and try again.
-          </Text>
+          <Text style={styles.errorText}>Unknown move or species — check spelling and try again.</Text>
         </View>
       )}
 
-      {/* ── Result ── */}
       {result && <ResultCard result={result} />}
 
       <View style={{ height: spacing.xxl }} />
 
-      {/* ── Box mon edit modal ── */}
       <BoxMonEditModal
         visible={editTarget !== null}
         initial={editTarget?.mon ?? null}
@@ -1114,7 +1404,6 @@ export default function CalcScreen() {
         onClose={closeEdit}
       />
 
-      {/* ── Trainer picker sheet ── */}
       <TrainerPickerSheet
         visible={showPicker}
         game={game}
@@ -1409,6 +1698,111 @@ const editSt = StyleSheet.create({
     borderWidth: 1, borderColor: '#f97176' + '55',
   },
   deleteBtnText: { color: '#f97176', fontSize: 14, fontWeight: font.medium },
+});
+
+// ── Field panel styles ────────────────────────────────────────────────────────
+
+const fpSt = StyleSheet.create({
+  card: {
+    backgroundColor: colors.card,
+    borderRadius: radius.lg,
+    borderWidth: 1, borderColor: colors.border,
+    overflow: 'hidden',
+  },
+  titleRow: {
+    flexDirection: 'row', alignItems: 'center', gap: 4,
+    paddingHorizontal: spacing.sm, paddingTop: spacing.sm, paddingBottom: 2,
+  },
+  title:    { color: colors.textDim, fontSize: 10, fontWeight: font.bold, textTransform: 'uppercase', letterSpacing: 0.6 },
+  body:     { padding: spacing.sm, gap: spacing.xs },
+  rowLabel: {
+    color: colors.textDim, fontSize: 10,
+    textTransform: 'uppercase', letterSpacing: 0.5,
+    marginTop: spacing.xs,
+  },
+  sideLabel: {
+    color: colors.textDim, fontSize: 10,
+    textTransform: 'uppercase', letterSpacing: 0.5,
+    marginTop: spacing.sm,
+  },
+  chipRow:          { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
+  chip:             {
+    paddingHorizontal: 7, paddingVertical: 4,
+    backgroundColor: colors.surface,
+    borderRadius: radius.full,
+    borderWidth: 1, borderColor: colors.border,
+  },
+  chipActive:        { backgroundColor: colors.primary, borderColor: colors.primary },
+  chipLabel:         { color: colors.text, fontSize: 11 },
+  chipLabelActive:   { color: colors.bg },
+  toggleActive:      { backgroundColor: colors.accent + '22', borderColor: colors.accent },
+  toggleLabelActive: { color: colors.accent, fontWeight: font.medium },
+
+  showMoreBtn: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5,
+    marginTop: spacing.xs,
+    paddingVertical: 5,
+    backgroundColor: colors.surface,
+    borderRadius: radius.sm,
+    borderWidth: 1, borderColor: colors.border,
+  },
+  showMoreLabel: { color: colors.textMuted, fontSize: 11, fontWeight: font.medium },
+  activeDot:     { width: 6, height: 6, borderRadius: 3, backgroundColor: colors.accent },
+});
+
+// ── Mon panel extra styles ────────────────────────────────────────────────────
+
+const mpSt = StyleSheet.create({
+  chipRow:        { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
+  statusChip:     {
+    paddingHorizontal: spacing.sm, paddingVertical: 5,
+    backgroundColor: colors.surface,
+    borderRadius: radius.full,
+    borderWidth: 1, borderColor: colors.border,
+  },
+  statusChipActive:  { backgroundColor: colors.accent, borderColor: colors.accent },
+  statusLabel:       { color: colors.text, fontSize: 12 },
+  statusLabelActive: { color: '#fff', fontWeight: font.medium },
+
+  hpRow:    { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  hpInput:  { width: 58, textAlign: 'center' },
+
+  advToggle:      {
+    flexDirection: 'row', alignItems: 'center', gap: 4,
+    paddingVertical: spacing.xs, alignSelf: 'flex-start',
+  },
+  advToggleLabel: { color: colors.primary, fontSize: 11, fontWeight: font.medium },
+
+  computedRow:   {
+    flexDirection: 'row',
+    backgroundColor: colors.bg,
+    borderRadius: radius.sm,
+    borderWidth: 1, borderColor: colors.border,
+    overflow: 'hidden',
+  },
+  computedCell:  { flex: 1, alignItems: 'center', paddingVertical: 4 },
+  computedLabel: { color: colors.textDim, fontSize: 8, textTransform: 'uppercase', letterSpacing: 0.3 },
+  computedVal:   { color: colors.text, fontSize: 12, fontWeight: font.medium },
+});
+
+// ── 3-column layout styles ────────────────────────────────────────────────────
+
+const colSt = StyleSheet.create({
+  headerRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  headerSide: {
+    flex: 1,
+    minWidth: 0,
+  },
+  movesCard: {
+    backgroundColor: colors.card,
+    borderRadius: radius.md,
+    borderWidth: 1, borderColor: colors.border,
+    padding: spacing.sm,
+    gap: spacing.xs,
+  },
 });
 
 // ── Move chips styles ─────────────────────────────────────────────────────────
