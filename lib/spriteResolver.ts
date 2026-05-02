@@ -3,6 +3,9 @@ import { SPRITE_MAP } from './spriteMap';
 function toSlug(species: string): string {
   return species
     .toLowerCase()
+    .replace(/[éèêë]/g, 'e')
+    .replace(/[àâä]/g, 'a')
+    .replace(/[ùûü]/g, 'u')
     .replace(/[''']/g, '')
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9\-]/g, '')
