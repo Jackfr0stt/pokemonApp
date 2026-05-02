@@ -6,7 +6,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect } from 'expo-router';
 import { useGame, type GameId } from '@/lib/GameContext';
-import { runCalc, isKnownSpecies, getBaseStats, getSpeciesAbilities, getAllAbilities, getAllMoves, getAllItems, getComputedSpeed, getComputedStats, getAbilityStatMods, getSpeciesAbility, type CalcMon, type CalcResult, type CalcField } from '@/lib/calc';
+import { runCalc, isKnownSpecies, getBaseStats, getSpeciesAbilities, getAllAbilities, getAllMoves, getAllItems, getAllSpecies, getSpeciesTypes, getBaseSpeciesName, getSpeciesForms, getComputedSpeed, getComputedStats, getAbilityStatMods, getSpeciesAbility, type CalcMon, type CalcResult, type CalcField } from '@/lib/calc';
 import { takePendingDefender } from '@/lib/calcStore';
 import { getGameData, type Pokemon, type Trainer } from '@/lib/data';
 import { useIsTablet } from '@/lib/layout';
@@ -59,6 +59,12 @@ const STATUS_OPTIONS = [
   { label: 'TOX',  value: 'tox' },
   { label: 'FRZ',  value: 'frz' },
   { label: 'SLP',  value: 'slp' },
+] as const;
+
+const TYPES = [
+  'Normal', 'Fire', 'Water', 'Electric', 'Grass', 'Ice',
+  'Fighting', 'Poison', 'Ground', 'Flying', 'Psychic', 'Bug',
+  'Rock', 'Ghost', 'Dragon', 'Dark', 'Steel', 'Fairy',
 ] as const;
 
 const WEATHER_OPTIONS: { label: string; value: NonNullable<CalcField['weather']> }[] = [
@@ -370,6 +376,64 @@ function ItemPicker({
   );
 }
 
+// ─── Species picker modal ─────────────────────────────────────────────────────
+
+function SpeciesPicker({
+  visible, current, onSelect, onClose,
+}: {
+  visible:  boolean;
+  current:  string;
+  onSelect: (species: string) => void;
+  onClose:  () => void;
+}) {
+  const [q, setQ] = useState('');
+  useEffect(() => { if (!visible) setQ(''); }, [visible]);
+
+  const allSpecies = useMemo(() => getAllSpecies(), []);
+  const filtered   = useMemo(() => {
+    const qLow = q.toLowerCase().trim();
+    return qLow ? allSpecies.filter(s => s.toLowerCase().includes(qLow)) : allSpecies;
+  }, [q, allSpecies]);
+
+  return (
+    <Modal visible={visible} transparent animationType="slide" onRequestClose={onClose}>
+      <Pressable style={styles.overlay} onPress={onClose} />
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={styles.sheetWrap}>
+        <View style={[styles.sheet, { maxHeight: 560 }]}>
+          <View style={styles.sheetHandle} />
+          <Text style={styles.sheetTitle}>Species</Text>
+          <TextInput
+            style={styles.sheetSearch}
+            placeholder="Filter…"
+            placeholderTextColor={colors.textDim}
+            value={q}
+            onChangeText={setQ}
+            autoFocus
+          />
+          <FlatList
+            data={filtered}
+            keyExtractor={s => s}
+            keyboardShouldPersistTaps="handled"
+            initialNumToRender={30}
+            maxToRenderPerBatch={30}
+            windowSize={10}
+            renderItem={({ item: s }) => (
+              <TouchableOpacity
+                style={[spSt.row, s === current && styles.natRowActive]}
+                onPress={() => { onSelect(s); onClose(); }}
+                activeOpacity={0.7}
+              >
+                <Sprite species={s} size={36} />
+                <Text style={[styles.natText, s === current && styles.natTextActive]}>{s}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      </KeyboardAvoidingView>
+    </Modal>
+  );
+}
+
 // ─── Trainer picker sheet ────────────────────────────────────────────────────
 
 function TrainerPickerSheet({
@@ -533,32 +597,103 @@ function TrainerBar({
   );
 }
 
-// ─── Move chips ───────────────────────────────────────────────────────────────
+// ─── Move slots type ─────────────────────────────────────────────────────────
 
-function MoveChips({
-  moves, activeMove, onSelect,
+type MoveSlots = [string, string, string, string];
+
+// ─── Field swap helper ────────────────────────────────────────────────────────
+
+function swapFieldSides(f: CalcField): CalcField {
+  return {
+    ...f,
+    atkTailwind:    f.defTailwind,
+    atkHelpingHand: undefined,
+    atkFlowerGift:  f.defFlowerGift,
+    atkBattery:     undefined,
+    atkPowerSpot:   undefined,
+    atkReflect:     f.defReflect,
+    atkLightScreen: f.defLightScreen,
+    atkAuroraVeil:  f.defAuroraVeil,
+    atkSR:          f.defSR,
+    atkSpikes:      f.defSpikes,
+    atkSteelsurge:  f.defSteelsurge,
+    atkVineLash:    f.defVineLash,
+    atkWildfire:    f.defWildfire,
+    atkCannonade:   f.defCannonade,
+    atkVolcalith:   f.defVolcalith,
+    defTailwind:    f.atkTailwind,
+    defFlowerGift:  f.atkFlowerGift,
+    defFriendGuard: undefined,
+    defForesight:   undefined,
+    defProtect:     undefined,
+    defLeechSeed:   undefined,
+    defSwitching:   undefined,
+    defReflect:     f.atkReflect,
+    defLightScreen: f.atkLightScreen,
+    defAuroraVeil:  f.atkAuroraVeil,
+    defSR:          f.atkSR,
+    defSpikes:      f.atkSpikes,
+    defSteelsurge:  f.atkSteelsurge,
+    defVineLash:    f.atkVineLash,
+    defWildfire:    f.atkWildfire,
+    defCannonade:   f.atkCannonade,
+    defVolcalith:   f.atkVolcalith,
+  };
+}
+
+// ─── Moves list ───────────────────────────────────────────────────────────────
+
+function MovesList({
+  side, slots, results, selectedRow, onSelectRow, onOpenPicker,
 }: {
-  moves:       string[];
-  activeMove:  string;
-  onSelect:    (move: string) => void;
+  side:         'atk' | 'def';
+  slots:        MoveSlots;
+  results:      (CalcResult | null)[];
+  selectedRow:  number | null;
+  onSelectRow:  (row: number) => void;
+  onOpenPicker: (row: number) => void;
 }) {
-  const valid = moves.filter(Boolean);
-  if (valid.length === 0) return null;
-
   return (
-    <View style={mvSt.row}>
-      {valid.map(mv => {
-        const active = mv.toLowerCase() === activeMove.toLowerCase();
-        return (
+    <View style={mlSt.container}>
+      {([0, 1, 2, 3] as const).map(i => {
+        const mv     = slots[i];
+        const res    = results[i] ?? null;
+        const active = selectedRow === i;
+
+        const pMin = res?.percentMin ?? null;
+        const pMax = res?.percentMax ?? null;
+        const pctText = pMin !== null && pMax !== null ? `${pMin}–${pMax}%` : '—';
+        const pctColor =
+          pMax === null ? colors.textDim :
+          pMax >= 100   ? '#f97176'      :
+          pMax >= 50    ? colors.accent  :
+                          '#63bb5b';
+
+        const moveBtn = (
           <TouchableOpacity
-            key={mv}
-            style={[mvSt.chip, active && mvSt.chipActive]}
-            onPress={() => onSelect(mv)}
+            style={mlSt.moveBtn}
+            onPress={() => onOpenPicker(i)}
             activeOpacity={0.7}
           >
-            <Text style={[mvSt.label, active && mvSt.labelActive]} numberOfLines={1}>
-              {mv}
+            <Text style={[mlSt.moveName, !mv && mlSt.movePlaceholder]} numberOfLines={1}>
+              {mv || `Move ${i + 1}`}
             </Text>
+            <Ionicons name="chevron-down" size={9} color={colors.textDim} />
+          </TouchableOpacity>
+        );
+
+        const pctLabel = (
+          <Text style={[mlSt.pct, { color: pctColor }]}>{pctText}</Text>
+        );
+
+        return (
+          <TouchableOpacity
+            key={i}
+            style={[mlSt.row, active && mlSt.rowActive]}
+            onPress={() => onSelectRow(i)}
+            activeOpacity={0.8}
+          >
+            {side === 'atk' ? <>{moveBtn}{pctLabel}</> : <>{pctLabel}{moveBtn}</>}
           </TouchableOpacity>
         );
       })}
@@ -578,6 +713,7 @@ function BoxMonEditModal({
   onClose:  () => void;
 }) {
   const [draft, setDraft]             = useState<BoxMon>(emptyBoxMon());
+  const [showSpecies, setShowSpecies] = useState(false);
   const [showNature, setShowNature]   = useState(false);
   const [showAbility, setShowAbility] = useState(false);
   const [showItem,    setShowItem]    = useState(false);
@@ -585,11 +721,22 @@ function BoxMonEditModal({
 
   useEffect(() => {
     setDraft(initial ? { ...initial } : emptyBoxMon());
+    setShowSpecies(false);
     setShowNature(false);
     setShowAbility(false);
     setShowItem(false);
     setMovePickerIdx(null);
   }, [visible, initial]);
+
+  function selectSpecies(sp: string) {
+    setDraft(d => ({
+      ...d,
+      species: sp,
+      // Auto-fill first ability when none set yet
+      ability: d.ability || (getSpeciesAbility(sp) ?? ''),
+    }));
+    setShowSpecies(false);
+  }
 
   function setEvs(stat: StatKey, val: string) {
     setDraft(d => ({ ...d, evs: { ...d.evs, [stat]: Math.min(252, Number(val) || 0) } }));
@@ -635,15 +782,17 @@ function BoxMonEditModal({
         <ScrollView contentContainerStyle={editSt.body} keyboardShouldPersistTaps="handled">
           {/* Species */}
           <Text style={styles.fieldLabel}>Species</Text>
-          <TextInput
-            style={styles.input}
-            value={draft.species}
-            onChangeText={v => setDraft(d => ({ ...d, species: v }))}
-            placeholder="Garchomp, Greninja…"
-            placeholderTextColor={colors.textDim}
-            autoCapitalize="words"
-            autoCorrect={false}
-          />
+          <TouchableOpacity
+            style={[styles.input, spSt.selectBtn]}
+            onPress={() => setShowSpecies(true)}
+            activeOpacity={0.7}
+          >
+            {draft.species ? <Sprite species={draft.species} size={28} /> : null}
+            <Text style={[spSt.selectBtnText, !draft.species && { color: colors.textDim }]} numberOfLines={1}>
+              {draft.species || 'Select species…'}
+            </Text>
+            <Ionicons name="chevron-down" size={12} color={colors.textDim} />
+          </TouchableOpacity>
 
           {/* Level + Nature */}
           <View style={styles.levelNatureRow}>
@@ -785,6 +934,12 @@ function BoxMonEditModal({
           <View style={{ height: spacing.xxl }} />
         </ScrollView>
 
+        <SpeciesPicker
+          visible={showSpecies}
+          current={draft.species}
+          onSelect={selectSpecies}
+          onClose={() => setShowSpecies(false)}
+        />
         <NaturePicker
           visible={showNature}
           current={draft.nature}
@@ -906,25 +1061,24 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
   const hasExtra =
     !!field.gravity || !!field.wonderRoom || !!field.magicRoom ||
     !!field.tabletsOfRuin || !!field.vesselOfRuin || !!field.swordOfRuin || !!field.beadsOfRuin ||
-    !!field.atkTailwind || !!field.atkHelpingHand || !!field.atkFlowerGift || !!field.atkBattery || !!field.atkPowerSpot || !!field.isCrit ||
-    !!field.defReflect || !!field.defLightScreen || !!field.defAuroraVeil ||
+    !!field.atkTailwind || !!field.atkHelpingHand || !!field.atkFlowerGift ||
+    !!field.atkBattery  || !!field.atkPowerSpot   || !!field.isCrit ||
+    !!field.atkReflect  || !!field.atkLightScreen  || !!field.atkAuroraVeil ||
+    !!field.atkSR || !!field.atkSpikes || !!field.atkSteelsurge ||
+    !!field.atkVineLash || !!field.atkWildfire || !!field.atkCannonade || !!field.atkVolcalith ||
     !!field.defTailwind || !!field.defFlowerGift || !!field.defFriendGuard ||
     !!field.defForesight || !!field.defProtect || !!field.defLeechSeed || !!field.defSwitching ||
+    !!field.defReflect || !!field.defLightScreen || !!field.defAuroraVeil ||
     !!field.defSR || !!field.defSpikes || !!field.defSteelsurge ||
     !!field.defVineLash || !!field.defWildfire || !!field.defCannonade || !!field.defVolcalith;
 
-  function Chip({ label, active, onPress, accent }: {
-    label: string; active: boolean; onPress: () => void; accent?: boolean;
-  }) {
+  function Chip({ label, active, onPress }: { label: string; active: boolean; onPress: () => void }) {
     return (
       <TouchableOpacity
-        style={[fpSt.chip, active && (accent ? fpSt.toggleActive : fpSt.chipActive)]}
-        onPress={onPress}
-        activeOpacity={0.7}
+        style={[fpSt.chip, active && fpSt.chipActive]}
+        onPress={onPress} activeOpacity={0.7}
       >
-        <Text style={[fpSt.chipLabel, active && (accent ? fpSt.toggleLabelActive : fpSt.chipLabelActive)]}>
-          {label}
-        </Text>
+        <Text style={[fpSt.chipLabel, active && fpSt.chipLabelActive]}>{label}</Text>
       </TouchableOpacity>
     );
   }
@@ -933,11 +1087,29 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
     return (
       <TouchableOpacity
         style={[fpSt.sideChip, active && fpSt.sideChipActive]}
-        onPress={onPress}
-        activeOpacity={0.7}
+        onPress={onPress} activeOpacity={0.7}
       >
         <Text style={[fpSt.sideChipLabel, active && fpSt.sideChipLabelActive]}>{label}</Text>
       </TouchableOpacity>
+    );
+  }
+
+  function SideSpikes({ value, onPress }: { value: 0|1|2|3; onPress: (n: 0|1|2|3) => void }) {
+    return (
+      <View style={fpSt.spikesRow}>
+        <Text style={fpSt.spikesLabel}>Spikes</Text>
+        <View style={fpSt.spikesChips}>
+          {([0, 1, 2, 3] as const).map(n => (
+            <TouchableOpacity
+              key={n}
+              style={[fpSt.spikesChip, value === n && fpSt.sideChipActive]}
+              onPress={() => onPress(n)} activeOpacity={0.7}
+            >
+              <Text style={[fpSt.sideChipLabel, value === n && fpSt.sideChipLabelActive]}>{n}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
     );
   }
 
@@ -950,35 +1122,32 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
 
       <View style={fpSt.body}>
 
-        {/* Format — always visible */}
-        <View style={fpSt.chipRow}>
+        {/* Format */}
+        <View style={fpSt.centeredRow}>
           {(['Singles', 'Doubles'] as const).map(fmt => (
-            <Chip
-              key={fmt} label={fmt}
+            <Chip key={fmt} label={fmt}
               active={(field.format ?? 'Singles') === fmt}
               onPress={() => onChange({ ...field, format: fmt })}
             />
           ))}
         </View>
 
-        {/* Terrain — always visible */}
+        {/* Terrain */}
         <Text style={fpSt.rowLabel}>Terrain</Text>
-        <View style={fpSt.chipRow}>
+        <View style={fpSt.centeredRow}>
           {TERRAIN_OPTIONS.map(opt => (
-            <Chip
-              key={opt} label={opt}
+            <Chip key={opt} label={opt}
               active={field.terrain === opt}
               onPress={() => onChange({ ...field, terrain: field.terrain === opt ? undefined : opt })}
             />
           ))}
         </View>
 
-        {/* Weather — always visible */}
+        {/* Weather */}
         <Text style={fpSt.rowLabel}>Weather</Text>
-        <View style={fpSt.chipRow}>
+        <View style={fpSt.centeredRow}>
           {WEATHER_OPTIONS.map(({ label, value }) => (
-            <Chip
-              key={value} label={label}
+            <Chip key={value} label={label}
               active={field.weather === value}
               onPress={() => onChange({ ...field, weather: field.weather === value ? undefined : value })}
             />
@@ -999,23 +1168,24 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
           <>
             {/* Global */}
             <Text style={fpSt.rowLabel}>Global</Text>
-            <View style={fpSt.chipRow}>
-              <Chip label="Gravity"     active={!!field.gravity}    onPress={() => toggle('gravity')}    accent />
-              <Chip label="Wonder Room" active={!!field.wonderRoom} onPress={() => toggle('wonderRoom')} accent />
-              <Chip label="Magic Room"  active={!!field.magicRoom}  onPress={() => toggle('magicRoom')}  accent />
+            <View style={fpSt.centeredRow}>
+              <Chip label="Gravity"     active={!!field.gravity}    onPress={() => toggle('gravity')}    />
+              <Chip label="Wonder Room" active={!!field.wonderRoom} onPress={() => toggle('wonderRoom')} />
+              <Chip label="Magic Room"  active={!!field.magicRoom}  onPress={() => toggle('magicRoom')}  />
             </View>
 
-            {/* Ruin abilities */}
+            {/* Ruin */}
             <Text style={fpSt.rowLabel}>Ruin</Text>
-            <View style={fpSt.chipRow}>
-              <Chip label="Tablets" active={!!field.tabletsOfRuin} onPress={() => toggle('tabletsOfRuin')} accent />
-              <Chip label="Vessel"  active={!!field.vesselOfRuin}  onPress={() => toggle('vesselOfRuin')}  accent />
-              <Chip label="Sword"   active={!!field.swordOfRuin}   onPress={() => toggle('swordOfRuin')}   accent />
-              <Chip label="Beads"   active={!!field.beadsOfRuin}   onPress={() => toggle('beadsOfRuin')}   accent />
+            <View style={fpSt.centeredRow}>
+              <Chip label="Tablets" active={!!field.tabletsOfRuin} onPress={() => toggle('tabletsOfRuin')} />
+              <Chip label="Vessel"  active={!!field.vesselOfRuin}  onPress={() => toggle('vesselOfRuin')}  />
+              <Chip label="Sword"   active={!!field.swordOfRuin}   onPress={() => toggle('swordOfRuin')}   />
+              <Chip label="Beads"   active={!!field.beadsOfRuin}   onPress={() => toggle('beadsOfRuin')}   />
             </View>
 
             {/* ATK / DEF two-column section */}
             <View style={fpSt.sidesRow}>
+
               {/* Attacker column */}
               <View style={fpSt.sideCol}>
                 <Text style={fpSt.sideColHeader}>Attacker</Text>
@@ -1025,6 +1195,18 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
                 <SideChip label="Battery"      active={!!field.atkBattery}     onPress={() => toggle('atkBattery')}     />
                 <SideChip label="Power Spot"   active={!!field.atkPowerSpot}   onPress={() => toggle('atkPowerSpot')}   />
                 <SideChip label="Crit"         active={!!field.isCrit}         onPress={() => toggle('isCrit')}         />
+                <Text style={fpSt.sideSubSection}>Screens</Text>
+                <SideChip label="Reflect"      active={!!field.atkReflect}     onPress={() => toggle('atkReflect')}     />
+                <SideChip label="Light Screen" active={!!field.atkLightScreen} onPress={() => toggle('atkLightScreen')} />
+                <SideChip label="Aurora Veil"  active={!!field.atkAuroraVeil}  onPress={() => toggle('atkAuroraVeil')}  />
+                <Text style={fpSt.sideSubSection}>Hazards</Text>
+                <SideChip label="SR"           active={!!field.atkSR}          onPress={() => toggle('atkSR')}          />
+                <SideChip label="Steelsurge"   active={!!field.atkSteelsurge}  onPress={() => toggle('atkSteelsurge')}  />
+                <SideChip label="Vine Lash"    active={!!field.atkVineLash}    onPress={() => toggle('atkVineLash')}    />
+                <SideChip label="Wildfire"     active={!!field.atkWildfire}    onPress={() => toggle('atkWildfire')}    />
+                <SideChip label="Cannonade"    active={!!field.atkCannonade}   onPress={() => toggle('atkCannonade')}   />
+                <SideChip label="Volcalith"    active={!!field.atkVolcalith}   onPress={() => toggle('atkVolcalith')}   />
+                <SideSpikes value={field.atkSpikes ?? 0} onPress={n => onChange({ ...field, atkSpikes: n })} />
               </View>
 
               <View style={fpSt.colDivider} />
@@ -1032,9 +1214,6 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
               {/* Defender column */}
               <View style={fpSt.sideCol}>
                 <Text style={fpSt.sideColHeader}>Defender</Text>
-                <SideChip label="Reflect"      active={!!field.defReflect}     onPress={() => toggle('defReflect')}     />
-                <SideChip label="Light Screen" active={!!field.defLightScreen} onPress={() => toggle('defLightScreen')} />
-                <SideChip label="Aurora Veil"  active={!!field.defAuroraVeil}  onPress={() => toggle('defAuroraVeil')}  />
                 <SideChip label="Tailwind"     active={!!field.defTailwind}    onPress={() => toggle('defTailwind')}    />
                 <SideChip label="Flower Gift"  active={!!field.defFlowerGift}  onPress={() => toggle('defFlowerGift')}  />
                 <SideChip label="Friend Guard" active={!!field.defFriendGuard} onPress={() => toggle('defFriendGuard')} />
@@ -1042,30 +1221,20 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
                 <SideChip label="Protect"      active={!!field.defProtect}     onPress={() => toggle('defProtect')}     />
                 <SideChip label="Leech Seed"   active={!!field.defLeechSeed}   onPress={() => toggle('defLeechSeed')}   />
                 <SideChip label="Switching"    active={!!field.defSwitching}   onPress={() => toggle('defSwitching')}   />
+                <Text style={fpSt.sideSubSection}>Screens</Text>
+                <SideChip label="Reflect"      active={!!field.defReflect}     onPress={() => toggle('defReflect')}     />
+                <SideChip label="Light Screen" active={!!field.defLightScreen} onPress={() => toggle('defLightScreen')} />
+                <SideChip label="Aurora Veil"  active={!!field.defAuroraVeil}  onPress={() => toggle('defAuroraVeil')}  />
+                <Text style={fpSt.sideSubSection}>Hazards</Text>
+                <SideChip label="SR"           active={!!field.defSR}          onPress={() => toggle('defSR')}          />
+                <SideChip label="Steelsurge"   active={!!field.defSteelsurge}  onPress={() => toggle('defSteelsurge')}  />
+                <SideChip label="Vine Lash"    active={!!field.defVineLash}    onPress={() => toggle('defVineLash')}    />
+                <SideChip label="Wildfire"     active={!!field.defWildfire}    onPress={() => toggle('defWildfire')}    />
+                <SideChip label="Cannonade"    active={!!field.defCannonade}   onPress={() => toggle('defCannonade')}   />
+                <SideChip label="Volcalith"    active={!!field.defVolcalith}   onPress={() => toggle('defVolcalith')}   />
+                <SideSpikes value={field.defSpikes ?? 0} onPress={n => onChange({ ...field, defSpikes: n })} />
               </View>
-            </View>
 
-            {/* Defender hazards */}
-            <Text style={fpSt.rowLabel}>Hazards · Def</Text>
-            <View style={fpSt.chipRow}>
-              <Chip label="SR"          active={!!field.defSR}         onPress={() => toggle('defSR')}         accent />
-              <Chip label="Steelsurge"  active={!!field.defSteelsurge} onPress={() => toggle('defSteelsurge')} accent />
-              <Chip label="Vine Lash"   active={!!field.defVineLash}   onPress={() => toggle('defVineLash')}   accent />
-              <Chip label="Wildfire"    active={!!field.defWildfire}   onPress={() => toggle('defWildfire')}   accent />
-              <Chip label="Cannonade"   active={!!field.defCannonade}  onPress={() => toggle('defCannonade')}  accent />
-              <Chip label="Volcalith"   active={!!field.defVolcalith}  onPress={() => toggle('defVolcalith')}  accent />
-            </View>
-
-            {/* Spikes */}
-            <Text style={fpSt.rowLabel}>Spikes · Def</Text>
-            <View style={fpSt.chipRow}>
-              {([0, 1, 2, 3] as const).map(n => (
-                <Chip
-                  key={n} label={String(n)}
-                  active={(field.defSpikes ?? 0) === n}
-                  onPress={() => onChange({ ...field, defSpikes: n })}
-                />
-              ))}
             </View>
           </>
         )}
@@ -1126,6 +1295,34 @@ function MonPanel({
   const [showAbility, setShowAbility] = useState(false);
   const [showItem,    setShowItem]    = useState(false);
 
+  // Form/mega selector data
+  const forms          = useMemo(() => speciesState === 'known' ? getSpeciesForms(trimmed) : [], [trimmed, speciesState]);
+  const baseSpecies    = useMemo(() => speciesState === 'known' ? getBaseSpeciesName(trimmed) : trimmed, [trimmed, speciesState]);
+  const defaultTypes   = useMemo(() => speciesState === 'known' ? getSpeciesTypes(trimmed)    : [], [trimmed, speciesState]);
+  const activeTypes    = mon.types ?? defaultTypes;
+  const typesOverridden = mon.types !== undefined;
+
+  function formLabel(formName: string): string {
+    if (formName === baseSpecies) return 'Base';
+    const prefix = baseSpecies.toLowerCase() + '-';
+    if (formName.toLowerCase().startsWith(prefix))
+      return formName.slice(baseSpecies.length + 1).replace(/-/g, ' ');
+    return formName;
+  }
+
+  function toggleType(type: string) {
+    const cur = mon.types ?? [];
+    const low = type.toLowerCase();
+    if (cur.some(t => t.toLowerCase() === low)) {
+      const next = cur.filter(t => t.toLowerCase() !== low);
+      onChange({ ...mon, types: next.length > 0 ? next : undefined });
+    } else {
+      // max 2 types; drop oldest if at cap
+      const next = cur.length >= 2 ? [cur[1], type] : [...cur, type];
+      onChange({ ...mon, types: next });
+    }
+  }
+
   return (
     <View style={[styles.panel, { padding: spacing.sm }]}>
       <Text style={styles.panelTitle}>{title}</Text>
@@ -1135,7 +1332,7 @@ function MonPanel({
         <TextInput
           style={[styles.input, { flex: 1 }]}
           value={mon.species}
-          onChangeText={v => onChange({ ...mon, species: v, baseStats: undefined })}
+          onChangeText={v => onChange({ ...mon, species: v, baseStats: undefined, types: undefined })}
           placeholder="Garchomp…"
           placeholderTextColor={colors.textDim}
           autoCapitalize="words"
@@ -1155,6 +1352,61 @@ function MonPanel({
           />
         </View>
       </View>
+
+      {/* Form / Mega selector */}
+      {forms.length > 0 && (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={mpSt.formStrip}>
+          {forms.map(f => (
+            <TouchableOpacity
+              key={f}
+              style={mpSt.formChip}
+              onPress={() => onChange({ ...mon, species: f, types: undefined })}
+              activeOpacity={0.7}
+            >
+              <Sprite species={f} size={28} />
+              <Text style={mpSt.formChipLabel} numberOfLines={1}>{formLabel(f)}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      )}
+
+      {/* Type override */}
+      {speciesState !== 'empty' && (
+        <View style={mpSt.typeSection}>
+          <View style={mpSt.typeSectionHeader}>
+            <Text style={styles.fieldLabel}>Type</Text>
+            {typesOverridden && (
+              <TouchableOpacity onPress={() => onChange({ ...mon, types: undefined })} hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}>
+                <Ionicons name="close-circle" size={13} color={colors.textDim} />
+              </TouchableOpacity>
+            )}
+          </View>
+          <View style={mpSt.typeGrid}>
+            {TYPES.map(type => {
+              const key = type.toLowerCase();
+              const isActive = activeTypes.some(t => t.toLowerCase() === key);
+              const typeColor = colors.types[key];
+              return (
+                <TouchableOpacity
+                  key={type}
+                  style={[
+                    mpSt.typeChip,
+                    isActive
+                      ? { backgroundColor: typeColor, borderColor: typeColor }
+                      : typesOverridden
+                      ? { backgroundColor: colors.surface, borderColor: colors.border }
+                      : { backgroundColor: typeColor + '28', borderColor: typeColor + '66' },
+                  ]}
+                  onPress={() => toggleType(type)}
+                  activeOpacity={0.7}
+                >
+                  <Text style={[mpSt.typeChipLabel, isActive && { color: '#fff' }]}>{type}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </View>
+      )}
 
       {/* Stats table: stat | Base | EV | IV | Stat | Boost */}
       <View style={stSt.table}>
@@ -1475,48 +1727,48 @@ export default function CalcScreen() {
   const { game } = useGame();
   const isTablet = useIsTablet();
 
-  const [atk, setAtk] = useState<CalcMon>(EMPTY_MON());
-  const [def, setDef] = useState<CalcMon>(EMPTY_MON());
-  const [move,    setMove]    = useState('');
-  const [field,   setField]   = useState<CalcField>({});
-  const [result,  setResult]  = useState<CalcResult | null>(null);
-  const [errored, setErrored] = useState(false);
+  const [atk,   setAtk]   = useState<CalcMon>(EMPTY_MON());
+  const [def,   setDef]   = useState<CalcMon>(EMPTY_MON());
+  const [field, setField] = useState<CalcField>({});
+
+  const [atkSlots,     setAtkSlots]     = useState<MoveSlots>(['', '', '', '']);
+  const [defSlots,     setDefSlots]     = useState<MoveSlots>(['', '', '', '']);
+  const [selected,     setSelected]     = useState<{ side: 'atk' | 'def'; row: number } | null>(null);
+  const [movePickerFor, setMovePickerFor] = useState<{ side: 'atk' | 'def'; row: number } | null>(null);
 
   const [selectedTrainer, setSelectedTrainer] = useState<FlatTrainer | null>(null);
   const [selectedMonIdx,  setSelectedMonIdx]  = useState<number>(-1);
   const [showPicker,      setShowPicker]      = useState(false);
-  const [showMovePicker,  setShowMovePicker]  = useState(false);
 
   // My Box
-  const [box,           setBox]          = useState<BoxMon[]>([]);
-  const [activeBoxIdx,  setActiveBoxIdx] = useState<number>(-1);
-  const [editTarget,    setEditTarget]   = useState<{ mon: BoxMon | null; idx: number | null } | null>(null);
+  const [box,          setBox]          = useState<BoxMon[]>([]);
+  const [activeBoxIdx, setActiveBoxIdx] = useState<number>(-1);
+  const [editTarget,   setEditTarget]   = useState<{ mon: BoxMon | null; idx: number | null } | null>(null);
 
   useEffect(() => { loadBox().then(setBox); }, []);
 
   function persistBox(next: BoxMon[]) { setBox(next); saveBox(next); }
 
-  function openAdd()                         { setEditTarget({ mon: null, idx: null }); }
-  function openEdit(mon: BoxMon, idx: number){ setEditTarget({ mon, idx }); }
-  function closeEdit()                       { setEditTarget(null); }
+  function openAdd()                          { setEditTarget({ mon: null, idx: null }); }
+  function openEdit(mon: BoxMon, idx: number) { setEditTarget({ mon, idx }); }
+  function closeEdit()                        { setEditTarget(null); }
 
   function handleSaveMon(saved: BoxMon) {
-    const idx = editTarget!.idx;
+    const idx  = editTarget!.idx;
     const next = idx !== null ? box.map((m, i) => i === idx ? saved : m) : [...box, saved];
     persistBox(next);
     const newIdx = idx ?? next.length - 1;
     setActiveBoxIdx(newIdx);
     setAtk(boxMonToCalcMon(next[newIdx]));
-    clearResult();
     closeEdit();
   }
 
   function handleDeleteMon() {
-    const idx = editTarget!.idx!;
+    const idx  = editTarget!.idx!;
     const next = box.filter((_, i) => i !== idx);
     persistBox(next);
-    if (idx === activeBoxIdx) { setActiveBoxIdx(-1); }
-    else if (idx < activeBoxIdx) { setActiveBoxIdx(activeBoxIdx - 1); }
+    if (idx === activeBoxIdx)      setActiveBoxIdx(-1);
+    else if (idx < activeBoxIdx)   setActiveBoxIdx(activeBoxIdx - 1);
     closeEdit();
   }
 
@@ -1524,24 +1776,33 @@ export default function CalcScreen() {
     persistBox([]);
     setActiveBoxIdx(-1);
     setAtk(EMPTY_MON());
-    clearResult();
+    setAtkSlots(['', '', '', '']);
   }
 
   function applyBoxMon(mon: BoxMon, idx: number) {
     setActiveBoxIdx(idx);
     setAtk(boxMonToCalcMon(mon));
-    clearResult();
   }
 
   const activeBoxMon = activeBoxIdx >= 0 ? box[activeBoxIdx] : null;
-  const atkMoves     = activeBoxMon?.moves.filter(Boolean) ?? [];
+  const trainerTeam  = selectedTrainer?.trainer.team.filter(m => m.species) ?? [];
+  const activeMon    = selectedMonIdx >= 0 ? trainerTeam[selectedMonIdx] : null;
 
-  // The active trainer Pokemon (for move chips)
-  const trainerTeam = selectedTrainer?.trainer.team.filter(m => m.species) ?? [];
-  const activeMon   = selectedMonIdx >= 0 ? trainerTeam[selectedMonIdx] : null;
-  const activeMoves = activeMon?.moves?.filter(Boolean) ?? [];
+  // Sync box moves → atkSlots when active box mon changes
+  useEffect(() => {
+    if (activeBoxMon) {
+      const m = activeBoxMon.moves;
+      setAtkSlots([m[0] || '', m[1] || '', m[2] || '', m[3] || '']);
+    }
+  }, [activeBoxIdx, box]);  // eslint-disable-line react-hooks/exhaustive-deps
 
-  function clearResult() { setResult(null); setErrored(false); }
+  // Sync trainer mon moves → defSlots when trainer mon changes
+  useEffect(() => {
+    if (activeMon?.moves) {
+      const m = activeMon.moves;
+      setDefSlots([m[0] || '', m[1] || '', m[2] || '', m[3] || '']);
+    }
+  }, [selectedMonIdx, selectedTrainer]);  // eslint-disable-line react-hooks/exhaustive-deps
 
   function applyTrainer(ft: FlatTrainer) {
     setSelectedTrainer(ft);
@@ -1549,14 +1810,12 @@ export default function CalcScreen() {
     if (team.length > 0) {
       setSelectedMonIdx(0);
       setDef(pokemonToCalcMon(team[0]));
-      clearResult();
     }
   }
 
   function applyTeamMon(mon: Pokemon, idx: number) {
     setSelectedMonIdx(idx);
     setDef(pokemonToCalcMon(mon));
-    clearResult();
   }
 
   // Pick up any defender pre-filled from the trainer detail screen
@@ -1567,36 +1826,69 @@ export default function CalcScreen() {
         setDef(pending);
         setSelectedTrainer(null);
         setSelectedMonIdx(-1);
-        setResult(null);
-        setErrored(false);
+        setSelected(null);
       }
     }, []),
   );
 
-  const canCalc = Boolean(atk.species.trim() && def.species.trim() && move.trim());
+  // Computed results — atk → def
+  const atkResults = useMemo<(CalcResult | null)[]>(() =>
+    atkSlots.map(mv =>
+      atk.species.trim() && def.species.trim() && mv.trim()
+        ? runCalc(game, atk, def, mv, field)
+        : null
+    ),
+    [game, atk, def, field, atkSlots],
+  );
 
-  const doCalc = useCallback((moveOverride?: string) => {
-    const mv = (moveOverride ?? move).trim();
-    if (!atk.species.trim() || !def.species.trim() || !mv) return;
-    const r = runCalc(game, atk, def, mv, field);
-    if (r) { setResult(r); setErrored(false); }
-    else   { setResult(null); setErrored(true); }
-  }, [game, atk, def, move, field]);
+  // Computed results — def → atk (field sides swapped)
+  const swappedField = useMemo(() => swapFieldSides(field), [field]);
+  const defResults   = useMemo<(CalcResult | null)[]>(() =>
+    defSlots.map(mv =>
+      atk.species.trim() && def.species.trim() && mv.trim()
+        ? runCalc(game, def, atk, mv, swappedField)
+        : null
+    ),
+    [game, atk, def, swappedField, defSlots],
+  );
 
-  function onMoveChipTap(mv: string) {
-    setMove(mv);
-    clearResult();
-    if (atk.species.trim() && def.species.trim()) {
-      const r = runCalc(game, atk, def, mv, field);
-      if (r) { setResult(r); setErrored(false); }
-      else   { setResult(null); setErrored(true); }
-    }
-  }
+  // Auto-select the atk slot with highest damage (functional update avoids stale closure)
+  useEffect(() => {
+    setSelected(prev => {
+      if (prev?.side === 'def') return prev;
+      const best = atkResults.reduce<{ pctMax: number; row: number } | null>((acc, r, i) => {
+        if (!r) return acc;
+        if (!acc || r.percentMax > acc.pctMax) return { pctMax: r.percentMax, row: i };
+        return acc;
+      }, null);
+      return best ? { side: 'atk', row: best.row } : null;
+    });
+  }, [atkResults]);
+
+  const selectedResult = useMemo(() => {
+    if (!selected) return null;
+    const results = selected.side === 'atk' ? atkResults : defResults;
+    return results[selected.row] ?? null;
+  }, [selected, atkResults, defResults]);
 
   function swapMonsters() {
-    setAtk(def); setDef(atk);
+    setAtk(def);      setDef(atk);
+    setAtkSlots(defSlots); setDefSlots(atkSlots);
     setSelectedTrainer(null); setSelectedMonIdx(-1);
-    clearResult();
+    setSelected(null);
+  }
+
+  function onMoveSelected(mv: string) {
+    if (!movePickerFor) return;
+    const { side, row } = movePickerFor;
+    if (side === 'atk') {
+      setAtkSlots(prev => { const next = [...prev] as MoveSlots; next[row] = mv; return next; });
+      setSelected({ side: 'atk', row });
+    } else {
+      setDefSlots(prev => { const next = [...prev] as MoveSlots; next[row] = mv; return next; });
+      setSelected({ side: 'def', row });
+    }
+    setMovePickerFor(null);
   }
 
   // ── render ──────────────────────────────────────────────────────────────────
@@ -1619,64 +1911,42 @@ export default function CalcScreen() {
             onClear={handleClearBox}
             onSelectMon={applyBoxMon}
           />
-          {atkMoves.length > 0 && (
-            <View style={colSt.movesCard}>
-              <Text style={styles.fieldLabel}>Your moves</Text>
-              <MoveChips moves={atkMoves} activeMove={move} onSelect={onMoveChipTap} />
-            </View>
-          )}
+          <MovesList
+            side="atk"
+            slots={atkSlots}
+            results={atkResults}
+            selectedRow={selected?.side === 'atk' ? selected.row : null}
+            onSelectRow={row => setSelected({ side: 'atk', row })}
+            onOpenPicker={row => setMovePickerFor({ side: 'atk', row })}
+          />
           <MonPanel
             title="⚔ Attacker"
             mon={atk}
-            onChange={m => { setAtk(m); setActiveBoxIdx(-1); clearResult(); }}
+            onChange={m => { setAtk(m); setActiveBoxIdx(-1); }}
             field={field}
           />
         </View>
 
         {/* ── Middle: Field column ── */}
         <View style={colSt.colField}>
-          <FieldPanel field={field} onChange={f => { setField(f); clearResult(); }} />
+          <FieldPanel field={field} onChange={setField} />
 
           <TouchableOpacity style={colSt.swapBtn} onPress={swapMonsters} activeOpacity={0.7}>
             <Ionicons name="swap-horizontal" size={16} color={colors.textMuted} />
             <Text style={styles.swapLabel}>Swap</Text>
           </TouchableOpacity>
 
-          <View style={styles.sectionCard}>
-            <Text style={styles.fieldLabel}>Move</Text>
-            <TouchableOpacity
-              style={[styles.input, { flexDirection: 'row', alignItems: 'center' }]}
-              onPress={() => setShowMovePicker(true)}
-              activeOpacity={0.7}
-            >
-              <Text style={[{ flex: 1, fontSize: 14 }, move ? { color: colors.text } : { color: colors.textDim }]} numberOfLines={1}>
-                {move || 'Select a move…'}
-              </Text>
-              <Ionicons name="chevron-down" size={12} color={colors.textDim} />
-            </TouchableOpacity>
-          </View>
-
-          <TouchableOpacity
-            style={[styles.calcBtn, !canCalc && styles.calcBtnOff]}
-            onPress={() => doCalc()}
-            activeOpacity={0.8}
-            disabled={!canCalc}
-          >
-            <Text style={[styles.calcBtnLabel, !canCalc && { color: colors.textDim }]}>
-              Calculate Damage
-            </Text>
-          </TouchableOpacity>
-
           {atk.species.trim() && def.species.trim() && <SpeedBar atk={atk} def={def} />}
 
-          {errored && (
-            <View style={styles.errorBox}>
-              <Ionicons name="warning-outline" size={15} color={colors.types.fire} />
-              <Text style={styles.errorText}>Unknown move or species — check spelling and try again.</Text>
+          {selectedResult ? (
+            <ResultCard result={selectedResult} />
+          ) : (
+            <View style={mlSt.emptyDesc}>
+              <Text style={mlSt.emptyDescText}>
+                {selected ? 'Unknown move or species' : 'Select a move to see damage'}
+              </Text>
             </View>
           )}
-
-          {result && <ResultCard result={result} />}
         </View>
 
         {/* ── Right: Defender column ── */}
@@ -1687,16 +1957,18 @@ export default function CalcScreen() {
             onChangeTrainer={() => setShowPicker(true)}
             onSelectMon={applyTeamMon}
           />
-          {activeMoves.length > 0 && (
-            <View style={colSt.movesCard}>
-              <Text style={styles.fieldLabel}>Opponent moves</Text>
-              <MoveChips moves={activeMoves} activeMove={move} onSelect={onMoveChipTap} />
-            </View>
-          )}
+          <MovesList
+            side="def"
+            slots={defSlots}
+            results={defResults}
+            selectedRow={selected?.side === 'def' ? selected.row : null}
+            onSelectRow={row => setSelected({ side: 'def', row })}
+            onOpenPicker={row => setMovePickerFor({ side: 'def', row })}
+          />
           <MonPanel
             title="🛡 Defender"
             mon={def}
-            onChange={m => { setDef(m); clearResult(); }}
+            onChange={m => setDef(m)}
             field={field}
           />
         </View>
@@ -1721,19 +1993,12 @@ export default function CalcScreen() {
       />
 
       <MovePicker
-        visible={showMovePicker}
-        current={move}
-        onSelect={mv => {
-          setMove(mv);
-          clearResult();
-          setShowMovePicker(false);
-          if (atk.species.trim() && def.species.trim()) {
-            const r = runCalc(game, atk, def, mv, field);
-            if (r) { setResult(r); setErrored(false); }
-            else   { setResult(null); setErrored(true); }
-          }
-        }}
-        onClose={() => setShowMovePicker(false)}
+        visible={movePickerFor !== null}
+        current={movePickerFor
+          ? (movePickerFor.side === 'atk' ? atkSlots[movePickerFor.row] : defSlots[movePickerFor.row])
+          : ''}
+        onSelect={onMoveSelected}
+        onClose={() => setMovePickerFor(null)}
       />
     </ScrollView>
   );
@@ -2045,18 +2310,17 @@ const fpSt = StyleSheet.create({
     textTransform: 'uppercase', letterSpacing: 0.5,
     marginTop: spacing.xs,
   },
-  chipRow:          { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
+  chipRow:    { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
+  centeredRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 4, justifyContent: 'center' },
   chip:             {
     paddingHorizontal: 7, paddingVertical: 4,
     backgroundColor: colors.surface,
     borderRadius: radius.full,
     borderWidth: 1, borderColor: colors.border,
   },
-  chipActive:        { backgroundColor: colors.primary, borderColor: colors.primary },
-  chipLabel:         { color: colors.text, fontSize: 11 },
-  chipLabelActive:   { color: colors.bg },
-  toggleActive:      { backgroundColor: colors.accent + '22', borderColor: colors.accent },
-  toggleLabelActive: { color: colors.accent, fontWeight: font.medium },
+  chipActive:      { backgroundColor: colors.primary, borderColor: colors.primary },
+  chipLabel:       { color: colors.text, fontSize: 11 },
+  chipLabelActive: { color: colors.bg },
 
   showMoreBtn: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5,
@@ -2088,6 +2352,25 @@ const fpSt = StyleSheet.create({
   sideChipActive:      { backgroundColor: colors.accent + '22', borderColor: colors.accent },
   sideChipLabel:       { color: colors.text, fontSize: 11, textAlign: 'center' },
   sideChipLabelActive: { color: colors.accent, fontWeight: font.medium },
+  sideSubSection: {
+    color: colors.textDim, fontSize: 9,
+    textTransform: 'uppercase', letterSpacing: 0.4,
+    textAlign: 'center', marginTop: 4,
+  },
+  spikesRow:   { marginTop: 2 },
+  spikesLabel: {
+    color: colors.textDim, fontSize: 9,
+    textTransform: 'uppercase', letterSpacing: 0.4,
+    textAlign: 'center', marginBottom: 2,
+  },
+  spikesChips: { flexDirection: 'row', gap: 2 },
+  spikesChip:  {
+    flex: 1, paddingVertical: 4,
+    backgroundColor: colors.surface,
+    borderRadius: radius.sm,
+    borderWidth: 1, borderColor: colors.border,
+    alignItems: 'center',
+  },
 });
 
 // ── Stats table styles ────────────────────────────────────────────────────────
@@ -2181,6 +2464,32 @@ const mpSt = StyleSheet.create({
 
   hpRow:   { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
   hpInput: { width: 52, textAlign: 'center' },
+
+  // Form / Mega strip
+  formStrip: {
+    flexDirection: 'row', gap: spacing.xs,
+    paddingVertical: spacing.xs,
+  },
+  formChip: {
+    alignItems: 'center', gap: 2,
+    paddingHorizontal: spacing.sm, paddingVertical: 4,
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    borderWidth: 1, borderColor: colors.border,
+    minWidth: 56,
+  },
+  formChipLabel: { color: colors.textMuted, fontSize: 9, fontWeight: font.medium, textAlign: 'center' },
+
+  // Type override
+  typeSection:       { gap: 4 },
+  typeSectionHeader: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs },
+  typeGrid:          { flexDirection: 'row', flexWrap: 'wrap', gap: 4 },
+  typeChip:          {
+    paddingHorizontal: 7, paddingVertical: 3,
+    borderRadius: radius.full,
+    borderWidth: 1,
+  },
+  typeChipLabel: { color: colors.text, fontSize: 10, fontWeight: font.medium },
 });
 
 // ── 3-column layout styles ────────────────────────────────────────────────────
@@ -2206,13 +2515,6 @@ const colSt = StyleSheet.create({
     gap: spacing.sm,
     minWidth: 0,
   },
-  movesCard: {
-    backgroundColor: colors.card,
-    borderRadius: radius.md,
-    borderWidth: 1, borderColor: colors.border,
-    padding: spacing.sm,
-    gap: spacing.xs,
-  },
   swapBtn: {
     flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.xs,
     paddingHorizontal: spacing.md, paddingVertical: spacing.xs,
@@ -2222,20 +2524,57 @@ const colSt = StyleSheet.create({
   },
 });
 
-// ── Move chips styles ─────────────────────────────────────────────────────────
+// ── Species picker styles ─────────────────────────────────────────────────────
 
-const mvSt = StyleSheet.create({
-  row:        { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
-  chip:       {
-    paddingHorizontal: spacing.md, paddingVertical: 7,
-    backgroundColor: colors.surface,
-    borderRadius: radius.full,
+const spSt = StyleSheet.create({
+  row: {
+    flexDirection: 'row', alignItems: 'center', gap: spacing.sm,
+    paddingVertical: 8, paddingHorizontal: spacing.md,
+  },
+  selectBtn: {
+    flexDirection: 'row', alignItems: 'center', gap: spacing.sm,
+  },
+  selectBtnText: { flex: 1, color: colors.text, fontSize: 14 },
+});
+
+// ── Moves list styles ─────────────────────────────────────────────────────────
+
+const mlSt = StyleSheet.create({
+  container: {
+    backgroundColor: colors.card,
+    borderRadius: radius.lg,
     borderWidth: 1, borderColor: colors.border,
+    overflow: 'hidden',
   },
-  chipActive: {
-    backgroundColor: colors.primary,
-    borderColor: colors.primary,
+  row: {
+    flexDirection: 'row', alignItems: 'center',
+    paddingHorizontal: 8, paddingVertical: 6,
+    gap: 6,
+    borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: colors.border,
   },
-  label:      { color: colors.text, fontSize: 13, fontWeight: font.medium },
-  labelActive: { color: colors.bg },
+  rowActive: {
+    backgroundColor: colors.primary + '18',
+    borderLeftWidth: 3, borderLeftColor: colors.primary,
+  },
+  moveBtn: {
+    flex: 1, flexDirection: 'row', alignItems: 'center', gap: 3,
+    backgroundColor: colors.surface,
+    borderRadius: radius.sm,
+    borderWidth: 1, borderColor: colors.border,
+    paddingHorizontal: 6, paddingVertical: 5,
+    minWidth: 0,
+  },
+  moveName:        { flex: 1, color: colors.text, fontSize: 11, fontWeight: font.medium },
+  movePlaceholder: { color: colors.textDim },
+  pct:             { fontSize: 11, fontWeight: font.bold, width: 72, textAlign: 'center' },
+
+  emptyDesc: {
+    backgroundColor: colors.card,
+    borderRadius: radius.lg,
+    borderWidth: 1, borderColor: colors.border,
+    padding: spacing.md,
+    alignItems: 'center', justifyContent: 'center',
+    minHeight: 60,
+  },
+  emptyDescText: { color: colors.textDim, fontSize: 12, textAlign: 'center' },
 });

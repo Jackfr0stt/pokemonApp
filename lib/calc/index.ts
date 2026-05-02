@@ -149,8 +149,9 @@ function applySpeciesOverride(mon: CalcMon, game: GameId): CalcMon {
   const mergedStats = g8Stats ? { ...g8Stats, ...(spOv.baseStats ?? {}) } : undefined;
   return {
     ...mon,
-    ...(mergedStats ? { baseStats: mergedStats } : {}),
-    ...(spOv.types  ? { types: spOv.types }      : {}),
+    ...(mergedStats             ? { baseStats: mergedStats } : {}),
+    // Only apply game type override when user hasn't manually set types
+    ...(!mon.types && spOv.types ? { types: spOv.types }    : {}),
   };
 }
 
@@ -169,11 +170,13 @@ function buildPokemon(mon: CalcMon): Pokemon {
   };
 
   const speciesName = mon.baseStats ? 'Ditto' : mon.species;
-  if (mon.baseStats) {
-    (opts as Record<string, unknown>).overrides = {
-      baseStats: mon.baseStats,
-      ...(mon.types ? { types: mon.types } : {}),
-    };
+
+  // Apply baseStats and/or type overrides — type override works even for known species
+  const overridesObj: Record<string, unknown> = {};
+  if (mon.baseStats) overridesObj.baseStats = mon.baseStats;
+  if (mon.types)     overridesObj.types     = mon.types;
+  if (Object.keys(overridesObj).length > 0) {
+    (opts as Record<string, unknown>).overrides = overridesObj;
   }
 
   // Build once to get maxHP when a curHP% is set
@@ -358,6 +361,41 @@ export function getAllAbilities(): string[] {
   return _allAbilities;
 }
 
+let _allSpecies: string[] | null = null;
+export function getAllSpecies(): string[] {
+  if (!_allSpecies) _allSpecies = [...gen.species].map(s => s.name).sort();
+  return _allSpecies;
+}
+
+/** Default types for a known species (e.g. ['Fire', 'Flying'] for Charizard) */
+export function getSpeciesTypes(species: string): string[] {
+  try {
+    const s = [...gen.species].find(sp => sp.name.toLowerCase() === species.toLowerCase().trim());
+    return s ? [...s.types] : [];
+  } catch { return []; }
+}
+
+/** Base species name — 'Charizard-Mega-X' → 'Charizard', 'Charizard' → 'Charizard' */
+export function getBaseSpeciesName(species: string): string {
+  try {
+    const entry = [...gen.species].find(s => s.name.toLowerCase() === species.toLowerCase().trim());
+    return (entry as any)?.baseSpecies ?? entry?.name ?? species;
+  } catch { return species; }
+}
+
+/** All alternate forms for a species family, excluding the current form */
+export function getSpeciesForms(species: string): string[] {
+  try {
+    const allSpecies = [...gen.species];
+    const entry = allSpecies.find(s => s.name.toLowerCase() === species.toLowerCase().trim());
+    if (!entry) return [];
+    const rootName: string = (entry as any).baseSpecies ?? entry.name;
+    const root = rootName === entry.name ? entry : allSpecies.find(s => s.name === rootName);
+    const otherForms: string[] = (root as any)?.otherFormes ?? [];
+    return [rootName, ...otherForms].filter(f => f !== entry.name);
+  } catch { return []; }
+}
+
 let _allMoves: string[] | null = null;
 export function getAllMoves(): string[] {
   if (!_allMoves) _allMoves = [...gen.moves].map(m => m.name).sort();
@@ -368,6 +406,27 @@ let _allItems: string[] | null = null;
 export function getAllItems(): string[] {
   if (!_allItems) _allItems = [...gen.items].map(i => i.name).sort();
   return _allItems;
+}
+
+export interface MoveDetails {
+  type:     string | null;
+  power:    number | null;
+  category: 'Physical' | 'Special' | 'Status' | null;
+}
+
+export function getMoveDetails(game: GameId, moveName: string): MoveDetails {
+  if (!moveName.trim()) return { type: null, power: null, category: null };
+  try {
+    const ov = getMoveOverride(game, moveName);
+    const m  = new Move(gen, moveName, ov ? { overrides: ov } : {});
+    return {
+      type:     (m.type as string)     ?? null,
+      power:    m.bp                   ?? null,
+      category: (m.category as 'Physical' | 'Special' | 'Status') ?? null,
+    };
+  } catch {
+    return { type: null, power: null, category: null };
+  }
 }
 
 /** Final Speed stat for a CalcMon without running a full calc */
