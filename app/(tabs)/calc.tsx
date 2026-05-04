@@ -1,4 +1,5 @@
-import { useState, useCallback, useEffect, useMemo } from 'react';
+import { useState, useCallback, useEffect, useMemo, useRef } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   View, Text, TextInput, TouchableOpacity, ScrollView, FlatList,
   StyleSheet, Modal, Pressable, KeyboardAvoidingView, Platform, SectionList, Image,
@@ -79,7 +80,26 @@ const WEATHER_OPTIONS: { label: string; value: NonNullable<CalcField['weather']>
 ];
 const TERRAIN_OPTIONS = ['Electric', 'Grassy', 'Misty', 'Psychic'] as const;
 
-const EMPTY_MON = (): CalcMon => ({ species: '', level: 100, nature: 'Hardy', evs: {} });
+const EMPTY_MON = (level = 100): CalcMon => ({ species: '', level, nature: 'Hardy', evs: {} });
+
+const MAX_LEVEL_KEY = 'max_level_v1';
+
+// Resolves trainer level strings like "Lv Scale -2 (25)" or "Highest Lv -1"
+// against the player's current max level.
+function resolveLevel(level: number | string, maxLevel: number): number {
+  if (typeof level === 'number') return level;
+  const s = String(level).trim();
+  // EI: "Highest Lv", "Highest Lv -1", "Highest Lv -2", etc.
+  const eiMatch = s.match(/^Highest\s+Lv(?:\s+(-\d+))?/i);
+  if (eiMatch) return Math.max(1, maxLevel + (eiMatch[1] ? parseInt(eiMatch[1]) : 0));
+  // RR: "Lv Scale Max (...)"
+  if (/^Lv[l]?\s+Scale\s+Max/i.test(s)) return maxLevel;
+  // RR: "Lv Scale -N", "Lv Scale -N (X)", "Lv Scale -N (X/Y)", "Lvl Scale -N"
+  const rrMatch = s.match(/^Lv[l]?\s+Scale\s+(-\d+)/i);
+  if (rrMatch) return Math.max(1, maxLevel + parseInt(rrMatch[1]));
+  const parsed = parseInt(s);
+  return isNaN(parsed) ? maxLevel : parsed;
+}
 
 // ─── Weather inference ────────────────────────────────────────────────────────
 
@@ -146,7 +166,7 @@ function boxMonToCalcMon(mon: BoxMon): CalcMon {
   };
 }
 
-function pokemonToCalcMon(mon: Pokemon): CalcMon {
+function pokemonToCalcMon(mon: Pokemon, maxLevel: number): CalcMon {
   const evs = {
     hp:  mon.evs?.hp  ?? 0,
     atk: mon.evs?.atk ?? 0,
@@ -168,7 +188,7 @@ function pokemonToCalcMon(mon: Pokemon): CalcMon {
 
   return {
     species: mon.species,
-    level:   typeof mon.level === 'number' ? mon.level : (parseInt(String(mon.level)) || 50),
+    level:   resolveLevel(mon.level, maxLevel),
     nature:  mon.nature || 'Hardy',
     evs,
     ivs:     allMax ? undefined : rawIvs,
@@ -771,15 +791,16 @@ function MovesList({
 // ─── Box mon edit modal ───────────────────────────────────────────────────────
 
 function BoxMonEditModal({
-  visible, initial, onSave, onDelete, onClose,
+  visible, initial, defaultLevel, onSave, onDelete, onClose,
 }: {
-  visible:  boolean;
-  initial:  BoxMon | null;
-  onSave:   (mon: BoxMon) => void;
-  onDelete: (() => void) | null;
-  onClose:  () => void;
+  visible:       boolean;
+  initial:       BoxMon | null;
+  defaultLevel:  number;
+  onSave:        (mon: BoxMon) => void;
+  onDelete:      (() => void) | null;
+  onClose:       () => void;
 }) {
-  const [draft, setDraft]             = useState<BoxMon>(emptyBoxMon());
+  const [draft, setDraft]             = useState<BoxMon>(() => ({ ...emptyBoxMon(), level: defaultLevel }));
   const [showSpecies, setShowSpecies] = useState(false);
   const [showNature, setShowNature]   = useState(false);
   const [showAbility, setShowAbility] = useState(false);
@@ -787,7 +808,7 @@ function BoxMonEditModal({
   const [movePickerIdx, setMovePickerIdx] = useState<0|1|2|3|null>(null);
 
   useEffect(() => {
-    setDraft(initial ? { ...initial } : emptyBoxMon());
+    setDraft(initial ? { ...initial } : { ...emptyBoxMon(), level: defaultLevel });
     setShowSpecies(false);
     setShowNature(false);
     setShowAbility(false);
@@ -1043,16 +1064,33 @@ function BoxMonEditModal({
 // ─── My Box bar ───────────────────────────────────────────────────────────────
 
 function MyBoxBar({
-  box, activeIdx, onAdd, onLongPress, onClear, onSelectMon,
+  box, activeIdx, maxLevel, onMaxLevelChange, onAdd, onLongPress, onClear, onSelectMon,
 }: {
-  box:          BoxMon[];
-  activeIdx:    number;
-  onAdd:        () => void;
-  onLongPress:  (mon: BoxMon, idx: number) => void;
-  onClear:      () => void;
-  onSelectMon:  (mon: BoxMon, idx: number) => void;
+  box:               BoxMon[];
+  activeIdx:         number;
+  maxLevel:          number;
+  onMaxLevelChange:  (n: number) => void;
+  onAdd:             () => void;
+  onLongPress:       (mon: BoxMon, idx: number) => void;
+  onClear:           () => void;
+  onSelectMon:       (mon: BoxMon, idx: number) => void;
 }) {
   const [confirmClear, setConfirmClear] = useState(false);
+  const [editingLevel, setEditingLevel] = useState(false);
+  const [levelDraft,   setLevelDraft]   = useState('');
+  const levelInputRef = useRef<TextInput>(null);
+
+  function startEditLevel() {
+    setLevelDraft(String(maxLevel));
+    setEditingLevel(true);
+    setTimeout(() => levelInputRef.current?.focus(), 50);
+  }
+
+  function commitLevel() {
+    const n = parseInt(levelDraft);
+    if (!isNaN(n) && n >= 1 && n <= 100) onMaxLevelChange(n);
+    setEditingLevel(false);
+  }
 
   function handleClearPress() {
     if (confirmClear) {
@@ -1069,6 +1107,24 @@ function MyBoxBar({
       <View style={[tbSt.header, { borderBottomWidth: box.length > 0 ? StyleSheet.hairlineWidth : 0 }]}>
         <Image source={require('@/assets/trainers/rr-red.gif')} style={{ width: 36, height: 36 }} resizeMode="contain" />
         <Text style={[tbSt.trainerName, { flex: 1 }]}>My Box</Text>
+        {editingLevel ? (
+          <TextInput
+            ref={levelInputRef}
+            style={mbSt.levelInput}
+            value={levelDraft}
+            onChangeText={setLevelDraft}
+            onBlur={commitLevel}
+            onSubmitEditing={commitLevel}
+            keyboardType="number-pad"
+            maxLength={3}
+            selectTextOnFocus
+          />
+        ) : (
+          <TouchableOpacity onPress={startEditLevel} style={mbSt.levelPill} activeOpacity={0.7}>
+            <Ionicons name="trophy-outline" size={11} color={colors.accent} />
+            <Text style={mbSt.levelLabel}>Lv {maxLevel}</Text>
+          </TouchableOpacity>
+        )}
         {box.length > 0 && (
           <TouchableOpacity onPress={handleClearPress} style={[mbSt.clearBtn, confirmClear && mbSt.clearBtnConfirm]} activeOpacity={0.7}>
             <Ionicons name="trash-outline" size={12} color={confirmClear ? '#fff' : colors.types.fire} />
@@ -1793,6 +1849,20 @@ export default function CalcScreen() {
   const { game } = useGame();
   const isTablet = useIsTablet();
 
+  const [maxLevel, setMaxLevel] = useState(100);
+
+  useEffect(() => {
+    AsyncStorage.getItem(MAX_LEVEL_KEY).then(v => {
+      const n = v ? parseInt(v) : NaN;
+      if (!isNaN(n) && n >= 1 && n <= 100) setMaxLevel(n);
+    });
+  }, []);
+
+  function onMaxLevelChange(n: number) {
+    setMaxLevel(n);
+    AsyncStorage.setItem(MAX_LEVEL_KEY, String(n));
+  }
+
   const [atk,   setAtk]   = useState<CalcMon>(EMPTY_MON());
   const [def,   setDef]   = useState<CalcMon>(EMPTY_MON());
   const [field, setField] = useState<CalcField>({});
@@ -1879,7 +1949,7 @@ export default function CalcScreen() {
     const team = ft.trainer.team.filter(m => m.species);
     if (team.length > 0) {
       setSelectedMonIdx(0);
-      setDef(pokemonToCalcMon(team[0]));
+      setDef(pokemonToCalcMon(team[0], maxLevel));
     }
     const hint = inferWeatherFromTrainer(ft);
     if (hint.weather !== undefined || hint.terrain !== undefined) {
@@ -1893,7 +1963,7 @@ export default function CalcScreen() {
 
   function applyTeamMon(mon: Pokemon, idx: number) {
     setSelectedMonIdx(idx);
-    setDef(pokemonToCalcMon(mon));
+    setDef(pokemonToCalcMon(mon, maxLevel));
   }
 
   // Pick up any defender pre-filled from the trainer detail screen
@@ -1985,6 +2055,8 @@ export default function CalcScreen() {
           <MyBoxBar
             box={box}
             activeIdx={activeBoxIdx}
+            maxLevel={maxLevel}
+            onMaxLevelChange={onMaxLevelChange}
             onAdd={openAdd}
             onLongPress={openEdit}
             onClear={handleClearBox}
@@ -2063,6 +2135,7 @@ export default function CalcScreen() {
       <BoxMonEditModal
         visible={editTarget !== null}
         initial={editTarget?.mon ?? null}
+        defaultLevel={maxLevel}
         onSave={handleSaveMon}
         onDelete={editTarget?.idx !== null ? handleDeleteMon : null}
         onClose={closeEdit}
@@ -2345,6 +2418,23 @@ const mbSt = StyleSheet.create({
   },
   clearLabel:        { color: colors.types.fire, fontSize: 11, fontWeight: font.medium },
   clearLabelConfirm: { color: '#fff' },
+  levelPill: {
+    flexDirection: 'row', alignItems: 'center', gap: 3,
+    paddingHorizontal: spacing.sm, paddingVertical: 4,
+    backgroundColor: colors.accent + '18',
+    borderRadius: radius.full,
+    borderWidth: 1, borderColor: colors.accent + '55',
+    marginRight: spacing.xs,
+  },
+  levelLabel: { color: colors.accent, fontSize: 11, fontWeight: font.bold },
+  levelInput: {
+    color: colors.text, fontSize: 11, fontWeight: font.bold,
+    backgroundColor: colors.surface,
+    borderRadius: radius.sm, borderWidth: 1, borderColor: colors.accent,
+    paddingHorizontal: 8, paddingVertical: 3,
+    minWidth: 44, textAlign: 'center',
+    marginRight: spacing.xs,
+  },
 });
 
 // ── Box mon edit modal styles ─────────────────────────────────────────────────
