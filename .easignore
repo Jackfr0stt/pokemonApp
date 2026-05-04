@@ -1,0 +1,4 @@
+dist/
+etl/
+.venv/
+*.md
