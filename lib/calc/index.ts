@@ -1,7 +1,8 @@
 import { calculate, Pokemon, Move, Field, Generations } from '@smogon/calc';
 import type { GameId } from '../GameContext';
 
-const gen = Generations.get(8);
+const gen  = Generations.get(8);
+const gen9 = Generations.get(9);  // fallback for Gen 9 mons and Hisuian forms
 
 import eiOverrides from './emerald-imperium-overrides.json';
 import rrOverrides from './radical-red-overrides.json';
@@ -86,6 +87,176 @@ export interface CalcResult {
   defSpeed:   number;
 }
 
+// ─── Move name normalization ──────────────────────────────────────────────────
+// Maps game-data move names (typos, spacing, capitalisation variants) to the
+// canonical names that @smogon/calc recognises.
+
+const MOVE_NAME_MAP: Record<string, string> = {
+  // Spacing / hyphenation variants
+  'Double Edge':        'Double-Edge',
+  'Doubleedge':         'Double-Edge',
+  'Freeze Dry':         'Freeze-Dry',
+  'Power Up Punch':     'Power-Up Punch',
+  'Self Destruct':      'Self-Destruct',
+  'Selfdestruct':       'Self-Destruct',
+  'Will-o-Wisp':        'Will-O-Wisp',
+  'Will-O-wisp':        'Will-O-Wisp',
+  'V-Create':           'V-create',
+  'U-Turn':             'U-turn',
+  // Typos
+  'Buldoze':            'Bulldoze',
+  'Crab Hammer':        'Crabhammer',
+  'Dbl Iron Bash':      'Double Iron Bash',
+  'Drain Kiss':         'Draining Kiss',
+  'DualWingbeat':       'Dual Wingbeat',
+  'ExpandingForce':     'Expanding Force',
+  'Extremespeed':       'Extreme Speed',
+  'ExtremeSpeed':       'Extreme Speed',
+  'Fake out':           'Fake Out',
+  'Fishous Rend':       'Fishious Rend',
+  'Hi Horsepower':      'High Horsepower',
+  'Kings Shield':       "King's Shield",
+  'Magical Leef':       'Magical Leaf',
+  'PopulationBomb':     'Population Bomb',
+  'Psychic Fang':       'Psychic Fangs',
+  'Rising Volt':        'Rising Voltage',
+  'Scorching Sand':     'Scorching Sands',
+  'Signal beam':        'Signal Beam',
+  'Stange Steam':       'Strange Steam',
+  'StrangeSteam':       'Strange Steam',
+  'Stealth Rocks':      'Stealth Rock',
+  'Thunder Bolt':       'Thunderbolt',
+  'Thunderbolt ':       'Thunderbolt',
+  // Hidden Power type variants → canonical move name (type handled separately if needed)
+  'HP Bug':             'Hidden Power',
+  'HP Dark':            'Hidden Power',
+  'HP Dragon':          'Hidden Power',
+  'HP Electric':        'Hidden Power',
+  'HP Fighting':        'Hidden Power',
+  'HP Fire':            'Hidden Power',
+  'HP Flying':          'Hidden Power',
+  'HP Ghost':           'Hidden Power',
+  'HP Grass':           'Hidden Power',
+  'HP Ground':          'Hidden Power',
+  'HP Ice':             'Hidden Power',
+  'HP Poison':          'Hidden Power',
+  'HP Psychic':         'Hidden Power',
+  'HP Rock':            'Hidden Power',
+  'HP Steel':           'Hidden Power',
+  'HP Water':           'Hidden Power',
+  'Hidden Power Bug':   'Hidden Power',
+  'Hidden Power Dark':  'Hidden Power',
+  'Hidden Power Dragon':'Hidden Power',
+  'Hidden Power Electric':'Hidden Power',
+  'Hidden Power Fighting':'Hidden Power',
+  'Hidden Power Fire':  'Hidden Power',
+  'Hidden Power Flying':'Hidden Power',
+  'Hidden Power Ghost': 'Hidden Power',
+  'Hidden Power Grass': 'Hidden Power',
+  'Hidden Power Ground':'Hidden Power',
+  'Hidden Power Ice':   'Hidden Power',
+  'Hidden Power Poison':'Hidden Power',
+  'Hidden Power Psychic':'Hidden Power',
+  'Hidden Power Rock':  'Hidden Power',
+  'Hidden Power Steel': 'Hidden Power',
+  'Hidden Power Water': 'Hidden Power',
+};
+
+function normalizeMoveName(name: string): string {
+  return MOVE_NAME_MAP[name] ?? name;
+}
+
+// ─── Species name normalization ───────────────────────────────────────────────
+// Maps game-data names (typos, shorthand suffixes, alternate formats) to the
+// canonical names that @smogon/calc recognises.
+
+const SPECIES_NAME_MAP: Record<string, string> = {
+  // Typos in game data
+  'Amoongus':              'Amoonguss',
+  'Crygonal':              'Cryogonal',
+  'Farigaraf':             'Farigiraf',
+  'Iron Juglis':           'Iron Jugulis',
+  'Iron Jugulus':          'Iron Jugulis',
+  'Lycaroc-Dusk':          'Lycanroc-Dusk',
+  'Mabostiff':             'Mabosstiff',
+  'Qwilfish Hisusi':       'Qwilfish-Hisui',
+  'Slitherwing':           'Slither Wing',
+  'Fluttermane':           'Flutter Mane',
+  'Thunderus-Therian':     'Thundurus-Therian',
+  'Trevanant':             'Trevenant',
+  // Aegislash — game data omits Shield/Blade, default to Shield form
+  'Aegislash':             'Aegislash-Shield',
+  // Regional form shorthand suffixes
+  'Dugtrio-A':             'Dugtrio-Alola',
+  'Exeggutor-A':           'Exeggutor-Alola',
+  'Geodude-A':             'Geodude-Alola',
+  'Ninetales-A':           'Ninetales-Alola',
+  'Persian-A':             'Persian-Alola',
+  'Sandslash-A':           'Sandslash-Alola',
+  'Weezing-G':             'Weezing-Galar',
+  'Zapdos-G':              'Zapdos-Galar',
+  'Darmanitan-G':          'Darmanitan-Galar',
+  'Darmanitan -G':         'Darmanitan-Galar',
+  'Arcanine-H':            'Arcanine-Hisui',
+  'Braviary-H':            'Braviary-Hisui',
+  'Electrode-H':           'Electrode-Hisui',
+  'Goodra-H':              'Goodra-Hisui',
+  'Lilligant -H':          'Lilligant-Hisui',
+  'Lilligant-H':           'Lilligant-Hisui',
+  'Zoroark-H':             'Zoroark-Hisui',
+  // Prefix-style regional names
+  'Alola-Marowak':         'Marowak-Alola',
+  'Alolan Marowak':        'Marowak-Alola',
+  'Galarian Weezing':      'Weezing-Galar',
+  'Hisui Voltorb':         'Voltorb-Hisui',
+  // Primal / Origin forms
+  'Dialga-Primal':         'Dialga-Origin',
+  'Primal Dialga':         'Dialga-Origin',
+  'Palkia-Primal':         'Palkia-Origin',
+  'Primal Palkia':         'Palkia-Origin',
+  'Primal Kyogre':         'Kyogre-Primal',
+  // Blood Moon
+  'Bloodmoon Ursaluna':    'Ursaluna-Bloodmoon',
+  // Charizard mega shorthands
+  'Charizard X':           'Charizard-Mega-X',
+  'Charizard Y':           'Charizard-Mega-Y',
+  // Mega prefix style
+  'Mega Sceptile':         'Sceptile-Mega',
+  'Mega Blaziken':         'Blaziken-Mega',
+  'Mega Swampert':         'Swampert-Mega',
+  'Mega Gardevoir':        'Gardevoir-Mega',
+  'Mega Lucario':          'Lucario-Mega',
+  'Mega Mewtwo X':         'Mewtwo-Mega-X',
+  'Mega Mewtwo Y':         'Mewtwo-Mega-Y',
+  // Urshifu — base form is Single Strike; Rapid Strike is the alternate
+  'Urshifu R':             'Urshifu-Rapid-Strike',
+  'Urshifu S':             'Urshifu',               // Single Strike = base
+  'Urshifu-S':             'Urshifu',
+  'Urshifu-Single-Strike': 'Urshifu',
+  // Duraludon typo
+  'Duraladon':             'Duraludon',
+  // Landorus incarnate
+  'Landorus-I':            'Landorus',
+  // Oricorio base form
+  'Oricorio-Baile':        'Oricorio',
+  // Palafin Hero
+  'Palafin / Hero Form (HF)': 'Palafin-Hero',
+  'Palafin-Hero-Form-HF':  'Palafin-Hero',
+  // Pikachu specials
+  'Pikachu-Surfing':       'Pikachu',
+  'Pikachu-Libre':         'Pikachu',
+  // RR custom megas — normalize space/mixed-case variants to hyphenated form
+  'Flapple Mega':          'Flapple-Mega',
+  'Empoleon-Mega D':       'Empoleon-Mega-D',
+  'Empoleon-Mega O':       'Empoleon-Mega-O',
+  'Centiskorch Sevii Mega':'Centiskorch-Sevii-Mega',
+  'Centiskorch-Sevii Mega':'Centiskorch-Sevii-Mega',
+};
+
+function normalizeSpeciesName(species: string): string {
+  return SPECIES_NAME_MAP[species] ?? species;
+}
+
 // ─── Game overrides lookup ────────────────────────────────────────────────────
 
 function getOverrides(game: GameId): any {
@@ -142,16 +313,60 @@ function getSpeciesOverride(game: GameId, species: string) {
 }
 
 function applySpeciesOverride(mon: CalcMon, game: GameId): CalcMon {
-  if (mon.baseStats) return mon; // user-supplied custom stats take precedence
-  const spOv = getSpeciesOverride(game, mon.species);
-  if (!spOv) return mon;
-  const g8Stats = getBaseStats(mon.species);
-  const mergedStats = g8Stats ? { ...g8Stats, ...(spOv.baseStats ?? {}) } : undefined;
+  // Normalize name first so lookups + @smogon/calc both see the canonical form
+  const species = normalizeSpeciesName(mon.species);
+  const normalized = species !== mon.species ? { ...mon, species } : mon;
+
+  const spOv = getSpeciesOverride(game, species);
+
+  // When caller already supplied baseStats (e.g. trainer mon with explicit stats),
+  // skip stat resolution but still fill in types from game overrides / dex if absent.
+  if (normalized.baseStats) {
+    if (normalized.types) return normalized;
+    const resolvedTypes = spOv?.types ?? (getSpeciesTypes(species) || undefined);
+    const types = resolvedTypes && resolvedTypes.length > 0 ? resolvedTypes : undefined;
+    return types ? { ...normalized, types } : normalized;
+  }
+
+  // Check Gen 8 directly (not via getBaseStats which already includes Gen 9 fallback),
+  // so the Gen 9 block below fires correctly for Gen 9 Pokémon and Hisuian forms.
+  type BS = { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
+  let g8Stats: BS | null = null;
+  try {
+    const p8 = new Pokemon(gen, species, { level: 50 });
+    const bs = p8.species.baseStats as BS;
+    if (bs?.hp > 0) g8Stats = bs;
+  } catch {}
+
+  let fallbackStats: BS | null = null;
+  let fallbackTypes: string[] | null = null;
+  if (!g8Stats) {
+    try {
+      const p9 = new Pokemon(gen9, species, { level: 50 });
+      const bs = p9.species.baseStats as BS;
+      if (bs?.hp > 0) {
+        fallbackStats = bs;
+        fallbackTypes = [...p9.types] as string[];
+      }
+    } catch { /* truly unknown species */ }
+  }
+
+  const baseForMerge = g8Stats ?? fallbackStats;
+  // spOv.baseStats patches on top; if no base exists, use spOv as the full block
+  const mergedStats = spOv?.baseStats
+    ? (baseForMerge ? { ...baseForMerge, ...spOv.baseStats } : spOv.baseStats as BS)
+    : (fallbackStats ?? undefined);
+
+  const mergedTypes = !normalized.types
+    ? (spOv?.types ?? (fallbackTypes ?? undefined))
+    : undefined;
+
+  if (!mergedStats && !mergedTypes) return normalized;
+
   return {
-    ...mon,
-    ...(mergedStats             ? { baseStats: mergedStats } : {}),
-    // Only apply game type override when user hasn't manually set types
-    ...(!mon.types && spOv.types ? { types: spOv.types }    : {}),
+    ...normalized,
+    ...(mergedStats                              ? { baseStats: mergedStats } : {}),
+    ...(!normalized.types && mergedTypes         ? { types:     mergedTypes } : {}),
   };
 }
 
@@ -212,8 +427,9 @@ export function runCalc(
     const atkPoke = buildPokemon(applySpeciesOverride(atkMon, game));
     const defPoke = buildPokemon(applySpeciesOverride(defMon, game));
 
-    const moveOverride = getMoveOverride(game, moveName);
-    const move = new Move(gen, moveName, {
+    const moveOverride    = getMoveOverride(game, moveName);
+    const normalizedMove  = normalizeMoveName(moveName);
+    const move = new Move(gen, normalizedMove, {
       ...(moveOverride ? { overrides: moveOverride } : {}),
       isCrit: field?.isCrit ?? false,
     });
@@ -324,33 +540,66 @@ export function runCalc(
   }
 }
 
-/** First ability for a species known to the Gen 8 dex, or null */
+/** First ability for a species (overrides → Gen 8 → Gen 9) */
 export function getSpeciesAbility(species: string): string | null {
+  const norm = normalizeSpeciesName(species);
+  // Check game overrides first (covers custom megas)
+  for (const ov of [rrOverrides, eiOverrides]) {
+    const entry = (ov.species as Record<string, any>)[norm];
+    if (entry?.abilities?.['0']) return entry.abilities['0'] as string;
+  }
   try {
-    const s = [...gen.species].find(sp => sp.name.toLowerCase() === species.toLowerCase().trim());
-    return (s?.abilities as any)?.[0] ?? null;
+    const s = [...gen.species].find(sp => sp.name.toLowerCase() === norm.toLowerCase().trim());
+    if (s) return (s.abilities as any)?.[0] ?? null;
+    const s9 = [...gen9.species].find(sp => sp.name.toLowerCase() === norm.toLowerCase().trim());
+    return (s9?.abilities as any)?.[0] ?? null;
   } catch { return null; }
 }
 
-/** True if the species is known to @smogon/calc Gen 8 */
+/** True if the species is known to @smogon/calc Gen 8 or Gen 9 */
 export function isKnownSpecies(name: string): boolean {
-  try { new Pokemon(gen, name, { level: 50 }); return true; }
-  catch { return false; }
+  const norm = normalizeSpeciesName(name);
+  try { new Pokemon(gen, norm, { level: 50 }); return true; } catch {}
+  try { new Pokemon(gen9, norm, { level: 50 }); return true; } catch {}
+  return false;
 }
 
-/** Base stats for a known species, or null */
+/** Base stats for a known species (Gen 8, then Gen 9 fallback) */
 export function getBaseStats(species: string): { hp: number; atk: number; def: number; spa: number; spd: number; spe: number } | null {
+  const norm = normalizeSpeciesName(species);
   try {
-    const p = new Pokemon(gen, species, { level: 50 });
-    return p.species.baseStats as { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
-  } catch { return null; }
+    const p = new Pokemon(gen, norm, { level: 50 });
+    const bs = p.species.baseStats as { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
+    if (bs?.hp > 0) return bs;
+  } catch {}
+  try {
+    const p9 = new Pokemon(gen9, norm, { level: 50 });
+    const bs = p9.species.baseStats as { hp: number; atk: number; def: number; spa: number; spd: number; spe: number };
+    if (bs?.hp > 0) return bs;
+  } catch {}
+  return null;
 }
 
-/** All ability slots for a known species (slot 0, 1, hidden) */
+/** All ability slots for a known species (overrides → Gen 8 → Gen 9) */
 export function getSpeciesAbilities(species: string): string[] {
+  const norm = normalizeSpeciesName(species);
+  // Check game overrides first (covers custom megas with fan-game abilities)
+  for (const ov of [rrOverrides, eiOverrides]) {
+    const entry = (ov.species as Record<string, any>)[norm];
+    if (entry?.abilities) {
+      const result = Object.values(entry.abilities as Record<string, string>).filter(Boolean);
+      if (result.length > 0) return [...new Set(result)];
+    }
+  }
   try {
-    const p = new Pokemon(gen, species.trim(), { level: 50 });
+    const p = new Pokemon(gen, norm, { level: 50 });
     const abs = p.species.abilities as Record<string, string | undefined>;
+    const result = Object.values(abs).filter((a): a is string => !!a);
+    if (result.length > 0) return result;
+  } catch {}
+  try {
+    const p9 = new Pokemon(gen9, norm, { level: 50 });
+    const abs = p9.species.abilities as Record<string, string | undefined>;
     return Object.values(abs).filter((a): a is string => !!a);
   } catch { return []; }
 }
@@ -367,12 +616,16 @@ export function getAllSpecies(): string[] {
   return _allSpecies;
 }
 
-/** Default types for a known species (e.g. ['Fire', 'Flying'] for Charizard) */
+/** Default types for a known species (Gen 8, then Gen 9 fallback) */
 export function getSpeciesTypes(species: string): string[] {
+  const norm = normalizeSpeciesName(species);
   try {
-    const s = [...gen.species].find(sp => sp.name.toLowerCase() === species.toLowerCase().trim());
-    return s ? [...s.types] : [];
-  } catch { return []; }
+    const s = [...gen.species].find(sp => sp.name.toLowerCase() === norm.toLowerCase().trim());
+    if (s) return [...s.types];
+    const s9 = [...gen9.species].find(sp => sp.name.toLowerCase() === norm.toLowerCase().trim());
+    if (s9) return [...s9.types];
+  } catch {}
+  return [];
 }
 
 /** Base species name — 'Charizard-Mega-X' → 'Charizard', 'Charizard' → 'Charizard' */

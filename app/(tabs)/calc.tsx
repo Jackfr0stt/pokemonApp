@@ -81,6 +81,51 @@ const TERRAIN_OPTIONS = ['Electric', 'Grassy', 'Misty', 'Psychic'] as const;
 
 const EMPTY_MON = (): CalcMon => ({ species: '', level: 100, nature: 'Hardy', evs: {} });
 
+// ─── Weather inference ────────────────────────────────────────────────────────
+
+const LOCATION_WEATHER: Record<string, Pick<CalcField, 'weather' | 'terrain'>> = {
+  'route-12-snow': { weather: 'Snow' },
+  'route-13-sun':  { weather: 'Sun'  },
+  'route-16-sand': { weather: 'Sand' },
+  'route-18-rain': { weather: 'Rain' },
+};
+
+const ABILITY_WEATHER: Record<string, NonNullable<CalcField['weather']>> = {
+  'Drought':        'Sun',
+  'Drizzle':        'Rain',
+  'Sand Stream':    'Sand',
+  'Snow Warning':   'Snow',
+  'Primordial Sea': 'Heavy Rain',
+  'Desolate Land':  'Harsh Sunshine',
+  'Delta Stream':   'Strong Winds',
+};
+
+function inferWeatherFromTrainer(ft: { trainer: Trainer; locationId: string }): Pick<CalcField, 'weather' | 'terrain'> {
+  const name  = (ft.trainer.name ?? '').toLowerCase();
+
+  // 1. Explicit name tags — "(Permanent X)" or "(Starting X)"
+  if (/permanent snow|starting snow/.test(name))             return { weather: 'Snow' };
+  if (/permanent rain|starting rain/.test(name))             return { weather: 'Rain' };
+  if (/permanent sun|starting sun|starting sunlight/.test(name)) return { weather: 'Sun' };
+  if (/permanent sand|starting sand/.test(name))             return { weather: 'Sand' };
+  if (/permanent misty terrain/.test(name))                  return { terrain: 'Misty' };
+  if (/permanent electric terrain/.test(name))               return { terrain: 'Electric' };
+  if (/permanent grassy terrain/.test(name))                 return { terrain: 'Grassy' };
+  if (/permanent psychic terrain/.test(name))                return { terrain: 'Psychic' };
+
+  // 2. Location-wide weather (RR named routes)
+  const fromLoc = LOCATION_WEATHER[ft.locationId];
+  if (fromLoc) return fromLoc;
+
+  // 3. Ability inference — first Pokémon with a weather-setting ability
+  for (const mon of ft.trainer.team) {
+    const w = mon.ability ? ABILITY_WEATHER[mon.ability] : undefined;
+    if (w) return { weather: w };
+  }
+
+  return {};
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
 interface FlatTrainer {
@@ -129,6 +174,10 @@ function pokemonToCalcMon(mon: Pokemon): CalcMon {
     ivs:     allMax ? undefined : rawIvs,
     ...(mon.ability ? { ability: mon.ability } : {}),
     ...(mon.item    ? { item:    mon.item    } : {}),
+    ...(mon.stats?.hp != null && mon.stats?.atk != null && mon.stats?.def != null &&
+        mon.stats?.spa != null && mon.stats?.spd != null && mon.stats?.spe != null
+      ? { baseStats: mon.stats as { hp: number; atk: number; def: number; spa: number; spd: number; spe: number } }
+      : {}),
   };
 }
 
@@ -600,6 +649,8 @@ function TrainerBar({
 // ─── Move slots type ─────────────────────────────────────────────────────────
 
 type MoveSlots = [string, string, string, string];
+type CritSlots = [boolean, boolean, boolean, boolean];
+const NO_CRITS: CritSlots = [false, false, false, false];
 
 // ─── Field swap helper ────────────────────────────────────────────────────────
 
@@ -644,19 +695,22 @@ function swapFieldSides(f: CalcField): CalcField {
 // ─── Moves list ───────────────────────────────────────────────────────────────
 
 function MovesList({
-  side, slots, results, selectedRow, onSelectRow, onOpenPicker,
+  side, slots, crits, results, selectedRow, onSelectRow, onOpenPicker, onToggleCrit,
 }: {
-  side:         'atk' | 'def';
-  slots:        MoveSlots;
-  results:      (CalcResult | null)[];
-  selectedRow:  number | null;
-  onSelectRow:  (row: number) => void;
-  onOpenPicker: (row: number) => void;
+  side:          'atk' | 'def';
+  slots:         MoveSlots;
+  crits:         CritSlots;
+  results:       (CalcResult | null)[];
+  selectedRow:   number | null;
+  onSelectRow:   (row: number) => void;
+  onOpenPicker:  (row: number) => void;
+  onToggleCrit:  (row: number) => void;
 }) {
   return (
     <View style={mlSt.container}>
       {([0, 1, 2, 3] as const).map(i => {
         const mv     = slots[i];
+        const isCrit = crits[i];
         const res    = results[i] ?? null;
         const active = selectedRow === i;
 
@@ -682,6 +736,17 @@ function MovesList({
           </TouchableOpacity>
         );
 
+        const critBtn = (
+          <TouchableOpacity
+            style={[mlSt.critBtn, isCrit && mlSt.critBtnActive]}
+            onPress={() => onToggleCrit(i)}
+            hitSlop={{ top: 8, bottom: 8, left: 4, right: 4 }}
+            activeOpacity={0.7}
+          >
+            <Text style={[mlSt.critLabel, isCrit && mlSt.critLabelActive]}>C</Text>
+          </TouchableOpacity>
+        );
+
         const pctLabel = (
           <Text style={[mlSt.pct, { color: pctColor }]}>{pctText}</Text>
         );
@@ -693,7 +758,9 @@ function MovesList({
             onPress={() => onSelectRow(i)}
             activeOpacity={0.8}
           >
-            {side === 'atk' ? <>{moveBtn}{pctLabel}</> : <>{pctLabel}{moveBtn}</>}
+            {side === 'atk'
+              ? <>{moveBtn}{critBtn}{pctLabel}</>
+              : <>{pctLabel}{critBtn}{moveBtn}</>}
           </TouchableOpacity>
         );
       })}
@@ -1062,7 +1129,7 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
     !!field.gravity || !!field.wonderRoom || !!field.magicRoom ||
     !!field.tabletsOfRuin || !!field.vesselOfRuin || !!field.swordOfRuin || !!field.beadsOfRuin ||
     !!field.atkTailwind || !!field.atkHelpingHand || !!field.atkFlowerGift ||
-    !!field.atkBattery  || !!field.atkPowerSpot   || !!field.isCrit ||
+    !!field.atkBattery  || !!field.atkPowerSpot   ||
     !!field.atkReflect  || !!field.atkLightScreen  || !!field.atkAuroraVeil ||
     !!field.atkSR || !!field.atkSpikes || !!field.atkSteelsurge ||
     !!field.atkVineLash || !!field.atkWildfire || !!field.atkCannonade || !!field.atkVolcalith ||
@@ -1194,7 +1261,6 @@ function FieldPanel({ field, onChange }: { field: CalcField; onChange: (f: CalcF
                 <SideChip label="Flower Gift"  active={!!field.atkFlowerGift}  onPress={() => toggle('atkFlowerGift')}  />
                 <SideChip label="Battery"      active={!!field.atkBattery}     onPress={() => toggle('atkBattery')}     />
                 <SideChip label="Power Spot"   active={!!field.atkPowerSpot}   onPress={() => toggle('atkPowerSpot')}   />
-                <SideChip label="Crit"         active={!!field.isCrit}         onPress={() => toggle('isCrit')}         />
                 <Text style={fpSt.sideSubSection}>Screens</Text>
                 <SideChip label="Reflect"      active={!!field.atkReflect}     onPress={() => toggle('atkReflect')}     />
                 <SideChip label="Light Screen" active={!!field.atkLightScreen} onPress={() => toggle('atkLightScreen')} />
@@ -1733,6 +1799,8 @@ export default function CalcScreen() {
 
   const [atkSlots,     setAtkSlots]     = useState<MoveSlots>(['', '', '', '']);
   const [defSlots,     setDefSlots]     = useState<MoveSlots>(['', '', '', '']);
+  const [atkCrits,     setAtkCrits]     = useState<CritSlots>([...NO_CRITS]);
+  const [defCrits,     setDefCrits]     = useState<CritSlots>([...NO_CRITS]);
   const [selected,     setSelected]     = useState<{ side: 'atk' | 'def'; row: number } | null>(null);
   const [movePickerFor, setMovePickerFor] = useState<{ side: 'atk' | 'def'; row: number } | null>(null);
 
@@ -1793,6 +1861,7 @@ export default function CalcScreen() {
     if (activeBoxMon) {
       const m = activeBoxMon.moves;
       setAtkSlots([m[0] || '', m[1] || '', m[2] || '', m[3] || '']);
+      setAtkCrits([...NO_CRITS]);
     }
   }, [activeBoxIdx, box]);  // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -1801,6 +1870,7 @@ export default function CalcScreen() {
     if (activeMon?.moves) {
       const m = activeMon.moves;
       setDefSlots([m[0] || '', m[1] || '', m[2] || '', m[3] || '']);
+      setDefCrits([...NO_CRITS]);
     }
   }, [selectedMonIdx, selectedTrainer]);  // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -1810,6 +1880,14 @@ export default function CalcScreen() {
     if (team.length > 0) {
       setSelectedMonIdx(0);
       setDef(pokemonToCalcMon(team[0]));
+    }
+    const hint = inferWeatherFromTrainer(ft);
+    if (hint.weather !== undefined || hint.terrain !== undefined) {
+      setField(f => ({
+        ...f,
+        weather: hint.weather,
+        terrain: hint.terrain,
+      }));
     }
   }
 
@@ -1833,23 +1911,23 @@ export default function CalcScreen() {
 
   // Computed results — atk → def
   const atkResults = useMemo<(CalcResult | null)[]>(() =>
-    atkSlots.map(mv =>
+    atkSlots.map((mv, i) =>
       atk.species.trim() && def.species.trim() && mv.trim()
-        ? runCalc(game, atk, def, mv, field)
+        ? runCalc(game, atk, def, mv, { ...field, isCrit: atkCrits[i] || field.isCrit })
         : null
     ),
-    [game, atk, def, field, atkSlots],
+    [game, atk, def, field, atkSlots, atkCrits],
   );
 
   // Computed results — def → atk (field sides swapped)
   const swappedField = useMemo(() => swapFieldSides(field), [field]);
   const defResults   = useMemo<(CalcResult | null)[]>(() =>
-    defSlots.map(mv =>
+    defSlots.map((mv, i) =>
       atk.species.trim() && def.species.trim() && mv.trim()
-        ? runCalc(game, def, atk, mv, swappedField)
+        ? runCalc(game, def, atk, mv, { ...swappedField, isCrit: defCrits[i] || field.isCrit })
         : null
     ),
-    [game, atk, def, swappedField, defSlots],
+    [game, atk, def, swappedField, defSlots, defCrits, field.isCrit],
   );
 
   // Auto-select the atk slot with highest damage (functional update avoids stale closure)
@@ -1874,6 +1952,7 @@ export default function CalcScreen() {
   function swapMonsters() {
     setAtk(def);      setDef(atk);
     setAtkSlots(defSlots); setDefSlots(atkSlots);
+    setAtkCrits(defCrits); setDefCrits(atkCrits);
     setSelectedTrainer(null); setSelectedMonIdx(-1);
     setSelected(null);
   }
@@ -1914,10 +1993,12 @@ export default function CalcScreen() {
           <MovesList
             side="atk"
             slots={atkSlots}
+            crits={atkCrits}
             results={atkResults}
             selectedRow={selected?.side === 'atk' ? selected.row : null}
             onSelectRow={row => setSelected({ side: 'atk', row })}
             onOpenPicker={row => setMovePickerFor({ side: 'atk', row })}
+            onToggleCrit={row => setAtkCrits(prev => { const n = [...prev] as CritSlots; n[row] = !n[row]; return n; })}
           />
           <MonPanel
             title="⚔ Attacker"
@@ -1960,10 +2041,12 @@ export default function CalcScreen() {
           <MovesList
             side="def"
             slots={defSlots}
+            crits={defCrits}
             results={defResults}
             selectedRow={selected?.side === 'def' ? selected.row : null}
             onSelectRow={row => setSelected({ side: 'def', row })}
             onOpenPicker={row => setMovePickerFor({ side: 'def', row })}
+            onToggleCrit={row => setDefCrits(prev => { const n = [...prev] as CritSlots; n[row] = !n[row]; return n; })}
           />
           <MonPanel
             title="🛡 Defender"
@@ -2567,6 +2650,17 @@ const mlSt = StyleSheet.create({
   moveName:        { flex: 1, color: colors.text, fontSize: 11, fontWeight: font.medium },
   movePlaceholder: { color: colors.textDim },
   pct:             { fontSize: 11, fontWeight: font.bold, width: 72, textAlign: 'center' },
+  critBtn: {
+    paddingHorizontal: 5, paddingVertical: 3,
+    borderRadius: radius.sm,
+    borderWidth: 1, borderColor: colors.border,
+  },
+  critBtnActive: {
+    borderColor: '#f5c542',
+    backgroundColor: '#f5c54222',
+  },
+  critLabel:        { fontSize: 10, fontWeight: font.bold, color: colors.textDim },
+  critLabelActive:  { color: '#f5c542' },
 
   emptyDesc: {
     backgroundColor: colors.card,
