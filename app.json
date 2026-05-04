@@ -4,12 +4,12 @@
     "slug": "pokemon-app",
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/RE.png",
     "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "scheme": "pokemon-app",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/RE.png",
       "resizeMode": "contain",
       "backgroundColor": "#0f0f1a"
     },
@@ -19,7 +19,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/RE.png",
         "backgroundColor": "#0f0f1a"
       },
       "package": "com.personal.pokemonapp",
